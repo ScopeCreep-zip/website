@@ -151,7 +151,7 @@ include:
 # Podcast settings
 podcast:
   title: "ScopeCreep.zip Podcast"
-  subtitle: "Where Kawaii Meets Code"
+  subtitle: "Just one more thing..."
   description: "Technical discussions covering cybersecurity research, platform engineering, and industry insights with glimmer."
   language: "en-us"
   author: "Kali Jackson & Kat Morgan"
