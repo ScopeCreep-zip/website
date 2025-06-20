@@ -24,6 +24,11 @@ Welcome to the technical documentation for the ScopeCreep.zip website. This docu
 - [Include Components](./components/includes.md) - Reusable partials
 - [JavaScript Modules](./components/javascript.md) - Interactive features
 
+### 🎙️ [Podcast Infrastructure](./podcast-infrastructure/)
+- [Podcast Features](./podcast-infrastructure/podcast-features.md) - Carousel, cards, and layouts
+- [Transcript Formatting](./podcast-infrastructure/transcript-formatting-guide.md) - Clean and raw transcript guidelines
+- [Implementation Guide](./podcast-infrastructure/podcast-implementation-guide.md) - Original setup documentation
+
 ### 🔧 [Maintenance](./maintenance/)
 - [Content Updates](./maintenance/content-updates.md) - Adding/editing content
 - [Troubleshooting](./maintenance/troubleshooting.md) - Common issues

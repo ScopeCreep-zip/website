@@ -1,0 +1,359 @@
+---
+layout: default
+---
+
+<article class="podcast-episode">
+  <header class="episode-header">
+    <div class="container">
+      <div class="episode-meta">
+        {% if page.episode_number %}
+        <span class="episode-number">Episode {{ page.episode_number }}</span>
+        {% endif %}
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+      </div>
+      
+      <h1 class="episode-title">{{ page.title }}</h1>
+      
+      {% if page.description %}
+      <p class="episode-description">{{ page.description }}</p>
+      {% endif %}
+      
+      {% if page.guest %}
+      <div class="episode-guest">
+        <strong>Guest:</strong> {{ page.guest }}
+      </div>
+      {% endif %}
+      
+      {% if page.duration %}
+      <div class="episode-duration">
+        <strong>Duration:</strong> {{ page.duration }}
+      </div>
+      {% endif %}
+    </div>
+  </header>
+  
+  <section class="episode-player">
+    <div class="container">
+      {% if page.audio_url %}
+      <audio controls class="episode-audio">
+        <source src="{{ page.audio_url | relative_url }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      {% endif %}
+      
+      <div class="episode-subscribe">
+        <h3>Listen on:</h3>
+        {% include podcast-services.html 
+           layout="horizontal"
+           size="medium"
+           use_data_file=true
+        %}
+      </div>
+    </div>
+  </section>
+  
+  <section class="episode-content">
+    <div class="container">
+      <div class="episode-tabs">
+        <button class="tab-button active" data-tab="show-notes">Show Notes</button>
+        <button class="tab-button" data-tab="clean-transcript">Clean Transcript</button>
+        <button class="tab-button" data-tab="raw-transcript">Raw Transcript</button>
+      </div>
+      
+      <div class="tab-content">
+        <div id="show-notes" class="tab-pane active">
+          {{ content }}
+        </div>
+        
+        <div id="clean-transcript" class="tab-pane">
+          {% if page.clean_transcript %}
+            {% if page.clean_transcript contains '.md' or page.clean_transcript contains '.txt' %}
+              {% capture transcript_content %}{% include_relative {{ page.clean_transcript }} %}{% endcapture %}
+              <div class="transcript-content clean">
+                {% include format-transcript.html content=transcript_content type="clean" %}
+              </div>
+            {% else %}
+              <div class="transcript-content clean">
+                {% include format-transcript.html content=page.clean_transcript type="clean" %}
+              </div>
+            {% endif %}
+          {% else %}
+            <p class="no-content">Clean transcript not available yet.</p>
+          {% endif %}
+        </div>
+        
+        <div id="raw-transcript" class="tab-pane">
+          {% if page.raw_transcript %}
+            {% if page.raw_transcript contains '.md' or page.raw_transcript contains '.txt' %}
+              {% capture raw_transcript_content %}{% include_relative {{ page.raw_transcript }} %}{% endcapture %}
+              <div class="transcript-content raw">
+                <pre class="raw-transcript-pre">{% include format-transcript.html content=raw_transcript_content type="raw" %}</pre>
+              </div>
+            {% else %}
+              <div class="transcript-content raw">
+                <pre class="raw-transcript-pre">{% include format-transcript.html content=page.raw_transcript type="raw" %}</pre>
+              </div>
+            {% endif %}
+          {% else %}
+            <p class="no-content">Raw transcript not available yet.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  {% if page.tags %}
+  <section class="episode-tags">
+    <div class="container">
+      <h3>Topics:</h3>
+      <div class="tag-list">
+        {% for tag in page.tags %}
+        <span class="episode-tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+</article>
+
+<style>
+.podcast-episode {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.episode-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.episode-meta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.episode-number {
+  color: var(--kawaii-purple);
+  font-weight: 700;
+}
+
+.episode-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.episode-description {
+  font-size: 1.2rem;
+  color: var(--text-purple);
+  margin-bottom: 1rem;
+}
+
+.episode-guest,
+.episode-duration {
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.episode-player {
+  background: var(--white);
+  border: 3px solid var(--kawaii-purple);
+  border-radius: 24px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2);
+}
+
+.episode-audio {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.episode-subscribe h3 {
+  color: var(--kawaii-purple);
+  margin-bottom: 1rem;
+}
+
+.episode-tabs {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 2px solid var(--kawaii-purple);
+  margin-bottom: 2rem;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tab-button:hover {
+  color: var(--kawaii-purple);
+}
+
+.tab-button.active {
+  color: var(--kawaii-purple);
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--kawaii-purple);
+}
+
+.tab-content {
+  background: var(--white);
+  border: 3px solid var(--kawaii-purple);
+  border-radius: 24px;
+  padding: 2rem;
+  min-height: 300px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+.transcript-content {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+}
+
+.transcript-content.clean {
+  padding: 0.5rem 0;
+}
+
+.raw-transcript-pre {
+  background: rgba(157, 78, 221, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-family: monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  color: var(--text-dark);
+  border: none;
+  margin: 0;
+}
+
+.speaker-label {
+  font-weight: 700;
+  color: var(--kawaii-purple);
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 1.05rem;
+}
+
+.speaker-label.kali {
+  color: var(--kawaii-pink);
+}
+
+.speaker-label.kat {
+  color: var(--kawaii-cyan);
+}
+
+.speaker-label.speaker1 {
+  color: var(--kawaii-purple);
+}
+
+.speaker-label.speaker2 {
+  color: var(--kawaii-yellow);
+}
+
+.speaker-label.guest {
+  color: #FF6B6B;
+}
+
+.timestamp {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.transcript-content p {
+  margin-bottom: 1.5rem;
+}
+
+.transcript-content br {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.no-content {
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 3rem;
+}
+
+.episode-tags {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.tag-list {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.episode-tag {
+  background: rgba(157, 78, 221, 0.1);
+  color: var(--kawaii-purple);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+  
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const targetTab = button.dataset.tab;
+      
+      // Update buttons
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      // Update panes
+      tabPanes.forEach(pane => {
+        pane.classList.remove('active');
+        if (pane.id === targetTab) {
+          pane.classList.add('active');
+        }
+      });
+    });
+  });
+});
+</script>

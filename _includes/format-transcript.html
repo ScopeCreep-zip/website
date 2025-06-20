@@ -1,0 +1,27 @@
+{% comment %}
+  Format transcript text with speaker labels
+  Usage: {% include format-transcript.html content=transcript_text type="clean|raw" %}
+{% endcomment %}
+
+{% assign formatted = include.content %}
+{% assign type = include.type | default: "clean" %}
+
+<!-- Format speaker labels -->
+{% assign formatted = formatted | replace: '[Kali]', '<span class="speaker-label kali">[Kali]</span>' %}
+{% assign formatted = formatted | replace: '[Kat]', '<span class="speaker-label kat">[Kat]</span>' %}
+{% assign formatted = formatted | replace: '[Speaker 1]', '<span class="speaker-label speaker1">[Speaker 1]</span>' %}
+{% assign formatted = formatted | replace: '[Speaker 2]', '<span class="speaker-label speaker2">[Speaker 2]</span>' %}
+{% assign formatted = formatted | replace: '[Guest]', '<span class="speaker-label guest">[Guest]</span>' %}
+
+<!-- Wrap timestamps in spans (for raw transcripts) -->
+{% if type == "raw" %}
+  {% assign formatted = formatted | replace: '[', '<span class="timestamp">[' | replace: ']', ']</span>' %}
+  <!-- Fix double-wrapped speaker labels -->
+  {% assign formatted = formatted | replace: '<span class="timestamp"><span class="speaker-label', '<span class="speaker-label' %}
+  {% assign formatted = formatted | replace: '</span>]</span>', ']</span>' %}
+{% endif %}
+
+<!-- Add line breaks for readability -->
+{% assign formatted = formatted | newline_to_br %}
+
+{{ formatted }}

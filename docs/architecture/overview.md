@@ -126,7 +126,14 @@ sequenceDiagram
 - Podcast episodes in `_podcasts/`
 - Static pages (about, contact, etc.)
 
-### 6. Asset Pipeline
+### 6. Podcast Infrastructure
+- Episode carousel with rolodex effect
+- Multi-view episode cards (Services/Transcripts)
+- Transcript formatting system
+- Speaker label color coding
+- Individual episode pages with tabs
+
+### 7. Asset Pipeline
 - JavaScript modules
 - Image optimization
 - Font loading

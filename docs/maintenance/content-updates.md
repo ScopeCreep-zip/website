@@ -47,6 +47,50 @@ image: /assets/images/posts/supply-chain.jpg
 ## Introduction
 
 Your post content here using Markdown...
+```
+
+### Adding a Podcast Episode
+
+1. **Create Episode File**
+```bash
+# Format: YYYY-MM-DD-episode-title.md
+touch _podcasts/2025-01-27-cybersecurity-trends.md
+```
+
+2. **Add Front Matter**
+```yaml
+---
+layout: podcast
+title: "Cybersecurity Trends for 2025"
+episode_number: 2
+date: 2025-01-27
+description: "Discussing emerging threats and defensive strategies"
+duration: "45:30"
+audio_url: "/media/podcasts/episode-002.mp3"
+guest: "Jane Doe, Security Researcher"
+clean_transcript: |
+  [Kali] Welcome to episode two...
+  
+  [Guest] Thanks for having me...
+raw_transcript: |
+  [00:00] [Kali] Um, welcome to episode two...
+  [00:05] [Guest] Thanks for, uh, having me...
+tags:
+  - Cybersecurity
+  - Trends
+  - 2025
+---
+```
+
+3. **Add Show Notes**
+```markdown
+## Episode Summary
+
+In this episode, we discuss...
+
+## Key Topics
+- Topic 1
+- Topic 2
 
 ### Code Examples
 ```python
