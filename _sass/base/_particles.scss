@@ -1,0 +1,64 @@
+// Particle system styles
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  pointer-events: none;
+  animation: kawaiFloat 8s infinite ease-in-out;
+  
+  &.star {
+    color: var(--kawaii-yellow);
+    font-size: 14px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    animation-delay: calc(var(--delay) * 1s);
+  }
+  
+  &.heart {
+    color: var(--kawaii-pink);
+    font-size: 12px;
+    text-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+    animation-delay: calc(var(--delay) * 1s);
+  }
+  
+  &.code {
+    color: var(--kawaii-purple);
+    font-size: 10px;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-weight: 500;
+    animation-delay: calc(var(--delay) * 1s);
+  }
+  
+  &.sparkle {
+    color: var(--kawaii-cyan);
+    font-size: 8px;
+    animation-delay: calc(var(--delay) * 1s);
+  }
+}
+
+// Kawaii float animation
+@keyframes kawaiFloat {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+    opacity: 0.7; 
+  }
+  25% { 
+    transform: translateY(-15px) rotate(5deg); 
+    opacity: 1; 
+  }
+  50% { 
+    transform: translateY(-25px) rotate(0deg); 
+    opacity: 0.8; 
+  }
+  75% { 
+    transform: translateY(-10px) rotate(-5deg); 
+    opacity: 1; 
+  }
+}

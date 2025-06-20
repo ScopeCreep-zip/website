@@ -1,0 +1,174 @@
+// Color System - Professional Kawaii Aesthetic
+// Primary kawaii colors
+$kawaii-pink: #ff69b4;
+$kawaii-purple: #9d4edd;
+$kawaii-cyan: #00e5ff;
+$kawaii-yellow: #ffd700;
+$kawaii-mint: #7fffd4;
+
+// Background colors
+$bg-light-pink: #fef7f7;
+$bg-lavender: #f8f5ff;
+$bg-cyan-light: #f0feff;
+
+// Text colors
+$text-dark: #2d2d2d;
+$text-purple: #4a1c5c;
+$text-muted: #64748b;
+
+// UI colors
+$focus-yellow: #ffd600;
+$white: #ffffff;
+$border-kawaii: rgba(157, 78, 221, 0.3);
+
+// Legacy neon colors for compatibility
+$neon-pink: #ff69b4;
+$neon-purple: #9d4edd;
+$neon-blue: #00e5ff;
+
+// Base colors - softer, more dreamy
+$dark-bg: #1A0F1A;
+$dark-bg-alt: #2D1B2D;
+$light-bg: #FFF0F5;
+$light-bg-alt: #FFFDFF;
+
+// Text colors
+$text-light: #F0F0F5;
+$text-light-muted: #B0B0B5;
+$text-dark: #1A1A1F;
+$text-dark-muted: #4A4A4F;
+
+// Personality colors
+$kali-primary: #6d105a;
+$kali-accent: #FF10F0;
+$kat-primary: #00FFF0;
+$kat-accent: #87CEEB;
+
+// Legacy colors (for compatibility)
+$deep-purple: #7B5D8F;
+$cyan: #87CEEB;
+$neon-cyan: #00FFF0;
+
+// Typography
+$font-display: 'Quicksand', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+$font-heading: 'Quicksand', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+$font-body: 'Quicksand', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+$font-code: 'JetBrains Mono', 'Courier New', monospace;
+
+// Font sizes
+$fs-hero: 4rem;
+$fs-h1: 2.5rem;
+$fs-h2: 2rem;
+$fs-h3: 1.5rem;
+$fs-h4: 1.25rem;
+$fs-body: 1rem;
+$fs-small: 0.875rem;
+$fs-tiny: 0.75rem;
+
+// Spacing
+$space-xs: 0.25rem;
+$space-sm: 0.5rem;
+$space-md: 1rem;
+$space-lg: 1.5rem;
+$space-xl: 2rem;
+$space-2xl: 3rem;
+$space-3xl: 4rem;
+
+// Layout
+$max-width: 1200px;
+$header-height: 80px;
+$header-height-mobile: 60px;
+
+// Breakpoints
+$bp-mobile: 320px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-wide: 1440px;
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-base: 250ms ease;
+$transition-slow: 400ms ease;
+
+// Shadows
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.16);
+$shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.24);
+$shadow-neon-pink: 0 0 20px $kawaii-pink, 0 0 40px $kawaii-pink, 0 0 60px $kawaii-purple;
+$shadow-neon-purple: 0 0 20px $kawaii-purple, 0 0 40px $kawaii-purple, 0 0 60px $kawaii-pink;
+$shadow-neon-blue: 0 0 20px $kawaii-cyan, 0 0 40px $kawaii-cyan, 0 0 60px $kawaii-purple;
+
+// Border radius
+$radius-sm: 0.25rem;
+$radius-md: 0.5rem;
+$radius-lg: 1rem;
+$radius-pill: 9999px;
+
+// Z-index scale
+$z-base: 1;
+$z-dropdown: 100;
+$z-sticky: 200;
+$z-overlay: 300;
+$z-modal: 400;
+$z-tooltip: 500;
+
+// Grid
+$grid-columns: 12;
+$grid-gap: $space-lg;
+
+// Animation
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+$ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+
+// CSS Custom Properties for theme switching
+:root {
+  // Kawaii colors
+  --kawaii-pink: #{$kawaii-pink};
+  --kawaii-purple: #{$kawaii-purple};
+  --kawaii-cyan: #{$kawaii-cyan};
+  --kawaii-yellow: #{$kawaii-yellow};
+  --kawaii-mint: #{$kawaii-mint};
+  
+  // Backgrounds
+  --bg-light-pink: #{$bg-light-pink};
+  --bg-lavender: #{$bg-lavender};
+  --bg-cyan-light: #{$bg-cyan-light};
+  
+  // Text
+  --text-dark: #{$text-dark};
+  --text-purple: #{$text-purple};
+  --text-muted: #{$text-muted};
+  
+  // UI
+  --focus-yellow: #{$focus-yellow};
+  --white: #{$white};
+  --border-kawaii: #{$border-kawaii};
+  
+  // Legacy support
+  --color-primary: #{$kawaii-pink};
+  --color-secondary: #{$kawaii-purple};
+  --color-accent: #{$kawaii-cyan};
+  
+  // Neon effects
+  --neon-glow-pink: #{$shadow-neon-pink};
+  --neon-glow-purple: #{$shadow-neon-purple};
+  --neon-glow-blue: #{$shadow-neon-blue};
+  
+  // Layout
+  --header-height: #{$header-height};
+  
+  @media (max-width: $bp-tablet) {
+    --header-height: #{$header-height-mobile};
+  }
+}
+
+// Light theme
+[data-theme="light"] {
+  --color-bg: #{$light-bg};
+  --color-bg-alt: #{$light-bg-alt};
+  --color-text: #{$text-dark};
+  --color-text-muted: #{$text-dark-muted};
+  --color-primary: #{$deep-purple};
+  --color-secondary: #{$cyan};
+  --color-accent: #{$kali-primary};
+}

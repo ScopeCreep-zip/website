@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<div class="page-hero">
+  <div class="container">
+    <h1 class="page-title kawaii-text">{{ page.title }}</h1>
+    {% if page.description %}
+    <p class="page-description">{{ page.description }}</p>
+    {% endif %}
+  </div>
+</div>
+
+<main class="page-content">
+  <div class="container">
+    <div class="content-wrapper kawaii-card">
+      {{ content }}
+    </div>
+  </div>
+</main>

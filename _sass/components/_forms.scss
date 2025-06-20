@@ -1,0 +1,26 @@
+// Form styles
+
+.form-group {
+  margin-bottom: $space-lg;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: $space-sm;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.form-input {
+  @extend .pixel-input;
+}
+
+.form-textarea {
+  @extend .pixel-input;
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-select {
+  @extend .pixel-select;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  {% include head.html %}
+  <body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Enhanced Kawaii Particle Background -->
+    <div class="particles" aria-hidden="true" role="presentation" id="particles"></div>
+    
+    {% include header.html %}
+    
+    <!-- Main Content -->
+    <main class="main" id="main-content">
+      {{ content }}
+    </main>
+    
+    {% include footer.html %}
+    
+    <!-- Scripts -->
+    <script src="{{ '/assets/js/particles.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/stats.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/github-stats.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/dreams-counter.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/buzzword-generator.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  </body>
+</html>

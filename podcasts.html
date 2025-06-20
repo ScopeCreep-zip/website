@@ -1,0 +1,92 @@
+---
+layout: default
+title: Podcasts
+permalink: /podcasts/
+---
+
+<div class="page-header">
+  <h1 class="page-title">Podcast Episodes</h1>
+  <p class="page-description">Tech talks with a trans femme twist</p>
+</div>
+
+<section class="podcast-info mb-2xl">
+  <div class="podcast-cover-art">
+    <img src="{{ site.podcast.image }}" alt="{{ site.podcast.title }} cover art" class="pixel-border">
+  </div>
+  <div class="podcast-details">
+    <h2>{{ site.podcast.title }}</h2>
+    <p class="podcast-subtitle">{{ site.podcast.subtitle }}</p>
+    <p class="podcast-description">{{ site.podcast.description }}</p>
+    
+    <div class="podcast-subscribe mt-lg">
+      <h3>Subscribe</h3>
+      <div class="subscribe-links">
+        <a href="/feed/podcast.xml" class="subscribe-link pixel-btn" aria-label="RSS Feed">
+          <span class="icon">📡</span> RSS
+        </a>
+        <!-- Add more podcast platform links as needed -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="episodes-list">
+  <h2 class="sr-only">All Episodes</h2>
+  
+  {% if site.podcasts.size > 0 %}
+    <div class="episodes-grid">
+      {% for episode in site.podcasts reversed %}
+      <article class="episode-item pixel-card">
+        <div class="episode-header">
+          <img src="{{ episode.artwork | default: site.podcast.image }}" 
+               alt="{{ episode.title }}" 
+               class="episode-artwork">
+          <div class="episode-meta">
+            <span class="episode-number">Episode {{ episode.episode_number }}</span>
+            <time datetime="{{ episode.date | date_to_xmlschema }}">
+              {{ episode.date | date: "%B %d, %Y" }}
+            </time>
+          </div>
+        </div>
+        
+        <div class="episode-content">
+          <h3 class="episode-title">
+            <a href="{{ episode.url }}">{{ episode.title }}</a>
+          </h3>
+          <p class="episode-description">{{ episode.description }}</p>
+          
+          {% if episode.duration %}
+          <div class="episode-duration">
+            <span class="icon">⏱️</span> {{ episode.duration }}
+          </div>
+          {% endif %}
+        </div>
+        
+        <div class="episode-actions">
+          <a href="{{ episode.url }}" class="btn btn-primary btn-sm">Listen Now</a>
+          {% if episode.transcript %}
+          <a href="{{ episode.transcript }}" class="btn btn-secondary btn-sm">Read Transcript</a>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty-state text-center">
+      <div class="empty-state-icon mb-lg">🎙️</div>
+      <h3>Episodes Coming Soon!</h3>
+      <p class="text-muted">We're preparing our first episodes. Subscribe to get notified when they drop!</p>
+      <a href="/feed/podcast.xml" class="btn btn-neon mt-lg">Subscribe via RSS</a>
+    </div>
+  {% endif %}
+</section>
+
+<!-- Fun ASCII Art -->
+<div class="ascii-decoration text-center mt-2xl">
+<pre class="text-muted">
+    ___  __   ___   __  ___  __  
+   |__  |__) |/ _` |  \  |  |__  
+   |___ |    | __/ |__/  |  |___ 
+                                 
+</pre>
+</div>

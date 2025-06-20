@@ -1,0 +1,13 @@
+main:
+  - title: Home
+    url: /
+    icon: home
+  - title: About
+    url: /about/
+    icon: users
+  - title: Podcasts
+    url: /podcasts/
+    icon: podcast
+  - title: Blog
+    url: /blog/
+    icon: edit

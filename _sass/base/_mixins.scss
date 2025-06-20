@@ -1,0 +1,188 @@
+// Responsive breakpoint mixins
+@mixin mobile {
+  @media (max-width: #{$bp-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$bp-tablet}) and (max-width: #{$bp-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$bp-desktop}) {
+    @content;
+  }
+}
+
+@mixin wide {
+  @media (min-width: #{$bp-wide}) {
+    @content;
+  }
+}
+
+// Neon text effect
+@mixin neon-text($color: $neon-pink) {
+  color: $color;
+  text-shadow: 
+    0 0 10px $color,
+    0 0 20px $color,
+    0 0 30px darken($color, 10%),
+    0 0 40px darken($color, 20%);
+}
+
+// Neon border effect
+@mixin neon-border($color: $neon-cyan) {
+  border: 2px solid $color;
+  box-shadow:
+    0 0 5px $color,
+    inset 0 0 5px $color;
+}
+
+// Pixel art border
+@mixin pixel-border($size: 4px, $color: var(--color-primary)) {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -$size;
+    left: -$size;
+    right: -$size;
+    bottom: -$size;
+    background: $color;
+    z-index: -1;
+    clip-path: polygon(
+      0 $size, $size $size, $size 0,
+      calc(100% - #{$size}) 0, calc(100% - #{$size}) $size,
+      100% $size, 100% calc(100% - #{$size}),
+      calc(100% - #{$size}) calc(100% - #{$size}),
+      calc(100% - #{$size}) 100%, $size 100%,
+      $size calc(100% - #{$size}), 0 calc(100% - #{$size})
+    );
+  }
+}
+
+// Glitch effect
+@mixin glitch-effect {
+  position: relative;
+  
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-bg);
+  }
+  
+  &::before {
+    animation: glitch-1 0.5s infinite;
+    color: $neon-cyan;
+    z-index: -1;
+  }
+  
+  &::after {
+    animation: glitch-2 0.5s infinite;
+    color: $neon-pink;
+    z-index: -2;
+  }
+}
+
+// Container mixin
+@mixin container {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $space-lg;
+  
+  @include mobile {
+    padding: 0 $space-md;
+  }
+}
+
+// Flex center
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Grid layout
+@mixin grid($columns: 1, $gap: $grid-gap) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// Visually hidden (accessible)
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+// Focus style
+@mixin focus-style {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+// Transition
+@mixin transition($properties: all, $duration: $transition-base) {
+  transition-property: $properties;
+  transition-duration: $duration;
+  transition-timing-function: $ease-out-expo;
+}
+
+// Hover lift effect
+@mixin hover-lift {
+  @include transition(transform);
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+// Aspect ratio
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  
+  &::before {
+    content: "";
+    display: block;
+    padding-bottom: percentage($height / $width);
+  }
+  
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Truncate text
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

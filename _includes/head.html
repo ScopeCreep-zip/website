@@ -1,0 +1,59 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- SEO -->
+  {% seo %}
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32x32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon-16x16.png' | relative_url }}">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/particles.css' | relative_url }}">
+  
+  <!-- RSS -->
+  {% feed_meta %}
+  <link rel="alternate" type="application/rss+xml" title="Podcast RSS" href="{{ '/podcast.xml' | relative_url }}">
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#0A0A0F">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+  <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <meta property="og:image" content="{{ page.image | default: site.logo | absolute_url }}">
+  <meta property="og:type" content="{{ page.type | default: 'website' }}">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@{{ site.twitter_username }}">
+  
+  <!-- Podcast-specific meta -->
+  {% if page.layout == 'podcast' %}
+  <meta property="og:audio" content="{{ page.file_url }}">
+  <meta property="music:duration" content="{{ page.duration_seconds }}">
+  {% endif %}
+  
+  <!-- Apple Podcasts Smart Banner -->
+  {% if site.podcast.apple_id %}
+  <meta name="apple-itunes-app" content="app-id={{ site.podcast.apple_id }}, app-argument={{ page.url | absolute_url }}">
+  {% endif %}
+  
+  <!-- Preload critical assets -->
+  <!-- Font preloading removed as we're using Google Fonts -->
+  
+  <!-- Color mode script (prevent flash) -->
+  <script>
+    // Check for saved theme preference or default to 'dark'
+    const theme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+  </script>
+</head>

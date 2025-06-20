@@ -1,0 +1,195 @@
+---
+layout: default
+title: Home
+---
+
+<style>
+@keyframes textShimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+</style>
+
+<!-- Hero Section -->
+<section class="hero" style="background: transparent;">
+    <div class="container">
+        <div class="hero-content kawaii-card" style="background: var(--white); border-radius: 32px; padding: 3rem; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);">
+            <h1 style="font-size: 3.5rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1.5rem; line-height: 1.2;">Professional <span class="hero-highlight" style="background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan)); background-size: 200% 200%; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: textShimmer 2s ease-in-out infinite alternate;">Cybersecurity Research</span> with a Kawaii Twist</h1>
+            <p style="font-size: 1.3rem; color: var(--text-purple); margin-bottom: 2.5rem; line-height: 1.7; font-weight: 500;">We're Kali and Kat - conference speakers, security researchers, and platform engineers who prove that technical excellence and creativity aren't mutually exclusive. Join us as we blend serious cybersecurity with kawaii innovation! 🌸🔐</p>
+            <div class="cta-buttons" style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#expertise" class="btn-primary">Meet Our Team ✨</a>
+                <a href="#speaking" class="btn-secondary">Book Us to Speak 🎤</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats kawaii-decoration" style="background: var(--white); margin: 4rem 0; border: 3px solid var(--kawaii-cyan); border-radius: 32px; padding: 3rem; box-shadow: 0 15px 40px rgba(0, 229, 255, 0.2); position: relative;">
+    <div class="container">
+        <h2 class="section-title" style="text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 3rem; background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Shared Stats ✨</h2>
+        <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center;">
+            <div class="stat-item" style="padding: 1.5rem; background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender)); border-radius: 20px; border: 2px solid var(--border-kawaii); transition: all 0.3s ease;">
+                <div class="stat-number" data-target="21" style="font-size: 3rem; font-weight: 700; background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem;">0</div>
+                <div class="stat-label" style="color: var(--text-purple); font-weight: 600; font-size: 1.1rem;">Years Combined Experience</div>
+            </div>
+            <div class="stat-item" style="padding: 1.5rem; background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender)); border-radius: 20px; border: 2px solid var(--border-kawaii); transition: all 0.3s ease;">
+                <div class="stat-number" data-target="50" style="font-size: 3rem; font-weight: 700; background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem;">0+</div>
+                <div class="stat-label" style="color: var(--text-purple); font-weight: 600; font-size: 1.1rem;">Presentations</div>
+            </div>
+            <div class="stat-item" style="padding: 1.5rem; background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender)); border-radius: 20px; border: 2px solid var(--border-kawaii); transition: all 0.3s ease;">
+                <div class="stat-number github-repos" data-target="0" style="font-size: 3rem; font-weight: 700; background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem;"><span style="display: inline-block; animation: spin 1s linear infinite;">⟳</span></div>
+                <div class="stat-label" style="color: var(--text-purple); font-weight: 600; font-size: 1.1rem;">Combined GitHub Repositories</div>
+            </div>
+            <div class="stat-item" style="padding: 1.5rem; background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender)); border-radius: 20px; border: 2px solid var(--border-kawaii); transition: all 0.3s ease;">
+                <div class="stat-number dreams-counter" data-target="812" style="font-size: 3rem; font-weight: 700; background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem;">0</div>
+                <div class="stat-label" style="color: var(--text-purple); font-weight: 600; font-size: 1.1rem;">Dreams Manifested</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Expertise Section -->
+<section class="expertise" id="expertise">
+    <div class="container">
+        <h2 class="section-title" style="text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 3rem; background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Our Kawaii Tech Expertise 🌟</h2>
+        
+        <div class="expertise-grid">
+            {% for member in site.data.team %}
+            <div class="expert-card {{ member[0] }}" style="background: var(--white); border-radius: 32px; padding: 3rem; box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1); border: 3px solid {% if member[0] == 'kali' %}var(--kawaii-pink){% else %}var(--kawaii-cyan){% endif %}; transition: all 0.4s ease; position: relative; overflow: hidden;">
+                <div style="content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan)); border-radius: 32px 32px 0 0;"></div>
+                <div class="expert-header" style="display: flex; align-items: center; margin-bottom: 2rem;">
+                    <div class="expert-avatar" style="width: 100px; height: 100px; border-radius: 50%; margin-right: 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: 700; color: var(--white); border: 4px solid var(--white); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); background: {% if member[0] == 'kali' %}linear-gradient(135deg, var(--kawaii-pink), #ff1493, #ff69b4){% else %}linear-gradient(135deg, var(--kawaii-cyan), #00bcd4, #40e0d0){% endif %};">{{ member[1].emoji }}</div>
+                    <div class="expert-info">
+                        <h3 style="font-size: 1.8rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem;">{{ member[1].name }}</h3>
+                        <div class="expert-title" style="color: var(--text-purple); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem;">{{ member[1].title }}</div>
+                        <div class="expert-credentials" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            {% for credential in member[1].credentials %}
+                            <span class="credential-badge" style="background: linear-gradient(135deg, var(--kawaii-purple), var(--kawaii-pink)); color: var(--white); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);">{{ credential }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="expert-description" style="color: var(--text-dark); margin-bottom: 2rem; line-height: 1.7; font-size: 1.05rem; font-weight: 500;">{{ member[1].bio }}</p>
+                
+                <ul class="expertise-list" style="list-style: none; margin-bottom: 2rem; padding: 0;">
+                    {% for skill in member[1].expertise %}
+                    <li style="color: var(--text-dark); margin-bottom: 0.75rem; padding-left: 2rem; position: relative; font-weight: 500;"><span style="position: absolute; left: 0; font-size: 1rem;">💖</span>{{ skill }}</li>
+                    {% endfor %}
+                </ul>
+                
+                <div class="social-professional" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    {% if member[1].social.blog %}
+                    <a href="{{ member[1].social.blog }}" class="social-link" style="background: linear-gradient(135deg, var(--bg-lavender), var(--bg-cyan-light)); color: var(--text-purple); text-decoration: none; padding: 0.75rem 1.25rem; border-radius: 15px; transition: all 0.3s ease; font-weight: 600; border: 2px solid var(--border-kawaii); box-shadow: 0 4px 15px rgba(157, 78, 221, 0.1);">Technical Blog 📝</a>
+                    {% endif %}
+                    {% if member[1].social.research %}
+                    <a href="{{ member[1].social.research }}" class="social-link" style="background: linear-gradient(135deg, var(--bg-lavender), var(--bg-cyan-light)); color: var(--text-purple); text-decoration: none; padding: 0.75rem 1.25rem; border-radius: 15px; transition: all 0.3s ease; font-weight: 600; border: 2px solid var(--border-kawaii); box-shadow: 0 4px 15px rgba(157, 78, 221, 0.1);">Research Hub 🛡️</a>
+                    {% endif %}
+                    {% if member[1].social.github %}
+                    <a href="{{ member[1].social.github }}" class="social-link" style="background: linear-gradient(135deg, var(--bg-lavender), var(--bg-cyan-light)); color: var(--text-purple); text-decoration: none; padding: 0.75rem 1.25rem; border-radius: 15px; transition: all 0.3s ease; font-weight: 600; border: 2px solid var(--border-kawaii); box-shadow: 0 4px 15px rgba(157, 78, 221, 0.1);">GitHub Portfolio 💻</a>
+                    {% endif %}
+                    {% if member[1].social.bluesky %}
+                    <a href="{{ member[1].social.bluesky }}" class="social-link" style="background: linear-gradient(135deg, var(--bg-lavender), var(--bg-cyan-light)); color: var(--text-purple); text-decoration: none; padding: 0.75rem 1.25rem; border-radius: 15px; transition: all 0.3s ease; font-weight: 600; border: 2px solid var(--border-kawaii); box-shadow: 0 4px 15px rgba(157, 78, 221, 0.1);">Social 🦋</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Recognition Section -->
+<section class="recognition" id="speaking" style="background: linear-gradient(135deg, var(--bg-light-pink) 0%, var(--bg-lavender) 50%, var(--bg-cyan-light) 100%); padding: 4rem 0; margin: 4rem 0; border-radius: 32px; border: 3px solid var(--kawaii-purple);">
+    <div class="container">
+        <h2 class="section-title" style="text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 3rem; background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Speaking & Recognition 🎤✨</h2>
+        
+        <div class="recognition-grid">
+            <div class="recognition-card">
+                <div class="recognition-type">Conference Speaker</div>
+                <div class="recognition-title">DEF CON Security Conference</div>
+                <div class="recognition-details">Presented "AI-Driven Malware Detection: Beyond Traditional Signatures" to thousands of security professionals with a kawaii twist that made complex ML concepts accessible and fun!</div>
+            </div>
+            
+            <div class="recognition-card">
+                <div class="recognition-type">Industry Recognition</div>
+                <div class="recognition-title">SANS Community Contributor</div>
+                <div class="recognition-details">Contributing author to SANS Institute security research, bringing fresh perspectives and innovative teaching methods to cybersecurity education</div>
+            </div>
+            
+            <div class="recognition-card">
+                <div class="recognition-type">Conference Speaker</div>
+                <div class="recognition-title">KubeCon + CloudNativeCon</div>
+                <div class="recognition-details">Delivered keynote on "Platform Engineering at Scale" - proving that enterprise Kubernetes can be both robust and delightful to work with</div>
+            </div>
+            
+            <div class="recognition-card">
+                <div class="recognition-type">Research Publication</div>
+                <div class="recognition-title">Deep Learning Malware Analysis</div>
+                <div class="recognition-details">Peer-reviewed research on TensorFlow applications in automated threat detection, making AI security research more accessible</div>
+            </div>
+            
+            <div class="recognition-card">
+                <div class="recognition-type">Community Leadership</div>
+                <div class="recognition-title">CNCF Community Ambassador</div>
+                <div class="recognition-details">Cloud Native Computing Foundation representative, organizing meetups and fostering inclusive tech communities</div>
+            </div>
+            
+            <div class="recognition-card">
+                <div class="recognition-type">Industry Expertise</div>
+                <div class="recognition-title">Multiple Certifications</div>
+                <div class="recognition-details">GIAC GREM, OSCP, CKA, AWS Solutions Architect - continuously learning and sharing knowledge with the community</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Podcast Section -->
+<section class="podcast" id="podcast" style="background: var(--white); border: 3px solid var(--kawaii-cyan); border-radius: 32px; padding: 4rem; margin: 4rem 0; box-shadow: 0 20px 60px rgba(0, 229, 255, 0.2); position: relative;">
+    <div class="container">
+        <div class="podcast-content" style="text-align: center; max-width: 900px; margin: 0 auto;">
+            <h2 style="font-size: 3rem; font-weight: 700; margin-bottom: 2rem; background: linear-gradient(45deg, var(--kawaii-cyan), var(--kawaii-purple), var(--kawaii-pink)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ScopeCreep.zip Podcast 🎧✨</h2>
+            <p class="podcast-description" style="font-size: 1.2rem; color: var(--text-purple); margin-bottom: 3rem; line-height: 1.7; font-weight: 500;">
+                Join us for technical discussions that don't take themselves too seriously! We dive deep into cybersecurity research, platform engineering, and industry insights while keeping things fun, accessible, and sprinkled with kawaii energy. Perfect for security professionals and engineers who want substance with a smile! 🎧💖
+            </p>
+            
+            <div class="podcast-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <div class="feature-item" style="background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender)); padding: 2.5rem; border-radius: 20px; border: 2px solid var(--border-kawaii); transition: all 0.3s ease;">
+                    <div class="feature-icon" style="font-size: 3rem; margin-bottom: 1.5rem;">🔒</div>
+                    <div class="feature-title" style="font-size: 1.4rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem;">Security Deep-Dives</div>
+                    <div class="feature-description" style="color: var(--text-purple); font-size: 1rem; line-height: 1.6; font-weight: 500;">Latest malware analysis techniques, threat hunting, and AI-powered security tools explained with clarity and charm</div>
+                </div>
+                
+                <div class="feature-item" style="background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender)); padding: 2.5rem; border-radius: 20px; border: 2px solid var(--border-kawaii); transition: all 0.3s ease;">
+                    <div class="feature-icon" style="font-size: 3rem; margin-bottom: 1.5rem;">⚙️</div>
+                    <div class="feature-title" style="font-size: 1.4rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem;">Platform Magic</div>
+                    <div class="feature-description" style="color: var(--text-purple); font-size: 1rem; line-height: 1.6; font-weight: 500;">Cloud-native architectures, Kubernetes wizardry, and enterprise infrastructure made understandable and delightful</div>
+                </div>
+                
+                <div class="feature-item" style="background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender)); padding: 2.5rem; border-radius: 20px; border: 2px solid var(--border-kawaii); transition: all 0.3s ease;">
+                    <div class="feature-icon" style="font-size: 3rem; margin-bottom: 1.5rem;">🎤</div>
+                    <div class="feature-title" style="font-size: 1.4rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem;">Amazing Guests</div>
+                    <div class="feature-description" style="color: var(--text-purple); font-size: 1rem; line-height: 1.6; font-weight: 500;">Conversations with industry innovators, researchers, and engineers who are shaping the future of technology</div>
+                </div>
+                
+                <div class="feature-item" style="background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender)); padding: 2.5rem; border-radius: 20px; border: 2px solid var(--border-kawaii); transition: all 0.3s ease;">
+                    <div class="feature-icon" style="font-size: 3rem; margin-bottom: 1.5rem;">🤖</div>
+                    <div class="feature-title" style="font-size: 1.4rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem;">AI Adventures</div>
+                    <div class="feature-description" style="color: var(--text-purple); font-size: 1rem; line-height: 1.6; font-weight: 500;">Cutting-edge ML research, ethical AI development, and practical applications demystified with kawaii flair and technical depth</div>
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, var(--bg-lavender), var(--bg-cyan-light)); border: 3px dashed var(--kawaii-cyan); padding: 3rem; border-radius: 20px; margin: 2rem 0;">
+                <p style="color: var(--text-purple); font-weight: 700; font-size: 1.2rem; text-align: center;">🎵 Coming Soon! 🎵</p>
+                <p style="font-size: 1rem; margin-top: 1rem; text-align: center; color: var(--text-dark);">We're crafting the perfect blend of technical excellence and kawaii charm!</p>
+            </div>
+            
+            <div class="subscribe-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.5rem; max-width: 700px; margin: 0 auto;">
+                <a href="#" class="subscribe-btn" style="background: var(--white); color: var(--text-dark); padding: 1.25rem; border: 3px solid var(--kawaii-cyan); border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 6px 20px rgba(0, 229, 255, 0.2);">🎵 Spotify</a>
+                <a href="#" class="subscribe-btn" style="background: var(--white); color: var(--text-dark); padding: 1.25rem; border: 3px solid var(--kawaii-cyan); border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 6px 20px rgba(0, 229, 255, 0.2);">🍎 Apple</a>
+                <a href="#" class="subscribe-btn" style="background: var(--white); color: var(--text-dark); padding: 1.25rem; border: 3px solid var(--kawaii-cyan); border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 6px 20px rgba(0, 229, 255, 0.2);">📺 YouTube</a>
+                <a href="#" class="subscribe-btn" style="background: var(--white); color: var(--text-dark); padding: 1.25rem; border: 3px solid var(--kawaii-cyan); border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 6px 20px rgba(0, 229, 255, 0.2);">📡 RSS</a>
+            </div>
+        </div>
+    </div>
+</section>

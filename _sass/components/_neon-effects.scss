@@ -1,0 +1,261 @@
+// Neon effects for ScopeCreep.zip
+
+// Neon text
+.neon-text {
+  position: relative;
+  display: inline-block;
+  color: var(--color-accent);
+  text-shadow: 
+    0 0 10px var(--color-accent),
+    0 0 20px var(--color-accent),
+    0 0 30px var(--color-accent),
+    0 0 40px var(--color-accent);
+  animation: neon-flicker 1.5s infinite alternate;
+  
+  &[data-text] {
+    @include glitch-effect;
+  }
+}
+
+// Neon glow wrapper
+.neon-glow {
+  color: $neon-pink;
+  text-shadow: var(--neon-glow-pink);
+  
+  &.cyan {
+    color: $neon-cyan;
+    text-shadow: var(--neon-glow-cyan);
+  }
+}
+
+// Neon container for logo
+.neon-container {
+  position: relative;
+  display: inline-block;
+  
+  .pixel-font {
+    color: var(--color-primary);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  }
+  
+  .neon-glow {
+    display: inline-block;
+    animation: neon-pulse 2s ease-in-out infinite;
+  }
+}
+
+// Neon border
+.neon-border {
+  @include neon-border($neon-cyan);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  
+  &.pink {
+    @include neon-border($neon-pink);
+  }
+  
+  &.purple {
+    @include neon-border($neon-purple);
+  }
+}
+
+// Neon button
+.neon-btn {
+  position: relative;
+  padding: $space-sm $space-lg;
+  background: transparent;
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  font-family: $font-heading;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  overflow: hidden;
+  @include transition((transform, box-shadow));
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--color-accent);
+    transition: left $transition-base;
+    z-index: -1;
+  }
+  
+  &:hover {
+    color: var(--color-bg);
+    transform: translateY(-2px);
+    box-shadow: 
+      0 5px 15px rgba(var(--color-accent), 0.4),
+      var(--neon-glow-pink);
+    
+    &::before {
+      left: 0;
+    }
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Sparkle effects
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: sparkle 3s linear infinite;
+  
+  &:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+  
+  &:nth-child(2) {
+    top: 50%;
+    right: 20%;
+    animation-delay: 1s;
+  }
+  
+  &:nth-child(3) {
+    bottom: 20%;
+    left: 30%;
+    animation-delay: 2s;
+  }
+}
+
+// Logo sparkles container
+.logo-sparkles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+// Glitch effect classes
+.glitch {
+  position: relative;
+  
+  &:hover {
+    @include glitch-effect;
+  }
+}
+
+// Active neon glow for player
+.neon-glow-active {
+  animation: neon-glow-pulse 1s ease-in-out infinite;
+  box-shadow: 
+    0 0 20px rgba($neon-pink, 0.5),
+    0 0 40px rgba($neon-pink, 0.3),
+    0 0 60px rgba($neon-pink, 0.1);
+}
+
+// Animations
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow: var(--neon-glow-pink);
+  }
+  
+  20%, 24%, 55% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes sparkle {
+  0%, 10% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  
+  15% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  20%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@keyframes glitch-1 {
+  0%, 100% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0);
+  }
+  20% {
+    clip-path: inset(20% 0 30% 0);
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    clip-path: inset(50% 0 20% 0);
+    transform: translate(2px, -2px);
+  }
+  60% {
+    clip-path: inset(10% 0 60% 0);
+    transform: translate(-1px, 1px);
+  }
+  80% {
+    clip-path: inset(80% 0 5% 0);
+    transform: translate(1px, -1px);
+  }
+}
+
+@keyframes glitch-2 {
+  0%, 100% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0);
+  }
+  20% {
+    clip-path: inset(60% 0 20% 0);
+    transform: translate(2px, -1px);
+  }
+  40% {
+    clip-path: inset(20% 0 60% 0);
+    transform: translate(-2px, 1px);
+  }
+  60% {
+    clip-path: inset(30% 0 40% 0);
+    transform: translate(1px, 2px);
+  }
+  80% {
+    clip-path: inset(10% 0 80% 0);
+    transform: translate(-1px, -2px);
+  }
+}
+
+@keyframes neon-glow-pulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba($neon-pink, 0.5),
+      0 0 40px rgba($neon-pink, 0.3),
+      0 0 60px rgba($neon-pink, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px rgba($neon-pink, 0.7),
+      0 0 50px rgba($neon-pink, 0.5),
+      0 0 70px rgba($neon-pink, 0.3);
+  }
+}

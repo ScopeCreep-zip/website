@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScopeCreep.zip - Where Kawaii Meets Code 💖</title>
+    <meta name="description" content="Professional cybersecurity research and platform engineering with a kawaii twist. Conference speakers Kali Jackson and Kat Morgan blend technical excellence with creative innovation.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --kawaii-pink: #ff69b4;
+            --kawaii-purple: #9d4edd;
+            --kawaii-cyan: #00e5ff;
+            --kawaii-yellow: #ffd700;
+            --kawaii-mint: #7fffd4;
+            --bg-light-pink: #fef7f7;
+            --bg-lavender: #f8f5ff;
+            --bg-cyan-light: #f0feff;
+            --text-dark: #2d2d2d;
+            --text-purple: #4a1c5c;
+            --text-muted: #64748b;
+            --focus-yellow: #ffd600;
+            --white: #ffffff;
+            --border-kawaii: rgba(157, 78, 221, 0.3);
+        }
+        
+        body {
+            font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background: linear-gradient(135deg, var(--bg-light-pink) 0%, var(--bg-lavender) 30%, var(--bg-cyan-light) 70%, #fff0f5 100%);
+            background-attachment: fixed;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Enhanced Kawaii Particle Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            pointer-events: none;
+            animation: kawaiFloat 8s infinite ease-in-out;
+        }
+        
+        .particle.star {
+            color: var(--kawaii-yellow);
+            font-size: 14px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+            animation-delay: calc(var(--delay) * 1s);
+        }
+        
+        .particle.heart {
+            color: var(--kawaii-pink);
+            font-size: 12px;
+            text-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+            animation-delay: calc(var(--delay) * 1s);
+        }
+        
+        .particle.code {
+            color: var(--kawaii-purple);
+            font-size: 10px;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-weight: 500;
+            animation-delay: calc(var(--delay) * 1s);
+        }
+        
+        .particle.sparkle {
+            color: var(--kawaii-cyan);
+            font-size: 8px;
+            animation-delay: calc(var(--delay) * 1s);
+        }
+        
+        @keyframes kawaiFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            25% { transform: translateY(-15px) rotate(5deg); opacity: 1; }
+            50% { transform: translateY(-25px) rotate(0deg); opacity: 0.8; }
+            75% { transform: translateY(-10px) rotate(-5deg); opacity: 1; }
+        }
+        
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 100;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 245, 255, 0.95) 50%, rgba(240, 254, 255, 0.95) 100%);
+            backdrop-filter: blur(15px);
+            border-bottom: 3px solid var(--kawaii-purple);
+            box-shadow: 0 4px 20px rgba(157, 78, 221, 0.15);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .brand {
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan), var(--kawaii-yellow));
+            background-size: 400% 400%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbowGlow 3s ease-in-out infinite alternate;
+            text-shadow: 0 0 30px rgba(255, 105, 180, 0.6);
+            margin-bottom: 0.5rem;
+            filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.4));
+        }
+        
+        @keyframes rainbowGlow {
+            0% { 
+                background-position: 0% 50%;
+                filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.8));
+            }
+            33% { 
+                background-position: 50% 50%;
+                filter: drop-shadow(0 0 25px rgba(157, 78, 221, 0.8));
+            }
+            66% { 
+                background-position: 75% 50%;
+                filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.8));
+            }
+            100% { 
+                background-position: 100% 50%;
+                filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.8));
+            }
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-purple);
+            font-weight: 600;
+            background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Navigation */
+        .nav {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            background: var(--white);
+            border: 2px solid var(--kawaii-purple);
+            color: var(--text-dark);
+            padding: 0.875rem 1.5rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(157, 78, 221, 0.2);
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan));
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .nav-link:hover::before {
+            left: 0;
+        }
+        
+        .nav-link:hover {
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(157, 78, 221, 0.4);
+        }
+        
+        .nav-link:focus {
+            outline: 3px solid var(--focus-yellow);
+            outline-offset: 2px;
+        }
+        
+        /* Main Content */
+        .main {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            border: 3px solid var(--kawaii-purple);
+            border-radius: 32px;
+            padding: 3rem;
+            box-shadow: 0 15px 50px rgba(157, 78, 221, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan), var(--kawaii-yellow));
+            border-radius: 32px;
+            z-index: -1;
+            animation: borderGlow 3s linear infinite;
+        }
+        
+        @keyframes borderGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-highlight {
+            background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan));
+            background-size: 200% 200%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShimmer 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes textShimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-purple);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--kawaii-pink), var(--kawaii-purple));
+            color: var(--white);
+            padding: 1.25rem 2.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(255, 105, 180, 0.6);
+        }
+        
+        .btn-secondary {
+            background: var(--white);
+            color: var(--kawaii-purple);
+            padding: 1.25rem 2.5rem;
+            border: 3px solid var(--kawaii-purple);
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(157, 78, 221, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--kawaii-purple);
+            color: var(--white);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(157, 78, 221, 0.5);
+        }
+        
+        .btn-primary:focus,
+        .btn-secondary:focus {
+            outline: 3px solid var(--focus-yellow);
+            outline-offset: 3px;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: var(--white);
+            margin: 4rem 0;
+            border: 3px solid var(--kawaii-cyan);
+            border-radius: 32px;
+            padding: 3rem;
+            box-shadow: 0 15px 40px rgba(0, 229, 255, 0.2);
+            position: relative;
+        }
+        
+        .stats::before {
+            content: '✨';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            padding: 0 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender));
+            border-radius: 20px;
+            border: 2px solid var(--border-kawaii);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(157, 78, 221, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--text-purple);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        /* Expertise Section */
+        .expertise {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .expert-card {
+            background: var(--white);
+            border-radius: 32px;
+            padding: 3rem;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            border: 3px solid;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .expert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan));
+            border-radius: 32px 32px 0 0;
+        }
+        
+        .expert-card.kali {
+            border-color: var(--kawaii-pink);
+        }
+        
+        .expert-card.kat {
+            border-color: var(--kawaii-cyan);
+        }
+        
+        .expert-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .expert-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .expert-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+            border: 4px solid var(--white);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .expert-card.kali .expert-avatar {
+            background: linear-gradient(135deg, var(--kawaii-pink), #ff1493, #ff69b4);
+        }
+        
+        .expert-card.kat .expert-avatar {
+            background: linear-gradient(135deg, var(--kawaii-cyan), #00bcd4, #40e0d0);
+        }
+        
+        .expert-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .expert-title {
+            color: var(--text-purple);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .expert-credentials {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        
+        .credential-badge {
+            background: linear-gradient(135deg, var(--kawaii-purple), var(--kawaii-pink));
+            color: var(--white);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);
+        }
+        
+        .expert-description {
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+        
+        .expertise-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .expertise-list li {
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+            padding-left: 2rem;
+            position: relative;
+            font-weight: 500;
+        }
+        
+        .expertise-list li:before {
+            content: "💖";
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+        }
+        
+        .social-professional {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            background: linear-gradient(135deg, var(--bg-lavender), var(--bg-cyan-light));
+            color: var(--text-purple);
+            text-decoration: none;
+            padding: 0.75rem 1.25rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border: 2px solid var(--border-kawaii);
+            box-shadow: 0 4px 15px rgba(157, 78, 221, 0.1);
+        }
+        
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--kawaii-purple), var(--kawaii-pink));
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(157, 78, 221, 0.4);
+        }
+        
+        .social-link:focus {
+            outline: 3px solid var(--focus-yellow);
+            outline-offset: 2px;
+        }
+        
+        /* Recognition Section */
+        .recognition {
+            background: linear-gradient(135deg, var(--bg-light-pink) 0%, var(--bg-lavender) 50%, var(--bg-cyan-light) 100%);
+            padding: 4rem 0;
+            margin: 4rem 0;
+            border-radius: 32px;
+            border: 3px solid var(--kawaii-purple);
+        }
+        
+        .recognition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .recognition-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border-left: 6px solid var(--kawaii-pink);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .recognition-card:nth-child(2n) {
+            border-left-color: var(--kawaii-cyan);
+        }
+        
+        .recognition-card:nth-child(3n) {
+            border-left-color: var(--kawaii-purple);
+        }
+        
+        .recognition-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .recognition-type {
+            background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .recognition-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .recognition-details {
+            color: var(--text-purple);
+            font-size: 1rem;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        
+        /* Podcast Section */
+        .podcast {
+            background: var(--white);
+            border: 3px solid var(--kawaii-cyan);
+            border-radius: 32px;
+            padding: 4rem;
+            margin: 4rem 0;
+            box-shadow: 0 20px 60px rgba(0, 229, 255, 0.2);
+            position: relative;
+        }
+        
+        .podcast::before {
+            content: '🎧';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            padding: 0 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .podcast-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .podcast h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, var(--kawaii-cyan), var(--kawaii-purple), var(--kawaii-pink));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .podcast-description {
+            font-size: 1.2rem;
+            color: var(--text-purple);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+        
+        .podcast-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .feature-item {
+            background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender));
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid var(--border-kawaii);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(157, 78, 221, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-description {
+            color: var(--text-purple);
+            font-size: 1rem;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        
+        .subscribe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .subscribe-btn {
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 1.25rem;
+            border: 3px solid var(--kawaii-cyan);
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 6px 20px rgba(0, 229, 255, 0.2);
+        }
+        
+        .subscribe-btn:hover {
+            background: var(--kawaii-cyan);
+            color: var(--white);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.4);
+        }
+        
+        .subscribe-btn:focus {
+            outline: 3px solid var(--focus-yellow);
+            outline-offset: 3px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--kawaii-purple) 0%, var(--kawaii-pink) 50%, var(--kawaii-cyan) 100%);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.5;
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            padding: 0.25rem 0;
+            border-radius: 4px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+            padding-left: 0.5rem;
+        }
+        
+        .footer-links a:focus {
+            outline: 2px solid var(--focus-yellow);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        
+        .footer-bottom {
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content {
+                padding: 2rem;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav {
+                justify-content: center;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .expert-card {
+                padding: 2rem;
+            }
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .particle {
+                animation: none;
+            }
+            
+            .logo {
+                animation: none;
+                background: var(--kawaii-purple);
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+            
+            .hero-highlight {
+                animation: none;
+                background: var(--kawaii-pink);
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+            
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+        
+        @media (prefers-contrast: high) {
+            .expert-card,
+            .stats,
+            .recognition-card {
+                border-width: 4px;
+                box-shadow: none;
+            }
+            
+            .particles {
+                display: none;
+            }
+        }
+        
+        /* Skip link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--focus-yellow);
+            color: var(--text-dark);
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1000;
+            font-weight: 700;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Enhanced Kawaii Particle Background -->
+    <div class="particles" aria-hidden="true" role="presentation" id="particles"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="brand">
+                <div class="logo">ScopeCreep.zip</div>
+                <div class="tagline">Where Kawaii Meets Code 💖✨</div>
+            </div>
+            
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <a href="#expertise" class="nav-link">Our Expertise</a>
+                <a href="#podcast" class="nav-link">Podcast</a>
+                <a href="#speaking" class="nav-link">Speaking</a>
+                <a href="#research" class="nav-link">Research</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main" id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Professional <span class="hero-highlight">Cybersecurity Research</span> with a Kawaii Twist</h1>
+                    <p>We're Kali and Kat - conference speakers, security researchers, and platform engineers who prove that technical excellence and creativity aren't mutually exclusive. Join us as we blend serious cybersecurity with kawaii innovation! 🌸🔐</p>
+                    <div class="cta-buttons">
+                        <a href="#expertise" class="btn-primary">Meet Our Team ✨</a>
+                        <a href="#speaking" class="btn-secondary">Book Us to Speak 🎤</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">7+</div>
+                        <div class="stat-label">Years Combined Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Conference Talks Given</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Malware Samples Analyzed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">Platform Uptime</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Expertise Section -->
+        <section class="expertise" id="expertise">
+            <div class="container">
+                <h2 class="section-title">Our Kawaii Tech Expertise 🌟</h2>
+                
+                <div class="expertise-grid">
+                    <div class="expert-card kali">
+                        <div class="expert-header">
+                            <div class="expert-avatar">🌸</div>
+                            <div class="expert-info">
+                                <h3>Kali Jackson</h3>
+                                <div class="expert-title">Malware Analyst & Security Researcher</div>
+                                <div class="expert-credentials">
+                                    <span class="credential-badge">GIAC GREM</span>
+                                    <span class="credential-badge">OSCP</span>
+                                    <span class="credential-badge">PhD Candidate</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="expert-description">
+                            Self-described "smartest airhead" who combines serious cybersecurity expertise with kawaii aesthetics! Sacramento-based security researcher specializing in deep learning applications for malware detection and automated threat analysis. Published researcher making security accessible and cute! 🔐✨
+                        </p>
+                        
+                        <ul class="expertise-list">
+                            <li>Deep Learning for Malware Classification</li>
+                            <li>Advanced Persistent Threat (APT) Analysis</li>
+                            <li>Reverse Engineering & Exploit Development</li>
+                            <li>TensorFlow Security Applications</li>
+                            <li>Digital Forensics & Incident Response</li>
+                            <li>Conference Speaking & Security Education</li>
+                        </ul>
+                        
+                        <div class="social-professional">
+                            <a href="https://radicalkjax.com" class="social-link">Technical Blog 📝</a>
+                            <a href="https://malwarEvangelist.com" class="social-link">Research Hub 🛡️</a>
+                            <a href="https://bsky.app/profile/radicalkjax.com" class="social-link">Social 🦋</a>
+                        </div>
+                    </div>
+                    
+                    <div class="expert-card kat">
+                        <div class="expert-header">
+                            <div class="expert-avatar">🚀</div>
+                            <div class="expert-info">
+                                <h3>Kat Morgan</h3>
+                                <div class="expert-title">Platform Engineer & Open Sourceress</div>
+                                <div class="expert-credentials">
+                                    <span class="credential-badge">CKA</span>
+                                    <span class="credential-badge">AWS Certified</span>
+                                    <span class="credential-badge">CNCF Ambassador</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="expert-description">
+                            "Neuro spicy autist" and platform engineering wizard at Cisco! Specializes in transforming complex cloud infrastructure into understandable magic. Believes in seizing the means of computing while making enterprise technology both reliable and delightful! ⚙️💫
+                        </p>
+                        
+                        <ul class="expertise-list">
+                            <li>Kubernetes & Container Orchestration</li>
+                            <li>Multi-Cloud Architecture (AWS, Azure, GCP)</li>
+                            <li>Infrastructure as Code & Automation</li>
+                            <li>CI/CD Pipeline Design</li>
+                            <li>Site Reliability Engineering (SRE)</li>
+                            <li>Enterprise DevOps Transformation</li>
+                        </ul>
+                        
+                        <div class="social-professional">
+                            <a href="https://blog.usrbinkat.io/en/" class="social-link">Engineering Blog 📝</a>
+                            <a href="#" class="social-link">GitHub Portfolio 💻</a>
+                            <a href="https://bsky.app/profile/usrbinkat.io" class="social-link">Social 🦋</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Recognition Section -->
+        <section class="recognition" id="speaking">
+            <div class="container">
+                <h2 class="section-title">Speaking & Recognition 🎤✨</h2>
+                
+                <div class="recognition-grid">
+                    <div class="recognition-card">
+                        <div class="recognition-type">Conference Speaker</div>
+                        <div class="recognition-title">DEF CON Security Conference</div>
+                        <div class="recognition-details">Presented "AI-Driven Malware Detection: Beyond Traditional Signatures" to thousands of security professionals with a kawaii twist that made complex ML concepts accessible and fun!</div>
+                    </div>
+                    
+                    <div class="recognition-card">
+                        <div class="recognition-type">Industry Recognition</div>
+                        <div class="recognition-title">SANS Community Contributor</div>
+                        <div class="recognition-details">Contributing author to SANS Institute security research, bringing fresh perspectives and innovative teaching methods to cybersecurity education</div>
+                    </div>
+                    
+                    <div class="recognition-card">
+                        <div class="recognition-type">Conference Speaker</div>
+                        <div class="recognition-title">KubeCon + CloudNativeCon</div>
+                        <div class="recognition-details">Delivered keynote on "Platform Engineering at Scale" - proving that enterprise Kubernetes can be both robust and delightful to work with</div>
+                    </div>
+                    
+                    <div class="recognition-card">
+                        <div class="recognition-type">Research Publication</div>
+                        <div class="recognition-title">Deep Learning Malware Analysis</div>
+                        <div class="recognition-details">Peer-reviewed research on TensorFlow applications in automated threat detection, making AI security research more accessible</div>
+                    </div>
+                    
+                    <div class="recognition-card">
+                        <div class="recognition-type">Community Leadership</div>
+                        <div class="recognition-title">CNCF Community Ambassador</div>
+                        <div class="recognition-details">Cloud Native Computing Foundation representative, organizing meetups and fostering inclusive tech communities</div>
+                    </div>
+                    
+                    <div class="recognition-card">
+                        <div class="recognition-type">Industry Expertise</div>
+                        <div class="recognition-title">Multiple Certifications</div>
+                        <div class="recognition-details">GIAC GREM, OSCP, CKA, AWS Solutions Architect - continuously learning and sharing knowledge with the community</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Podcast Section -->
+        <section class="podcast" id="podcast">
+            <div class="container">
+                <div class="podcast-content">
+                    <h2>ScopeCreep.zip Podcast</h2>
+                    <p class="podcast-description">
+                        Join us for technical discussions that don't take themselves too seriously! We dive deep into cybersecurity research, platform engineering, and industry insights while keeping things fun, accessible, and sprinkled with kawaii energy. Perfect for security professionals and engineers who want substance with a smile! 🎧💖
+                    </p>
+                    
+                    <div class="podcast-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">🔒</div>
+                            <div class="feature-title">Security Deep-Dives</div>
+                            <div class="feature-description">Latest malware analysis techniques, threat hunting, and AI-powered security tools explained with clarity and charm</div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">⚙️</div>
+                            <div class="feature-title">Platform Magic</div>
+                            <div class="feature-description">Cloud-native architectures, Kubernetes wizardry, and enterprise infrastructure made understandable and delightful</div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">🎤</div>
+                            <div class="feature-title">Amazing Guests</div>
+                            <div class="feature-description">Conversations with industry innovators, researchers, and engineers who are shaping the future of technology</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, var(--bg-lavender), var(--bg-cyan-light)); border: 3px dashed var(--kawaii-cyan); padding: 3rem; border-radius: 20px; margin: 2rem 0;">
+                        <p style="color: var(--text-purple); font-weight: 700; font-size: 1.2rem; text-align: center;">🎵 Coming Soon! 🎵</p>
+                        <p style="font-size: 1rem; margin-top: 1rem; text-align: center; color: var(--text-dark);">We're crafting the perfect blend of technical excellence and kawaii charm!</p>
+                    </div>
+                    
+                    <div class="subscribe-grid">
+                        <a href="#" class="subscribe-btn">🎵 Spotify</a>
+                        <a href="#" class="subscribe-btn">🍎 Apple</a>
+                        <a href="#" class="subscribe-btn">📺 YouTube</a>
+                        <a href="#" class="subscribe-btn">📡 RSS</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Professional Services ✨</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Security Consulting</a></li>
+                        <li><a href="#">Platform Architecture</a></li>
+                        <li><a href="#">Technical Training</a></li>
+                        <li><a href="#">Conference Speaking</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Content & Research 📚</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Technical Blogs</a></li>
+                        <li><a href="#">Research Papers</a></li>
+                        <li><a href="#">Podcast Episodes</a></li>
+                        <li><a href="#">Conference Materials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect With Us 💫</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">LinkedIn Profiles</a></li>
+                        <li><a href="#">GitHub Repositories</a></li>
+                        <li><a href="#">Bluesky Social</a></li>
+                        <li><a href="#">Conference Calendar</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Get In Touch 💌</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Speaking Inquiries</a></li>
+                        <li><a href="#">Consulting Requests</a></li>
+                        <li><a href="#">Collaboration</a></li>
+                        <li><a href="#">Media Inquiries</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 ScopeCreep.zip - Made with 💖 by Kali & Kat in Sacramento ✨</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Enhanced Kawaii Particle System
+        function createKawaiiParticles() {
+            const container = document.getElementById('particles');
+            const particleTypes = [
+                { symbol: '✦', class: 'star', count: 30 },
+                { symbol: '♥', class: 'heart', count: 20 },
+                { symbol: '✨', class: 'sparkle', count: 25 },
+                { symbol: '{', class: 'code', count: 12 },
+                { symbol: '}', class: 'code', count: 12 },
+                { symbol: '<', class: 'code', count: 8 },
+                { symbol: '>', class: 'code', count: 8 },
+                { symbol: '💖', class: 'heart', count: 10 }
+            ];
+            
+            // Check for reduced motion preference
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                return;
+            }
+            
+            particleTypes.forEach(type => {
+                for (let i = 0; i < type.count; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = `particle ${type.class}`;
+                    particle.textContent = type.symbol;
+                    particle.setAttribute('aria-hidden', 'true');
+                    
+                    // Random positioning
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                    particle.style.setProperty('--delay', Math.random() * 8);
+                    
+                    container.appendChild(particle);
+                }
+            });
+        }
+        
+        // Enhanced mouse interaction
+        function addMouseMagic() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                return;
+            }
+            
+            document.addEventListener('mousemove', (e) => {
+                const particles = document.querySelectorAll('.particle');
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+                
+                particles.forEach(particle => {
+                    const rect = particle.getBoundingClientRect();
+                    const particleX = rect.left + rect.width / 2;
+                    const particleY = rect.top + rect.height / 2;
+                    
+                    const distance = Math.sqrt(
+                        Math.pow(mouseX - particleX, 2) + Math.pow(mouseY - particleY, 2)
+                    );
+                    
+                    if (distance < 120) {
+                        const scale = 1 + (120 - distance) / 120;
+                        particle.style.transform = `scale(${scale})`;
+                        particle.style.opacity = '1';
+                        particle.style.textShadow = '0 0 15px currentColor';
+                    } else {
+                        particle.style.transform = 'scale(1)';
+                        particle.style.opacity = '0.7';
+                        particle.style.textShadow = '0 0 8px currentColor';
+                    }
+                });
+            });
+        }
+        
+        // Kawaii click effects
+        function addClickMagic() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                return;
+            }
+            
+            document.addEventListener('click', (e) => {
+                const sparkles = ['✨', '💖', '🌸', '⭐', '💫'];
+                
+                // Create burst of sparkles
+                for (let i = 0; i < 8; i++) {
+                    const sparkle = document.createElement('div');
+                    sparkle.innerHTML = sparkles[Math.floor(Math.random() * sparkles.length)];
+                    sparkle.style.position = 'fixed';
+                    sparkle.style.left = e.clientX + 'px';
+                    sparkle.style.top = e.clientY + 'px';
+                    sparkle.style.pointerEvents = 'none';
+                    sparkle.style.zIndex = '1000';
+                    sparkle.style.fontSize = '20px';
+                    sparkle.setAttribute('aria-hidden', 'true');
+                    
+                    document.body.appendChild(sparkle);
+                    
+                    // Animate the sparkle
+                    const randomX = (Math.random() - 0.5) * 150;
+                    const randomY = (Math.random() - 0.5) * 150;
+                    
+                    sparkle.animate([
+                        { 
+                            transform: 'translate(0, 0) scale(1) rotate(0deg)', 
+                            opacity: 1 
+                        },
+                        { 
+                            transform: `translate(${randomX}px, ${randomY}px) scale(0) rotate(180deg)`, 
+                            opacity: 0 
+                        }
+                    ], {
+                        duration: 1200,
+                        easing: 'ease-out'
+                    }).onfinish = () => {
+                        sparkle.remove();
+                    };
+                }
+            });
+        }
+        
+        // Smooth scrolling with kawaii touch
+        function addSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Focus management for accessibility
+                        target.focus();
+                    }
+                });
+            });
+        }
+        
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            createKawaiiParticles();
+            addMouseMagic();
+            addClickMagic();
+            addSmoothScrolling();
+        });
+        
+        // Handle focus visibility for accessibility
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('using-keyboard');
+            }
+        });
+        
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('using-keyboard');
+        });
+    </script>
+</body>
+</html>

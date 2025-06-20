@@ -1,0 +1,162 @@
+# Site settings
+title: "ScopeCreep.zip"
+email: "hello@scopecreep.zip"
+description: >-
+  Professional cybersecurity research and platform engineering with a kawaii twist. 
+  Conference speakers Kali Jackson and Kat Morgan blend technical excellence with creative innovation.
+baseurl: ""
+url: "https://scopecreep.zip"
+twitter_username: scopecreepzip
+github_username: scopecreepzip
+
+# Team information
+team:
+  kali:
+    name: "Kali Jackson"
+    title: "Malware Analyst & Security Researcher"
+    avatar: "/assets/images/avatars/kali.png"
+    bio: "Self-described 'smartest airhead' who combines serious cybersecurity expertise with kawaii aesthetics!"
+    credentials: ["GIAC GREM", "OSCP", "PhD Candidate"]
+    social:
+      blog: "https://radicalkjax.com"
+      research: "https://malwarEvangelist.com"
+      bluesky: "https://bsky.app/profile/radicalkjax.com"
+  kat:
+    name: "Kat Morgan"
+    title: "Platform Engineer & Open Sourceress"
+    avatar: "/assets/images/avatars/kat.png"
+    bio: "'Neuro spicy autist' and platform engineering wizard at Cisco!"
+    credentials: ["CKA", "AWS Certified", "CNCF Ambassador"]
+    social:
+      blog: "https://blog.usrbinkat.io/en/"
+      github: "https://github.com/usrbinkat"
+      bluesky: "https://bsky.app/profile/usrbinkat.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Sass settings
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Collections
+collections:
+  podcasts:
+    output: true
+    permalink: /podcast/:name/
+  speaking:
+    output: true
+    permalink: /speaking/:name/
+
+# Pagination
+pagination:
+  enabled: true
+  per_page: 10
+  permalink: '/page/:num/'
+  title: ':title - page :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  # - jekyll-responsive-image # Temporarily disabled
+  - jekyll-minifier
+  - jekyll-archives
+  - jekyll-paginate-v2
+
+# Jekyll Archives
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: archive
+    tag: archive
+  permalinks:
+    category: '/category/:name/'
+    tag: '/tag/:name/'
+
+# Responsive images (temporarily disabled)
+# responsive_image:
+#   template: _includes/responsive-image.html
+#   sizes:
+#     - width: 480
+#     - width: 800
+#     - width: 1400
+#   base_path: media
+#   output_path_format: media/resized/%{width}/%{basename}
+#   save_to_source: false
+
+# Jekyll Minifier
+jekyll-minifier:
+  exclude: 'feed.xml'
+  uglifier_args:
+    harmony: true
+
+# Feed settings
+feed:
+  posts_limit: 20
+  
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Kali & Kat"
+  - scope:
+      path: ""
+      type: "podcasts"
+    values:
+      layout: "podcast"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "speaking"
+    values:
+      layout: "speaking"
+
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - docs/
+  - README.md
+  - LICENSE
+
+# Include dotfiles
+include:
+  - .htaccess
+
+# Podcast settings
+podcast:
+  title: "ScopeCreep.zip Podcast"
+  subtitle: "Where Kawaii Meets Code"
+  description: "Technical discussions covering cybersecurity research, platform engineering, and industry insights with a kawaii twist."
+  language: "en-us"
+  author: "Kali Jackson & Kat Morgan"
+  email: "podcast@scopecreep.zip"
+  category: "Technology"
+  subcategory: "Software How-To"
+  explicit: false
+  owner: "ScopeCreep.zip"
+  image: "/assets/images/podcast-cover.png"

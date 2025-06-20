@@ -1,0 +1,57 @@
+# Team member information for ScopeCreep.zip
+
+kali:
+  name: "Kali Jackson"
+  title: "Malware Analyst & Security Researcher"
+  avatar: "/assets/images/avatars/kali.png"
+  emoji: "🌸"
+  bio: "Self-described \"smartest airhead\" who combines serious cybersecurity expertise with kawaii aesthetics! Sacramento-based security researcher specializing in deep learning applications for malware detection and automated threat analysis. Published researcher making security accessible and cute! 🔐✨"
+  short_bio: "Malware researcher who makes cybersecurity kawaii"
+  credentials:
+    - "GIAC GREM"
+    - "OSCP"
+    - "PhD Candidate"
+  expertise:
+    - "Deep Learning for Malware Classification"
+    - "Advanced Persistent Threat (APT) Analysis"
+    - "Reverse Engineering & Exploit Development"
+    - "TensorFlow Security Applications"
+    - "Digital Forensics & Incident Response"
+    - "Conference Speaking & Security Education"
+  social:
+    blog: "https://radicalkjax.com"
+    research: "https://malwarEvangelist.com"
+    bluesky: "https://bsky.app/profile/radicalkjax.com"
+    twitter: "https://twitter.com/radicalkjax"
+  color_scheme:
+    primary: "#ff69b4"
+    secondary: "#9d4edd"
+    accent: "#ff1493"
+
+kat:
+  name: "Kat Morgan"
+  title: "Platform Engineer & Open Sourceress"
+  avatar: "/assets/images/avatars/kat.png"
+  emoji: "🚀"
+  bio: "\"Neuro spicy autist\" and platform engineering wizard at Cisco! Specializes in transforming complex cloud infrastructure into understandable magic. Believes in seizing the means of computing while making enterprise technology both reliable and delightful! ⚙️💫"
+  short_bio: "Platform engineer making infrastructure magical"
+  credentials:
+    - "CKA"
+    - "AWS Certified"
+    - "CNCF Ambassador"
+  expertise:
+    - "Kubernetes & Container Orchestration"
+    - "Multi-Cloud Architecture (AWS, Azure, GCP)"
+    - "Infrastructure as Code & Automation"
+    - "CI/CD Pipeline Design"
+    - "Site Reliability Engineering (SRE)"
+    - "Enterprise DevOps Transformation"
+  social:
+    blog: "https://blog.usrbinkat.io/en/"
+    github: "https://github.com/usrbinkat"
+    bluesky: "https://bsky.app/profile/usrbinkat.io"
+    twitter: "https://twitter.com/usrbinkat"
+  color_scheme:
+    primary: "#00e5ff"
+    secondary: "#ffd700"
+    accent: "#00d4ff"

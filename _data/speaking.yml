@@ -1,0 +1,65 @@
+# Speaking engagements and conference talks
+
+upcoming:
+  - title: "Kawaii Threat Hunting: Making Security Cute"
+    conference: "DEF CON 32"
+    date: "2024-08-10"
+    location: "Las Vegas, NV"
+    speaker: "kali"
+    description: "Learn how to apply kawaii aesthetics to threat hunting dashboards while maintaining professional security standards."
+    topics:
+      - "Threat Hunting"
+      - "UI/UX in Security"
+      - "Data Visualization"
+
+  - title: "Platform Engineering for Neurodivergent Teams"
+    conference: "KubeCon EU 2024"
+    date: "2024-03-20"
+    location: "Paris, France"
+    speaker: "kat"
+    description: "Building inclusive platform engineering practices that work for everyone, especially neurodivergent team members."
+    topics:
+      - "Platform Engineering"
+      - "Accessibility"
+      - "Team Culture"
+
+past:
+  - title: "Breaking Binary: Trans Voices in Cybersecurity"
+    conference: "RSA Conference 2023"
+    date: "2023-04-24"
+    location: "San Francisco, CA"
+    speakers: ["kali", "kat"]
+    description: "A panel discussion on diversity, inclusion, and the unique perspectives trans professionals bring to security."
+    recording: "https://www.youtube.com/watch?v=example"
+    slides: "/assets/slides/rsa2023-breaking-binary.pdf"
+
+  - title: "Malware Analysis Through Rose-Colored Glasses"
+    conference: "Black Hat USA 2023"
+    date: "2023-08-09"
+    location: "Las Vegas, NV"
+    speaker: "kali"
+    description: "Innovative approaches to malware analysis using creative visualization techniques and kawaii design principles."
+    recording: "https://www.youtube.com/watch?v=example"
+
+  - title: "Kubernetes Security: A Magical Girl's Guide"
+    conference: "CloudNativeCon 2023"
+    date: "2023-11-06"
+    location: "Chicago, IL"
+    speaker: "kat"
+    description: "Making Kubernetes security approachable and fun with anime-inspired explanations and practical demos."
+    recording: "https://www.youtube.com/watch?v=example"
+
+workshops:
+  - title: "Reverse Engineering 101: Kawaii Edition"
+    type: "Workshop"
+    duration: "4 hours"
+    speaker: "kali"
+    description: "Hands-on reverse engineering workshop with a cute twist. Learn x86 assembly with pastel syntax highlighting!"
+    materials: "https://github.com/scopecreepzip/re101-kawaii"
+
+  - title: "Building Your First K8s Operator with Sparkles"
+    type: "Workshop"
+    duration: "3 hours"
+    speaker: "kat"
+    description: "Create Kubernetes operators that are both functional and fabulous. Includes custom emoji-based logging!"
+    materials: "https://github.com/scopecreepzip/k8s-sparkle-operator"

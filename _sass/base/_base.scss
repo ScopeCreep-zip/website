@@ -1,0 +1,127 @@
+// Base styles for ScopeCreep.zip
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: $font-body;
+  background: linear-gradient(135deg, var(--bg-light-pink) 0%, var(--bg-lavender) 30%, var(--bg-cyan-light) 70%, #fff0f5 100%);
+  background-attachment: fixed;
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+// Main content
+.main {
+  position: relative;
+  z-index: 10;
+}
+
+// Container
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+// Section spacing
+section {
+  padding: 4rem 0;
+}
+
+// Section title
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+// Stat numbers
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: var(--text-purple);
+  font-weight: 600;
+}
+
+// Skip link
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--focus-yellow);
+  color: var(--text-dark);
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+  font-weight: 700;
+  
+  &:focus {
+    top: 6px;
+  }
+}
+
+// Focus styles
+.kawaii-focus {
+  &:focus {
+    outline: 3px solid var(--focus-yellow);
+    outline-offset: 3px;
+  }
+}
+
+// Accessibility
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .particles {
+    display: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .expert-card,
+  .stats,
+  .recognition-card {
+    border-width: 4px;
+    box-shadow: none;
+  }
+  
+  .particles {
+    display: none;
+  }
+}
+
+// Typography helpers
+.text-center {
+  text-align: center;
+}
+
+.mb-sm { margin-bottom: 0.5rem; }
+.mb-md { margin-bottom: 1rem; }
+.mb-lg { margin-bottom: 1.5rem; }
+.mb-xl { margin-bottom: 2rem; }
+.mb-2xl { margin-bottom: 3rem; }

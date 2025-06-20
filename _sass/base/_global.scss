@@ -1,0 +1,452 @@
+// Global styles for consistent kawaii design across all pages
+
+// Section Titles - Ensures consistent title styling everywhere
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 3rem;
+  
+  // Optional gradient version
+  &.gradient {
+    background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+// Recognition/Speaking Section Specific Styles
+.recognition,
+.speaking-section {
+  background: linear-gradient(135deg, var(--bg-light-pink) 0%, var(--bg-lavender) 50%, var(--bg-cyan-light) 100%);
+  padding: 4rem 0;
+  margin: 4rem 0;
+  border-radius: 32px;
+  border: 3px solid var(--kawaii-purple);
+}
+
+// Recognition Cards Global Style
+.recognition-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.recognition-card {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: 24px;
+  border-left: 6px solid var(--kawaii-pink);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  
+  &:nth-child(2n) {
+    border-left-color: var(--kawaii-cyan);
+  }
+  
+  &:nth-child(3n) {
+    border-left-color: var(--kawaii-purple);
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.recognition-type {
+  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.recognition-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.recognition-details {
+  color: var(--text-purple);
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+// Kawaii Decoration Helper
+.kawaii-decoration {
+  position: relative;
+  
+  &::before {
+    content: '✨';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    padding: 0 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+// Global Card Styles
+.kawaii-card {
+  background: var(--white);
+  border: 3px solid var(--kawaii-purple);
+  border-radius: 32px;
+  padding: 3rem;
+  box-shadow: 0 15px 50px rgba(157, 78, 221, 0.2);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan), var(--kawaii-yellow));
+    border-radius: 32px;
+    z-index: -1;
+    animation: borderGlow 3s linear infinite;
+  }
+}
+
+// Stats Grid Global Style
+.stats {
+  background: linear-gradient(135deg, var(--bg-light-pink) 0%, var(--bg-lavender) 50%, var(--bg-cyan-light) 100%);
+  padding: 4rem 0;
+  margin: 4rem 0;
+  border-radius: 32px;
+  position: relative;
+  
+  &.kawaii-decoration::before {
+    content: '✨';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    padding: 0 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.stat-item {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender));
+  border-radius: 20px;
+  border: 2px solid var(--border-kawaii);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(157, 78, 221, 0.3);
+  }
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: var(--text-purple);
+  font-weight: 600;
+}
+
+// Hero Section Global Style
+.hero {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+  
+  p {
+    font-size: 1.3rem;
+    color: var(--text-purple);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    font-weight: 500;
+  }
+}
+
+.hero-highlight {
+  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan));
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmer 2s ease-in-out infinite alternate;
+}
+
+// CTA Buttons Container
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+// Expertise Section Global Style
+.expertise {
+  padding: 4rem 0;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 3rem;
+}
+
+// Global Focus States
+.kawaii-focus:focus {
+  outline: 3px solid var(--focus-yellow);
+  outline-offset: 3px;
+}
+
+// Global Hover Effects
+.hover-lift {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.hover-scale {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// Global Text Gradient Classes
+.text-gradient-pink-purple {
+  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-rainbow {
+  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan), var(--kawaii-yellow));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan-purple {
+  background: linear-gradient(45deg, var(--kawaii-cyan), var(--kawaii-purple), var(--kawaii-pink));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// Global Animation Keyframes
+@keyframes borderGlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes textShimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes rainbowGlow {
+  0% { 
+    background-position: 0% 50%;
+    filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.8));
+  }
+  33% { 
+    background-position: 50% 50%;
+    filter: drop-shadow(0 0 25px rgba(157, 78, 221, 0.8));
+  }
+  66% { 
+    background-position: 75% 50%;
+    filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.8));
+  }
+  100% { 
+    background-position: 100% 50%;
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.8));
+  }
+}
+
+// Global Spacing Classes
+.section-spacing {
+  padding: 4rem 0;
+}
+
+.content-spacing {
+  margin: 4rem 0;
+}
+
+// Global Background Patterns
+.bg-gradient-light {
+  background: linear-gradient(135deg, var(--bg-light-pink) 0%, var(--bg-lavender) 50%, var(--bg-cyan-light) 100%);
+}
+
+.bg-gradient-vivid {
+  background: linear-gradient(135deg, var(--kawaii-pink) 0%, var(--kawaii-purple) 50%, var(--kawaii-cyan) 100%);
+}
+
+// Global Border Styles
+.border-kawaii {
+  border: 3px solid var(--kawaii-purple);
+  border-radius: 32px;
+}
+
+.border-kawaii-cyan {
+  border: 3px solid var(--kawaii-cyan);
+  border-radius: 32px;
+}
+
+.border-kawaii-pink {
+  border: 3px solid var(--kawaii-pink);
+  border-radius: 32px;
+}
+
+// Global Shadow Classes
+.shadow-kawaii {
+  box-shadow: 0 15px 50px rgba(157, 78, 221, 0.2);
+}
+
+.shadow-kawaii-hover {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 20px 60px rgba(157, 78, 221, 0.3);
+  }
+}
+
+// Particle Background (ensure it's on all pages)
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+// Ensure main content is above particles
+.main {
+  position: relative;
+  z-index: 10;
+}
+
+// Global Accessibility Classes
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Skip Link Style
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--focus-yellow);
+  color: var(--text-dark);
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+  font-weight: 700;
+  
+  &:focus {
+    top: 6px;
+  }
+}
+
+// Media Query for Responsive Design
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .recognition-grid,
+  .expertise-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+// Reduced Motion Support
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .particles {
+    display: none;
+  }
+}
+
+// High Contrast Mode Support
+@media (prefers-contrast: high) {
+  .kawaii-card,
+  .recognition-card,
+  .stat-item {
+    border-width: 4px;
+    box-shadow: none;
+  }
+  
+  .particles {
+    display: none;
+  }
+}

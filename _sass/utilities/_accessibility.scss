@@ -1,0 +1,53 @@
+// Accessibility utilities
+
+// Skip links
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-bg);
+  color: var(--color-accent);
+  padding: $space-sm $space-md;
+  text-decoration: none;
+  z-index: z('tooltip');
+  
+  &:focus {
+    top: 0;
+  }
+}
+
+// Focus visible
+.focus-visible {
+  &:focus {
+    outline: none;
+  }
+  
+  &:focus-visible {
+    @include focus-style;
+  }
+}
+
+// Screen reader only
+.sr-only {
+  @include visually-hidden;
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .animation-reduce {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .high-contrast-border {
+    border: 2px solid currentColor !important;
+  }
+}
+
+// Aria hidden
+[aria-hidden="true"] {
+  display: none;
+}

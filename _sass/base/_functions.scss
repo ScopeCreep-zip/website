@@ -1,0 +1,78 @@
+// Sass functions for ScopeCreep.zip
+
+// Convert px to rem
+@function rem($px) {
+  @return #{$px / 16}rem;
+}
+
+// Convert px to em
+@function em($px, $base: 16) {
+  @return #{$px / $base}em;
+}
+
+// Get z-index value
+@function z($layer) {
+  $z-indexes: (
+    'base': $z-base,
+    'dropdown': $z-dropdown,
+    'sticky': $z-sticky,
+    'overlay': $z-overlay,
+    'modal': $z-modal,
+    'tooltip': $z-tooltip
+  );
+  
+  @if map-has-key($z-indexes, $layer) {
+    @return map-get($z-indexes, $layer);
+  }
+  
+  @warn "No z-index found for layer `#{$layer}`";
+  @return 1;
+}
+
+// Percentage
+@function percentage($value) {
+  @return $value * 100%;
+}
+
+// Strip unit
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+// Color functions
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+// Get contrast color (black or white)
+@function contrast-color($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+  
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+  
+  @if ($yiq >= 128) {
+    @return #000;
+  } @else {
+    @return #fff;
+  }
+}
+
+// Responsive font size
+@function fluid-font($min-size, $max-size, $min-vw: $bp-mobile, $max-vw: $bp-desktop) {
+  $min-size-rem: rem($min-size);
+  $max-size-rem: rem($max-size);
+  $min-vw-rem: rem($min-vw);
+  $max-vw-rem: rem($max-vw);
+  
+  @return clamp(
+    #{$min-size-rem},
+    #{$min-size-rem} + (#{strip-unit($max-size - $min-size)}) * ((100vw - #{$min-vw-rem}) / #{strip-unit($max-vw - $min-vw)}),
+    #{$max-size-rem}
+  );
+}

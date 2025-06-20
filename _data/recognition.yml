@@ -1,0 +1,93 @@
+# Awards, recognition, and achievements
+
+awards:
+  - title: "Best Security Research Paper"
+    organization: "USENIX Security"
+    year: 2023
+    recipient: "kali"
+    description: "For groundbreaking research on AI-powered malware detection with kawaii visualization techniques"
+    icon: "🏆"
+
+  - title: "CNCF Top Contributor"
+    organization: "Cloud Native Computing Foundation"
+    year: 2023
+    recipient: "kat"
+    description: "Recognized for outstanding contributions to Kubernetes and cloud-native projects"
+    icon: "⭐"
+
+  - title: "DEF CON Black Badge"
+    organization: "DEF CON"
+    year: 2022
+    recipient: "kali"
+    description: "Won CTF competition with team 'Kawaii Hackers Unite'"
+    icon: "🎖️"
+
+certifications:
+  kali:
+    - name: "GIAC GREM"
+      full_name: "GIAC Reverse Engineering Malware"
+      issuer: "GIAC"
+      badge: "/assets/images/certs/grem.png"
+    - name: "OSCP"
+      full_name: "Offensive Security Certified Professional"
+      issuer: "Offensive Security"
+      badge: "/assets/images/certs/oscp.png"
+    - name: "CISSP"
+      full_name: "Certified Information Systems Security Professional"
+      issuer: "ISC2"
+      badge: "/assets/images/certs/cissp.png"
+
+  kat:
+    - name: "CKA"
+      full_name: "Certified Kubernetes Administrator"
+      issuer: "CNCF"
+      badge: "/assets/images/certs/cka.png"
+    - name: "AWS Solutions Architect"
+      full_name: "AWS Certified Solutions Architect - Professional"
+      issuer: "Amazon Web Services"
+      badge: "/assets/images/certs/aws-sa.png"
+    - name: "GCP Cloud Architect"
+      full_name: "Google Cloud Professional Cloud Architect"
+      issuer: "Google Cloud"
+      badge: "/assets/images/certs/gcp-ca.png"
+
+publications:
+  - title: "Kawaii Security: Making Threat Intelligence Accessible"
+    authors: ["Kali Jackson", "Kat Morgan"]
+    venue: "IEEE Security & Privacy Magazine"
+    year: 2023
+    type: "journal"
+    link: "https://doi.org/example"
+
+  - title: "Platform Engineering for Mental Health: A Case Study"
+    authors: ["Kat Morgan"]
+    venue: "CNCF Case Studies"
+    year: 2023
+    type: "whitepaper"
+    link: "https://cncf.io/case-studies/example"
+
+media:
+  - outlet: "The New Stack"
+    title: "How These Trans Engineers Are Making Tech More Inclusive"
+    date: "2023-11-15"
+    type: "interview"
+    link: "https://thenewstack.io/example"
+
+  - outlet: "Security Weekly"
+    title: "Episode 742: Kawaii Threat Hunting with Kali Jackson"
+    date: "2023-09-20"
+    type: "podcast"
+    link: "https://securityweekly.com/example"
+
+community:
+  - role: "Co-founder"
+    organization: "Trans Tech Collective"
+    description: "Building community and support for trans professionals in technology"
+    
+  - role: "Mentor"
+    organization: "Girls Who Code"
+    description: "Teaching cybersecurity fundamentals with a fun, approachable style"
+    
+  - role: "Advisory Board"
+    organization: "Neurodiversity in Tech Initiative"
+    description: "Advocating for neurodivergent-friendly practices in technical fields"

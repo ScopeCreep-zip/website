@@ -1,0 +1,36 @@
+// Responsive utilities
+
+// Hide/show at breakpoints
+@include mobile {
+  .hide-mobile { display: none !important; }
+  .show-mobile { display: block !important; }
+}
+
+@include tablet {
+  .hide-tablet { display: none !important; }
+  .show-tablet { display: block !important; }
+}
+
+@include desktop {
+  .hide-desktop { display: none !important; }
+  .show-desktop { display: block !important; }
+}
+
+// Text alignment responsive
+@include mobile {
+  .text-center-mobile { text-align: center !important; }
+  .text-left-mobile { text-align: left !important; }
+  .text-right-mobile { text-align: right !important; }
+}
+
+@include tablet {
+  .text-center-tablet { text-align: center !important; }
+  .text-left-tablet { text-align: left !important; }
+  .text-right-tablet { text-align: right !important; }
+}
+
+@include desktop {
+  .text-center-desktop { text-align: center !important; }
+  .text-left-desktop { text-align: left !important; }
+  .text-right-desktop { text-align: right !important; }
+}

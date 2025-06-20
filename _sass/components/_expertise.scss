@@ -1,0 +1,131 @@
+// Expertise Section Component Styles
+
+.expertise {
+  padding: 4rem 0;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 3rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Expert Cards
+.expert-card {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  // Individual card styling based on team member
+  &.kali {
+    border-top: 4px solid var(--kawaii-purple);
+  }
+  
+  &.kat {
+    border-top: 4px solid var(--kawaii-cyan);
+  }
+}
+
+.expert-header {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+}
+
+.expert-avatar {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.expert-info {
+  flex: 1;
+  
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+  }
+}
+
+.expert-title {
+  font-size: 1.1rem;
+  color: var(--text-purple);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.expert-credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.credential-badge {
+  background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender));
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-purple);
+  border: 1px solid var(--border-kawaii);
+}
+
+.expert-description {
+  font-size: 1rem;
+  color: var(--text-purple);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.expertise-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-weight: 500;
+    
+    &::before {
+      content: '✨';
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+.social-professional {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  
+  .social-link {
+    color: var(--kawaii-purple);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      color: var(--kawaii-pink);
+      transform: translateY(-2px);
+    }
+  }
+}
