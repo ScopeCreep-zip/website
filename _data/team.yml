@@ -8,16 +8,16 @@ kali:
   bio: "Self-described \"smartest airhead\" who combines serious cybersecurity expertise with kawaii aesthetics! Sacramento-based security researcher specializing in deep learning applications for malware detection and automated threat analysis. Published researcher making security accessible and cute! 🔐✨"
   short_bio: "Malware researcher who makes cybersecurity kawaii"
   credentials:
-    - "GIAC GREM"
-    - "OSCP"
-    - "PhD Candidate"
+    - "Corpo"
+    - "Hacker"
+    - "Green Witch"
   expertise:
     - "Deep Learning for Malware Classification"
     - "Advanced Persistent Threat (APT) Analysis"
     - "Reverse Engineering & Exploit Development"
     - "TensorFlow Security Applications"
     - "Digital Forensics & Incident Response"
-    - "Conference Speaking & Security Education"
+    - "Community Builder & Security Education"
   social:
     blog: "https://radicalkjax.com"
     github: "https://github.com/radicalkjax"
@@ -36,9 +36,9 @@ kat:
   bio: "\"Neuro spicy autist\" and platform engineering wizard at Cisco! Specializes in transforming complex cloud infrastructure into understandable magic. Believes in seizing the means of computing while making enterprise technology both reliable and delightful! ⚙️💫"
   short_bio: "Platform engineer making infrastructure magical"
   credentials:
-    - "CKA"
-    - "AWS Certified"
-    - "CNCF Ambassador"
+    - "Windows 7 MTA"
+    - "Open Sorceress"
+    - "Insecurity Expert"
   expertise:
     - "Kubernetes & Container Orchestration"
     - "Multi-Cloud Architecture (AWS, Azure, GCP)"

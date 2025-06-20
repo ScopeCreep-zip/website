@@ -5,9 +5,21 @@ main:
   - title: About
     url: /about/
     icon: users
+  - title: Collaborate
+    url: /services/
+    icon: users
+  - title: Technical Blogs
+    url: /research/
+    icon: book
+  - title: Speaking
+    url: /speaking/
+    icon: mic
   - title: Podcasts
     url: /podcasts/
     icon: podcast
   - title: Blog
     url: /blog/
     icon: edit
+  - title: Contact
+    url: /contact/
+    icon: mail
