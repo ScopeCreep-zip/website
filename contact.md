@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Contact
+title: 
 permalink: /contact/
 ---
 
-# Contact Us
+<h1 class="page-section-title">Contact Us 📬</h1>
 
 ## Get in Touch
 
@@ -44,46 +44,39 @@ permalink: /contact/
 <div class="team-contacts">
   <div class="team-member">
     <h3>Kali Jackson</h3>
-    <p class="role">Platform Security Architect</p>
-    <ul class="contact-links">
-      <li>📧 kali@scopecreep.com</li>
-      <li>💼 <a href="https://linkedin.com/in/kalijackson" target="_blank">LinkedIn</a></li>
-      <li>🐙 <a href="https://github.com/kalijackson" target="_blank">GitHub</a></li>
-      <li>🦋 <a href="https://bsky.app/profile/kalijackson.bsky.social" target="_blank">Bluesky</a></li>
-    </ul>
+    <p class="role">Technical Solutions Specialist/Hacker</p>
+    <div class="member-social-links">
+      {% include social-links.html 
+         source="team"
+         team_member="kali"
+         layout="horizontal"
+         size="small"
+      %}
+    </div>
   </div>
   
   <div class="team-member">
     <h3>Kat Morgan</h3>
-    <p class="role">Security Engineering Lead</p>
-    <ul class="contact-links">
-      <li>📧 kat@scopecreep.com</li>
-      <li>💼 <a href="https://linkedin.com/in/katmorgan" target="_blank">LinkedIn</a></li>
-      <li>🐙 <a href="https://github.com/katmorgan" target="_blank">GitHub</a></li>
-      <li>🦋 <a href="https://bsky.app/profile/katmorgan.bsky.social" target="_blank">Bluesky</a></li>
-    </ul>
+    <p class="role">Systems Engineer Lead</p>
+    <div class="member-social-links">
+      {% include social-links.html 
+         source="team"
+         team_member="kat"
+         layout="horizontal"
+         size="small"
+      %}
+    </div>
   </div>
 </div>
 
 ## Follow ScopeCreep
 
-<div class="social-links">
-  <a href="https://github.com/scopecreep" target="_blank" class="social-link">
-    <i class="fab fa-github"></i> GitHub
-  </a>
-  <a href="https://linkedin.com/company/scopecreep" target="_blank" class="social-link">
-    <i class="fab fa-linkedin"></i> LinkedIn
-  </a>
-  <a href="https://bsky.app/profile/scopecreep.bsky.social" target="_blank" class="social-link">
-    <i class="fas fa-cloud"></i> Bluesky
-  </a>
-  <a href="https://twitter.com/scopecreep" target="_blank" class="social-link">
-    <i class="fab fa-twitter"></i> Twitter
-  </a>
-  <a href="https://youtube.com/@scopecreep" target="_blank" class="social-link">
-    <i class="fab fa-youtube"></i> YouTube
-  </a>
-</div>
+{% include social-links.html 
+   title=""
+   source="company"
+   layout="horizontal"
+   size="medium"
+%}
 
 <style>
 .contact-form {
@@ -145,63 +138,75 @@ permalink: /contact/
 }
 
 .team-member {
-  background: var(--color-surface);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: var(--white);
+  border: 3px solid var(--kawaii-purple);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.team-member:first-child {
+  border-color: var(--kawaii-pink);
+}
+
+.team-member:last-child {
+  border-color: var(--kawaii-cyan);
+}
+
+.team-member::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(157, 78, 221, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
 }
 
 .team-member h3 {
-  color: var(--color-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 0.5rem;
 }
 
 .team-member .role {
-  color: var(--color-text-secondary);
-  font-style: italic;
-  margin-bottom: 1rem;
+  color: var(--text-purple);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
 }
 
-.contact-links {
-  list-style: none;
-  padding: 0;
+.member-social-links {
+  margin-top: 1.5rem;
 }
 
-.contact-links li {
-  margin-bottom: 0.5rem;
+.member-social-links .social-links__list {
+  justify-content: flex-start;
 }
 
-.contact-links a {
-  color: var(--color-accent);
-  text-decoration: none;
-}
-
-.contact-links a:hover {
-  text-decoration: underline;
-}
-
-.social-links {
-  display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-}
-
-.social-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: var(--color-secondary);
-  color: var(--color-primary);
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.social-link:hover {
-  background: var(--color-primary);
-  color: white;
-  transform: translateY(-2px);
+.page-section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 105, 180, 0.6);
+  filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.4));
 }
 </style>

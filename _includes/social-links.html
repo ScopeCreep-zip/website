@@ -1,0 +1,244 @@
+{% comment %}
+  Centralized Social Links Component
+  Manages all social media and external links
+  Uses data from _data/social_links.yml for centralized management
+{% endcomment %}
+
+{% assign layout = include.layout | default: "horizontal" %}
+{% assign size = include.size | default: "medium" %}
+{% assign source = include.source | default: "company" %}
+{% assign team_member = include.team_member %}
+{% assign show_names = include.show_names | default: true %}
+{% assign use_emojis = site.data.social_links.icon_settings.use_emojis | default: false %}
+{% assign use_logos = site.data.social_links.icon_settings.use_logos | default: false %}
+{% assign icon_only = include.icon_only | default: false %}
+
+<div class="social-links social-links--{{ layout }} social-links--{{ size }}">
+  {% if include.title %}
+  <h3 class="social-links__title">{{ include.title }}</h3>
+  {% endif %}
+  
+  <div class="social-links__list">
+    {% if source == "company" %}
+      {% for platform in site.data.social_links.company %}
+        {% if platform[1].enabled %}
+        <a href="{{ platform[1].url }}" 
+           class="social-link social-link--{{ platform[0] }}{% if icon_only %} social-link--icon-only{% endif %}" 
+           aria-label="{{ platform[1].name }}"
+           {% if platform[1].url contains 'http' %}target="_blank" rel="noopener"{% endif %}>
+          {% if use_logos and platform[1].logo %}
+            <img src="{{ platform[1].logo }}" alt="{{ platform[1].name }}" class="social-link__logo">
+          {% elsif use_emojis %}
+            <span class="social-link__icon social-link__icon--emoji">{{ platform[1].emoji }}</span>
+          {% else %}
+            <i class="{{ platform[1].icon }} social-link__icon"></i>
+          {% endif %}
+          {% if show_names and icon_only == false %}
+          <span class="social-link__text">{{ platform[1].name }}</span>
+          {% endif %}
+        </a>
+        {% endif %}
+      {% endfor %}
+      
+    {% elsif source == "team" and team_member %}
+      {% assign member_links = site.data.social_links.team[team_member] %}
+      {% for platform in member_links %}
+        {% if platform[1].enabled %}
+        <a href="{{ platform[1].url }}" 
+           class="social-link social-link--{{ platform[0] }}{% if icon_only %} social-link--icon-only{% endif %}" 
+           aria-label="{{ platform[1].name }}"
+           {% if platform[1].url contains 'http' %}target="_blank" rel="noopener"{% endif %}>
+          {% if use_logos and platform[1].logo %}
+            <img src="{{ platform[1].logo }}" alt="{{ platform[1].name }}" class="social-link__logo">
+          {% elsif use_emojis %}
+            <span class="social-link__icon social-link__icon--emoji">{{ platform[1].emoji }}</span>
+          {% else %}
+            <i class="{{ platform[1].icon }} social-link__icon"></i>
+          {% endif %}
+          {% if show_names and icon_only == false %}
+          <span class="social-link__text">{{ platform[1].name }}</span>
+          {% endif %}
+        </a>
+        {% endif %}
+      {% endfor %}
+      
+    {% elsif source == "external" %}
+      {% for link in site.data.social_links.external %}
+        {% if link[1].enabled %}
+        <a href="{{ link[1].url | relative_url }}" 
+           class="social-link social-link--{{ link[0] }}{% if icon_only %} social-link--icon-only{% endif %}" 
+           aria-label="{{ link[1].name }}"
+           {% if link[1].url contains 'http' %}target="_blank" rel="noopener"{% endif %}>
+          {% if use_emojis %}
+            <span class="social-link__icon social-link__icon--emoji">{{ link[1].emoji }}</span>
+          {% else %}
+            <i class="{{ link[1].icon }} social-link__icon"></i>
+          {% endif %}
+          {% if show_names and icon_only == false %}
+          <span class="social-link__text">{{ link[1].name }}</span>
+          {% endif %}
+        </a>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+
+<style>
+.social-links {
+  margin: 1.5rem 0;
+}
+
+.social-links__title {
+  color: var(--text-purple);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.social-links__list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-links--vertical .social-links__list {
+  flex-direction: column;
+}
+
+.social-links--horizontal .social-links__list {
+  flex-direction: row;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--white);
+  border: 2px solid var(--kawaii-purple);
+  color: var(--text-dark);
+  padding: 0.75rem 1.25rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(157, 78, 221, 0.2);
+}
+
+.social-links--small .social-link {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+.social-links--large .social-link {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+}
+
+.social-link__icon {
+  font-size: {{ site.data.social_links.icon_settings.icon_size | default: "1rem" }};
+}
+
+.social-link__icon--emoji {
+  font-size: {{ site.data.social_links.icon_settings.emoji_size | default: "1.2rem" }};
+  line-height: 1;
+}
+
+.social-link__logo {
+  width: {{ site.data.social_links.icon_settings.logo_size | default: "20px" }};
+  height: {{ site.data.social_links.icon_settings.logo_size | default: "20px" }};
+  object-fit: contain;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan));
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.social-link:hover::before {
+  left: 0;
+}
+
+.social-link:hover {
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(157, 78, 221, 0.4);
+}
+
+/* Platform-specific colors */
+.social-link--github:hover {
+  border-color: #333;
+}
+
+.social-link--twitter:hover {
+  border-color: #1DA1F2;
+}
+
+.social-link--linkedin:hover {
+  border-color: #0077B5;
+}
+
+.social-link--youtube:hover {
+  border-color: #FF0000;
+}
+
+.social-link--bluesky:hover {
+  border-color: #00A8E8;
+}
+
+.social-link--email:hover {
+  border-color: var(--kawaii-pink);
+}
+
+/* Icon-only styles */
+.social-link--icon-only {
+  padding: 0.75rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  justify-content: center;
+}
+
+.social-links--small .social-link--icon-only {
+  width: 40px;
+  height: 40px;
+  padding: 0.5rem;
+}
+
+.social-links--large .social-link--icon-only {
+  width: 56px;
+  height: 56px;
+  padding: 1rem;
+}
+
+/* Adjust logo sizes for different social link sizes */
+.social-links--small .social-link__logo {
+  width: 16px;
+  height: 16px;
+}
+
+.social-links--large .social-link__logo {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 768px) {
+  .social-links__list {
+    justify-content: center;
+  }
+  
+  .social-links--horizontal .social-links__list {
+    flex-wrap: wrap;
+  }
+}
+</style>

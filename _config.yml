@@ -65,10 +65,11 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-  # - jekyll-responsive-image # Temporarily disabled
-  - jekyll-minifier
-  - jekyll-archives
-  - jekyll-paginate-v2
+  # GitHub Pages doesn't support these plugins:
+  # - jekyll-responsive-image
+  # - jekyll-minifier
+  # - jekyll-archives
+  # - jekyll-paginate-v2
 
 # Jekyll Archives
 jekyll-archives:
@@ -151,7 +152,7 @@ include:
 podcast:
   title: "ScopeCreep.zip Podcast"
   subtitle: "Where Kawaii Meets Code"
-  description: "Technical discussions covering cybersecurity research, platform engineering, and industry insights with a kawaii twist."
+  description: "Technical discussions covering cybersecurity research, platform engineering, and industry insights with glimmer."
   language: "en-us"
   author: "Kali Jackson & Kat Morgan"
   email: "podcast@scopecreep.zip"

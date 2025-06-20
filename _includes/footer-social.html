@@ -1,0 +1,52 @@
+{% comment %}
+  Footer Social Links Component
+  Styled to match podcast footer buttons
+{% endcomment %}
+
+<style>
+.footer-social-links {
+  margin-top: 1rem;
+}
+
+.footer-social-links .social-links__list {
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
+.footer-social-links .social-link {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  border-width: 1px;
+  background: transparent;
+  border-radius: 20px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.footer-social-links .social-link:hover {
+  background: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);
+}
+
+.footer-social-links .social-link__logo {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-social-links .social-links__title {
+  display: none;
+}
+
+/* Override icon-only mode for footer */
+.footer-social-links .social-link--icon-only {
+  width: 100%;
+  height: auto;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+.footer-social-links .social-link__text {
+  display: block !important;
+}
+</style>

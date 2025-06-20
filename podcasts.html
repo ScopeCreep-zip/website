@@ -4,31 +4,28 @@ title: Podcasts
 permalink: /podcasts/
 ---
 
-<div class="page-header">
-  <h1 class="page-title">Podcast Episodes</h1>
-  <p class="page-description">Tech talks with a trans femme twist</p>
-</div>
-
-<section class="podcast-info mb-2xl">
-  <div class="podcast-cover-art">
-    <img src="{{ site.podcast.image }}" alt="{{ site.podcast.title }} cover art" class="pixel-border">
-  </div>
-  <div class="podcast-details">
-    <h2>{{ site.podcast.title }}</h2>
-    <p class="podcast-subtitle">{{ site.podcast.subtitle }}</p>
-    <p class="podcast-description">{{ site.podcast.description }}</p>
+<section class="podcast-page-container">
+  <div class="podcast-info mb-2xl">
+    <div class="podcast-cover-art">
+      <img src="{{ '/media/site_media/logos/scopecreepzip_logo_no_text.png' | relative_url }}" alt="ScopeCreep.zip Logo">
+    </div>
+    <div class="podcast-details">
+      <h1 class="podcast-main-title">Podcast Episodes 🎧</h1>
+      <p class="podcast-tagline">Tech talks with a glimmer twist</p>
+      <h2>{{ site.podcast.title }}</h2>
+      <p class="podcast-subtitle">{{ site.podcast.subtitle }}</p>
+      <p class="podcast-description">{{ site.podcast.description }}</p>
     
     <div class="podcast-subscribe mt-lg">
-      <h3>Subscribe</h3>
-      <div class="subscribe-links">
-        <a href="/feed/podcast.xml" class="subscribe-link pixel-btn" aria-label="RSS Feed">
-          <span class="icon">📡</span> RSS
-        </a>
-        <!-- Add more podcast platform links as needed -->
-      </div>
+      {% include podcast-services.html 
+         title="Subscribe" 
+         layout="horizontal"
+         size="medium"
+         use_data_file=true
+      %}
     </div>
   </div>
-</section>
+  </div>
 
 <section class="episodes-list">
   <h2 class="sr-only">All Episodes</h2>
@@ -36,39 +33,7 @@ permalink: /podcasts/
   {% if site.podcasts.size > 0 %}
     <div class="episodes-grid">
       {% for episode in site.podcasts reversed %}
-      <article class="episode-item pixel-card">
-        <div class="episode-header">
-          <img src="{{ episode.artwork | default: site.podcast.image }}" 
-               alt="{{ episode.title }}" 
-               class="episode-artwork">
-          <div class="episode-meta">
-            <span class="episode-number">Episode {{ episode.episode_number }}</span>
-            <time datetime="{{ episode.date | date_to_xmlschema }}">
-              {{ episode.date | date: "%B %d, %Y" }}
-            </time>
-          </div>
-        </div>
-        
-        <div class="episode-content">
-          <h3 class="episode-title">
-            <a href="{{ episode.url }}">{{ episode.title }}</a>
-          </h3>
-          <p class="episode-description">{{ episode.description }}</p>
-          
-          {% if episode.duration %}
-          <div class="episode-duration">
-            <span class="icon">⏱️</span> {{ episode.duration }}
-          </div>
-          {% endif %}
-        </div>
-        
-        <div class="episode-actions">
-          <a href="{{ episode.url }}" class="btn btn-primary btn-sm">Listen Now</a>
-          {% if episode.transcript %}
-          <a href="{{ episode.transcript }}" class="btn btn-secondary btn-sm">Read Transcript</a>
-          {% endif %}
-        </div>
-      </article>
+        {% include podcast-episode-card.html episode=episode %}
       {% endfor %}
     </div>
   {% else %}
@@ -76,17 +41,152 @@ permalink: /podcasts/
       <div class="empty-state-icon mb-lg">🎙️</div>
       <h3>Episodes Coming Soon!</h3>
       <p class="text-muted">We're preparing our first episodes. Subscribe to get notified when they drop!</p>
-      <a href="/feed/podcast.xml" class="btn btn-neon mt-lg">Subscribe via RSS</a>
+      <div class="subscribe-links mt-lg">
+        {% include podcast-services.html 
+           layout="horizontal"
+           size="medium"
+           show_rss=false
+           use_data_file=true
+        %}
+      </div>
     </div>
   {% endif %}
 </section>
+</section>
 
-<!-- Fun ASCII Art -->
-<div class="ascii-decoration text-center mt-2xl">
-<pre class="text-muted">
-    ___  __   ___   __  ___  __  
-   |__  |__) |/ _` |  \  |  |__  
-   |___ |    | __/ |__/  |  |___ 
-                                 
-</pre>
-</div>
+
+<style>
+.podcast-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.podcast-main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 105, 180, 0.6);
+  filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.4));
+}
+
+.podcast-tagline {
+  font-size: 1.2rem;
+  color: var(--text-purple);
+  font-weight: 600;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(157, 78, 221, 0.2);
+}
+
+.podcast-info {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  align-items: start;
+  background: var(--white);
+  border: 3px solid var(--kawaii-purple);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.podcast-info::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(157, 78, 221, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.podcast-cover-art img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.podcast-details h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.podcast-subtitle {
+  color: var(--text-purple);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.podcast-description {
+  color: var(--text-dark);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.episodes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.empty-state {
+  background: var(--white);
+  border: 3px solid var(--kawaii-purple);
+  border-radius: 24px;
+  padding: 4rem 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.empty-state-icon {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+
+.empty-state h3 {
+  font-size: 2rem;
+  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.empty-state p {
+  color: var(--text-purple);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.empty-state .subscribe-links {
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .podcast-info {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .podcast-cover-art {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+</style>

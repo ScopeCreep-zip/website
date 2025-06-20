@@ -84,6 +84,63 @@ yarn-error.log*
 node_modules/
 npm-debug.log
 yarn-error.log
+package-lock.json
+yarn.lock
+.npm/
+.yarn/
 
-# Custom - your original entry
+# Build artifacts
+*.map
+*.min.js
+*.min.css
+
+# Cache directories
+.cache/
+.parcel-cache/
+
+# Testing
+coverage/
+.nyc_output/
+htmlcov/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+~$*
+
+# Archives
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Security - Never commit secrets
+*.pem
+*.key
+*.crt
+*.p12
+.htpasswd
+secrets.yml
+credentials.yml
+
+# Development
+.byebug_history
+.rspec
+.ruby-version
+.ruby-gemset
+.rvmrc
+
+# Documentation build
+docs/_site/
+docs/.sass-cache/
+
+# Custom - project specific
 docs/prompts/*
+_drafts/
+.notes/
+TODO.md
+NOTES.md

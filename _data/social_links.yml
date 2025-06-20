@@ -1,0 +1,206 @@
+# Centralized Social Media and External Links Configuration
+# Update these URLs with your actual social media and external links
+
+# Company/Brand Social Links
+company:
+  github:
+    name: "GitHub"
+    url: "https://github.com/scopecreepzip"
+    icon: "fab fa-github"
+    emoji: "🐙"
+    logo: "https://github.githubassets.com/favicons/favicon.svg"
+    enabled: true
+  
+  bluesky:
+    name: "Bluesky"
+    url: "https://bsky.app/profile/scopecreep.bsky.social"
+    icon: "fas fa-cloud"
+    emoji: "🦋"
+    logo: "https://bsky.app/static/favicon-32x32.png"
+    enabled: true
+  
+  twitter:
+    name: "Twitter"
+    url: "https://twitter.com/scopecreepzip"
+    icon: "fab fa-twitter"
+    emoji: "🐦"
+    logo: "https://abs.twimg.com/responsive-web/client-web/icon-svg.168b89d5.svg"
+    enabled: true
+  
+  linkedin:
+    name: "LinkedIn"
+    url: "https://linkedin.com/company/scopecreep"
+    icon: "fab fa-linkedin"
+    emoji: "💼"
+    logo: "https://static.licdn.com/aero-v1/sc/h/al2o9zrvru7aqj8e1x2rzsrca"
+    enabled: true
+  
+  youtube:
+    name: "YouTube"
+    url: "https://youtube.com/@scopecreepzip"
+    icon: "fab fa-youtube"
+    emoji: "📺"
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF0000'%3E%3Cpath d='M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z'/%3E%3C/svg%3E"
+    enabled: true
+  
+  email:
+    name: "Email"
+    url: "mailto:hello@scopecreep.zip"
+    icon: "fas fa-envelope"
+    emoji: "📧"
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239d4edd'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E"
+    enabled: true
+  
+  discord:
+    name: "Discord"
+    url: "#"
+    icon: "fab fa-discord"
+    emoji: "💬"
+    logo: "https://discord.com/assets/847541504914fd33810e70a0ea73177e.ico"
+    enabled: false
+  
+  instagram:
+    name: "Instagram"
+    url: "#"
+    icon: "fab fa-instagram"
+    emoji: "📸"
+    logo: "https://static.cdninstagram.com/rsrc.php/v3/yG/r/De-Dwpd5CHc.png"
+    enabled: false
+
+# Team Member Social Links
+team:
+  kali:
+    blog:
+      name: "Personal Blog"
+      url: "https://radicalkjax.com"
+      icon: "fas fa-blog"
+      emoji: "📝"
+      logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff69b4'%3E%3Cpath d='M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM18 14H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z'/%3E%3C/svg%3E"
+      enabled: true
+    
+    github:
+      name: "GitHub"
+      url: "https://github.com/radicalkjax"
+      icon: "fab fa-github"
+      emoji: "🐙"
+      logo: "https://github.githubassets.com/favicons/favicon.svg"
+      enabled: true
+    
+    bluesky:
+      name: "Bluesky"
+      url: "https://bsky.app/profile/radicalkjax.com"
+      icon: "fas fa-cloud"
+      emoji: "🦋"
+      logo: "https://bsky.app/static/favicon-32x32.png"
+      enabled: true
+    
+    twitter:
+      name: "Twitter"
+      url: "https://twitter.com/radicalkjax"
+      icon: "fab fa-twitter"
+      emoji: "🐦"
+      logo: "https://abs.twimg.com/responsive-web/client-web/icon-svg.168b89d5.svg"
+      enabled: true
+    
+    linkedin:
+      name: "LinkedIn"
+      url: "https://linkedin.com/in/kalijackson"
+      icon: "fab fa-linkedin"
+      emoji: "💼"
+      logo: "https://static.licdn.com/aero-v1/sc/h/al2o9zrvru7aqj8e1x2rzsrca"
+      enabled: true
+    
+    email:
+      name: "Email"
+      url: "mailto:kali@scopecreep.zip"
+      icon: "fas fa-envelope"
+      emoji: "📧"
+      logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff69b4'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E"
+      enabled: true
+  
+  kat:
+    blog:
+      name: "Personal Blog"
+      url: "https://blog.usrbinkat.io/en/"
+      icon: "fas fa-blog"
+      emoji: "📝"
+      logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300e5ff'%3E%3Cpath d='M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM18 14H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z'/%3E%3C/svg%3E"
+      enabled: true
+    
+    github:
+      name: "GitHub"
+      url: "https://github.com/usrbinkat"
+      icon: "fab fa-github"
+      emoji: "🐙"
+      logo: "https://github.githubassets.com/favicons/favicon.svg"
+      enabled: true
+    
+    bluesky:
+      name: "Bluesky"
+      url: "https://bsky.app/profile/usrbinkat.io"
+      icon: "fas fa-cloud"
+      emoji: "🦋"
+      logo: "https://bsky.app/static/favicon-32x32.png"
+      enabled: true
+    
+    twitter:
+      name: "Twitter"
+      url: "https://twitter.com/usrbinkat"
+      icon: "fab fa-twitter"
+      emoji: "🐦"
+      logo: "https://abs.twimg.com/responsive-web/client-web/icon-svg.168b89d5.svg"
+      enabled: true
+    
+    linkedin:
+      name: "LinkedIn"
+      url: "https://linkedin.com/in/katmorgan"
+      icon: "fab fa-linkedin"
+      emoji: "💼"
+      logo: "https://static.licdn.com/aero-v1/sc/h/al2o9zrvru7aqj8e1x2rzsrca"
+      enabled: true
+    
+    email:
+      name: "Email"
+      url: "mailto:kat@scopecreep.zip"
+      icon: "fas fa-envelope"
+      emoji: "📧"
+      logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300e5ff'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E"
+      enabled: true
+
+# External Links
+external:
+  podcast_rss:
+    name: "Podcast RSS"
+    url: "/feed/podcast.xml"
+    icon: "fas fa-rss"
+    emoji: "📡"
+    enabled: true
+  
+  blog_rss:
+    name: "Blog RSS"
+    url: "/feed.xml"
+    icon: "fas fa-rss"
+    emoji: "📰"
+    enabled: true
+  
+  documentation:
+    name: "Documentation"
+    url: "/docs/"
+    icon: "fas fa-book"
+    emoji: "📚"
+    enabled: false
+  
+  status:
+    name: "Status Page"
+    url: "https://status.scopecreep.zip"
+    icon: "fas fa-signal"
+    emoji: "🟢"
+    enabled: false
+
+# Icon settings
+icon_settings:
+  use_emojis: false  # Set to true to use emojis instead of Font Awesome icons
+  use_logos: true  # Set to true to use official platform logos
+  icon_size: "1rem"
+  emoji_size: "1.2rem"
+  logo_size: "20px"

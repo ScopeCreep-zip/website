@@ -2,48 +2,49 @@
   <div class="container">
     <div class="footer-content">
       <div class="footer-section">
-        <h4>Connect & Collaborate ✨</h4>
+        <h4>Explore</h4>
         <ul class="footer-links">
-          <li><a href="/services/">Be a Podcast Guest</a></li>
-          <li><a href="/services/#collaboration-opportunities">Collaborate With Us</a></li>
-          <li><a href="/speaking/">Speaking Engagements</a></li>
-          <li><a href="/contact/">Get in Touch</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Content & Resources 📚</h4>
-        <ul class="footer-links">
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/podcasts/">Podcast</a></li>
           <li><a href="/research/">Technical Blogs</a></li>
-          <li><a href="/blog/">Blog Archive</a></li>
-          <li><a href="/podcasts/">Podcast Episodes</a></li>
-          <li><a href="/speaking/">Conference Materials</a></li>
+          <li><a href="/speaking/">Speaking</a></li>
         </ul>
       </div>
       
       <div class="footer-section">
-        <h4>Connect With Us 💫</h4>
+        <h4>Connect</h4>
         <ul class="footer-links">
-          <li><a href="https://linkedin.com" target="_blank">LinkedIn Profiles</a></li>
-          <li><a href="https://github.com" target="_blank">GitHub Repositories</a></li>
-          <li><a href="https://bsky.app" target="_blank">Bluesky Social</a></li>
-          <li><a href="/speaking/#upcoming-appearances">Conference Calendar</a></li>
+          <li><a href="/services/">Collaborate</a></li>
+          <li><a href="/contact/">Contact Us</a></li>
         </ul>
+        <div class="footer-social-links">
+          {% include footer-social.html %}
+          {% include social-links.html 
+             source="company"
+             layout="vertical"
+             size="small"
+             icon_only=false
+             show_names=true
+          %}
+        </div>
       </div>
       
       <div class="footer-section">
-        <h4>Get In Touch 💌</h4>
-        <ul class="footer-links">
-          <li><a href="/contact/#speaking-inquiries">Speaking Inquiries</a></li>
-          <li><a href="/contact/#consulting-requests">Consulting Requests</a></li>
-          <li><a href="/contact/#collaboration">Collaboration</a></li>
-          <li><a href="/contact/#media-inquiries">Media Inquiries</a></li>
-        </ul>
+        <h4>Subscribe</h4>
+        <p class="footer-description">Listen to ScopeCreep.zip Podcast</p>
+        <div class="footer-podcast-links">
+          {% include footer-podcast.html %}
+          {% include podcast-services.html 
+             layout="vertical"
+             size="small"
+             use_data_file=true
+          %}
+        </div>
       </div>
     </div>
     
     <div class="footer-bottom">
-      <p>© 2025 ScopeCreep.zip - Made with 💖 by Kali & Kat in Sacramento ✨</p>
+      <p>© 2025 ScopeCreep.zip - Made with 💖 by Kali & Kat ✨</p>
     </div>
   </div>
 </footer>

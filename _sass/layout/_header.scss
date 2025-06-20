@@ -27,6 +27,12 @@
   gap: 0.75rem;
   text-align: left;
   flex-shrink: 0;
+  text-decoration: none;
+  color: inherit;
+  
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .logo {
