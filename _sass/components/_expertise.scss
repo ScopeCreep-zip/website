@@ -17,36 +17,70 @@
 // Expert Cards
 .expert-card {
   background: var(--white);
-  padding: 2.5rem;
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  border-radius: 32px;
+  padding: 3.5rem 3rem 3rem;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  border: 3px solid;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
   
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  }
+  
+  // Rainbow gradient strip at top
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan));
+    z-index: 10;
   }
   
   // Individual card styling based on team member
   &.kali {
-    border-top: 4px solid var(--kawaii-purple);
+    border-color: var(--kawaii-pink);
   }
   
   &.kat {
-    border-top: 4px solid var(--kawaii-cyan);
+    border-color: var(--kawaii-cyan);
   }
 }
 
 .expert-header {
   display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-  align-items: flex-start;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .expert-avatar {
-  font-size: 3rem;
-  line-height: 1;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white);
+  border: 4px solid var(--white);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  
+  .kali & {
+    background: linear-gradient(135deg, var(--kawaii-pink), #ff1493, #ff69b4);
+  }
+  
+  .kat & {
+    background: linear-gradient(135deg, var(--kawaii-cyan), #00bcd4, #40e0d0);
+  }
 }
 
 .expert-info {
@@ -74,13 +108,13 @@
 }
 
 .credential-badge {
-  background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender));
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  font-size: 0.875rem;
+  background: linear-gradient(135deg, var(--kawaii-purple), var(--kawaii-pink));
+  color: var(--white);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: var(--text-purple);
-  border: 1px solid var(--border-kawaii);
+  box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);
 }
 
 .expert-description {
@@ -89,12 +123,16 @@
   line-height: 1.6;
   margin-bottom: 1.5rem;
   font-weight: 500;
+  position: relative;
+  z-index: 2;
 }
 
 .expertise-list {
   list-style: none;
   padding: 0;
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
   
   li {
     position: relative;
@@ -115,6 +153,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  position: relative;
+  z-index: 2;
   
   .social-link {
     color: var(--kawaii-purple);

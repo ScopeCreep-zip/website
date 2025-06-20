@@ -20,7 +20,7 @@ kali:
     - "Conference Speaking & Security Education"
   social:
     blog: "https://radicalkjax.com"
-    research: "https://malwarEvangelist.com"
+    github: "https://github.com/radicalkjax"
     bluesky: "https://bsky.app/profile/radicalkjax.com"
     twitter: "https://twitter.com/radicalkjax"
   color_scheme:

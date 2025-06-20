@@ -58,7 +58,15 @@ title: Home
             {% for member in site.data.team %}
             <div class="expert-card {{ member[0] }}">
                 <div class="expert-header">
-                    <div class="expert-avatar">{{ member[1].emoji }}</div>
+                    <div class="expert-avatar">
+                        {% if member[0] == 'kali' %}
+                        <img src="https://github.com/radicalkjax.png" alt="{{ member[1].name }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                        {% elsif member[0] == 'kat' %}
+                        <img src="https://github.com/usrbinkat.png" alt="{{ member[1].name }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                        {% else %}
+                        {{ member[1].emoji }}
+                        {% endif %}
+                    </div>
                     <div class="expert-info">
                         <h3>{{ member[1].name }}</h3>
                         <div class="expert-title">{{ member[1].title }}</div>
@@ -99,9 +107,9 @@ title: Home
 </section>
 
 <!-- Recognition Section -->
-<section class="recognition" id="speaking" style="background: linear-gradient(135deg, var(--bg-light-pink) 0%, var(--bg-lavender) 50%, var(--bg-cyan-light) 100%); padding: 4rem 0; margin: 4rem 0; border-radius: 32px; border: 3px solid var(--kawaii-purple);">
+<section class="recognition" id="speaking">
     <div class="container">
-        <h2 class="section-title" style="text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 3rem; background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Speaking & Recognition 🎤✨</h2>
+        <h2 class="section-title">Speaking & Recognition 🎤✨</h2>
         
         <div class="recognition-grid">
             <div class="recognition-card">
@@ -144,50 +152,50 @@ title: Home
 </section>
 
 <!-- Podcast Section -->
-<section class="podcast" id="podcast" style="background: var(--white); border: 3px solid var(--kawaii-cyan); border-radius: 32px; padding: 4rem; margin: 4rem 0; box-shadow: 0 20px 60px rgba(0, 229, 255, 0.2); position: relative;">
+<section class="podcast" id="podcast">
     <div class="container">
-        <div class="podcast-content" style="text-align: center; max-width: 900px; margin: 0 auto;">
-            <h2 style="font-size: 3rem; font-weight: 700; margin-bottom: 2rem; background: linear-gradient(45deg, var(--kawaii-cyan), var(--kawaii-purple), var(--kawaii-pink)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ScopeCreep.zip Podcast 🎧✨</h2>
-            <p class="podcast-description" style="font-size: 1.2rem; color: var(--text-purple); margin-bottom: 3rem; line-height: 1.7; font-weight: 500;">
+        <div class="podcast-content">
+            <h2>ScopeCreep.zip Podcast 🎧✨</h2>
+            <p class="podcast-description">
                 Join us for technical discussions that don't take themselves too seriously! We dive deep into cybersecurity research, platform engineering, and industry insights while keeping things fun, accessible, and sprinkled with kawaii energy. Perfect for security professionals and engineers who want substance with a smile! 🎧💖
             </p>
             
-            <div class="podcast-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                <div class="feature-item" style="background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender)); padding: 2.5rem; border-radius: 20px; border: 2px solid var(--border-kawaii); transition: all 0.3s ease;">
-                    <div class="feature-icon" style="font-size: 3rem; margin-bottom: 1.5rem;">🔒</div>
-                    <div class="feature-title" style="font-size: 1.4rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem;">Security Deep-Dives</div>
-                    <div class="feature-description" style="color: var(--text-purple); font-size: 1rem; line-height: 1.6; font-weight: 500;">Latest malware analysis techniques, threat hunting, and AI-powered security tools explained with clarity and charm</div>
+            <div class="podcast-features">
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">Security Deep-Dives</div>
+                    <div class="feature-description">Latest malware analysis techniques, threat hunting, and AI-powered security tools explained with clarity and charm</div>
                 </div>
                 
-                <div class="feature-item" style="background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender)); padding: 2.5rem; border-radius: 20px; border: 2px solid var(--border-kawaii); transition: all 0.3s ease;">
-                    <div class="feature-icon" style="font-size: 3rem; margin-bottom: 1.5rem;">⚙️</div>
-                    <div class="feature-title" style="font-size: 1.4rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem;">Platform Magic</div>
-                    <div class="feature-description" style="color: var(--text-purple); font-size: 1rem; line-height: 1.6; font-weight: 500;">Cloud-native architectures, Kubernetes wizardry, and enterprise infrastructure made understandable and delightful</div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚙️</div>
+                    <div class="feature-title">Platform Magic</div>
+                    <div class="feature-description">Cloud-native architectures, Kubernetes wizardry, and enterprise infrastructure made understandable and delightful</div>
                 </div>
                 
-                <div class="feature-item" style="background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender)); padding: 2.5rem; border-radius: 20px; border: 2px solid var(--border-kawaii); transition: all 0.3s ease;">
-                    <div class="feature-icon" style="font-size: 3rem; margin-bottom: 1.5rem;">🎤</div>
-                    <div class="feature-title" style="font-size: 1.4rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem;">Amazing Guests</div>
-                    <div class="feature-description" style="color: var(--text-purple); font-size: 1rem; line-height: 1.6; font-weight: 500;">Conversations with industry innovators, researchers, and engineers who are shaping the future of technology</div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎤</div>
+                    <div class="feature-title">Amazing Guests</div>
+                    <div class="feature-description">Conversations with industry innovators, researchers, and engineers who are shaping the future of technology</div>
                 </div>
                 
-                <div class="feature-item" style="background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender)); padding: 2.5rem; border-radius: 20px; border: 2px solid var(--border-kawaii); transition: all 0.3s ease;">
-                    <div class="feature-icon" style="font-size: 3rem; margin-bottom: 1.5rem;">🤖</div>
-                    <div class="feature-title" style="font-size: 1.4rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem;">AI Adventures</div>
-                    <div class="feature-description" style="color: var(--text-purple); font-size: 1rem; line-height: 1.6; font-weight: 500;">Cutting-edge ML research, ethical AI development, and practical applications demystified with kawaii flair and technical depth</div>
+                <div class="feature-item">
+                    <div class="feature-icon">🤖</div>
+                    <div class="feature-title">AI Adventures</div>
+                    <div class="feature-description">Cutting-edge ML research, ethical AI development, and practical applications demystified with kawaii flair and technical depth</div>
                 </div>
             </div>
             
-            <div style="background: linear-gradient(135deg, var(--bg-lavender), var(--bg-cyan-light)); border: 3px dashed var(--kawaii-cyan); padding: 3rem; border-radius: 20px; margin: 2rem 0;">
-                <p style="color: var(--text-purple); font-weight: 700; font-size: 1.2rem; text-align: center;">🎵 Coming Soon! 🎵</p>
-                <p style="font-size: 1rem; margin-top: 1rem; text-align: center; color: var(--text-dark);">We're crafting the perfect blend of technical excellence and kawaii charm!</p>
+            <div class="coming-soon-box">
+                <p>🎵 Coming Soon! 🎵</p>
+                <p>We're crafting the perfect blend of technical excellence and kawaii charm!</p>
             </div>
             
-            <div class="subscribe-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.5rem; max-width: 700px; margin: 0 auto;">
-                <a href="#" class="subscribe-btn" style="background: var(--white); color: var(--text-dark); padding: 1.25rem; border: 3px solid var(--kawaii-cyan); border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 6px 20px rgba(0, 229, 255, 0.2);">🎵 Spotify</a>
-                <a href="#" class="subscribe-btn" style="background: var(--white); color: var(--text-dark); padding: 1.25rem; border: 3px solid var(--kawaii-cyan); border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 6px 20px rgba(0, 229, 255, 0.2);">🍎 Apple</a>
-                <a href="#" class="subscribe-btn" style="background: var(--white); color: var(--text-dark); padding: 1.25rem; border: 3px solid var(--kawaii-cyan); border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 6px 20px rgba(0, 229, 255, 0.2);">📺 YouTube</a>
-                <a href="#" class="subscribe-btn" style="background: var(--white); color: var(--text-dark); padding: 1.25rem; border: 3px solid var(--kawaii-cyan); border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 6px 20px rgba(0, 229, 255, 0.2);">📡 RSS</a>
+            <div class="subscribe-grid">
+                <a href="#" class="subscribe-btn">🎵 Spotify</a>
+                <a href="#" class="subscribe-btn">🍎 Apple</a>
+                <a href="#" class="subscribe-btn">📺 YouTube</a>
+                <a href="#" class="subscribe-btn">📡 RSS</a>
             </div>
         </div>
     </div>
