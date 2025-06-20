@@ -38,13 +38,16 @@ section {
   padding: 4rem 0;
 }
 
-// Section title
+// Section title with gradient
 .section-title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
-  color: var(--text-dark);
   text-align: center;
   margin-bottom: 3rem;
+  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 // Stat numbers
@@ -79,6 +82,39 @@ section {
   
   &:focus {
     top: 6px;
+  }
+}
+
+// Stats Section Container
+.stats {
+  background: var(--white);
+  margin: 4rem 0;
+  border: 3px solid var(--kawaii-cyan);
+  border-radius: 32px;
+  padding: 3rem;
+  box-shadow: 0 15px 40px rgba(0, 229, 255, 0.2);
+  position: relative;
+}
+
+// Stats Grid
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+// Stat Items (Cards)
+.stat-item {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender));
+  border-radius: 20px;
+  border: 2px solid var(--border-kawaii);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(157, 78, 221, 0.3);
   }
 }
 

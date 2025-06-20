@@ -1,23 +1,8 @@
 // Stats Section Component Styles
+// Main stats section styling is in base/_global.scss
+// This file contains only the stats-specific components
 
-.stats {
-  background: linear-gradient(135deg, var(--bg-light-pink) 0%, var(--bg-lavender) 50%, var(--bg-cyan-light) 100%);
-  padding: 4rem 0;
-  margin: 4rem 0;
-  border-radius: 32px;
-  position: relative;
-  
-  &.kawaii-decoration::before {
-    content: '✨';
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--white);
-    padding: 0 1rem;
-    font-size: 1.5rem;
-  }
-}
+// Stats section title styling - removed since it's handled by global .section-title
 
 .stats-grid {
   display: grid;
