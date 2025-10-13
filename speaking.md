@@ -50,5 +50,13 @@ Have an event coming up? We'd love to participate!
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 30px rgba(255, 105, 180, 0.6);
   filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.4));
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  .page-section-title {
+    font-size: 1.75rem;
+  }
 }
 </style>

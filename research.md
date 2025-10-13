@@ -269,5 +269,51 @@ permalink: /research/
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 30px rgba(255, 105, 180, 0.6);
   filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.4));
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  .page-section-title {
+    font-size: 1.75rem;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
+    margin: 2rem auto;
+    max-width: 100%;
+  }
+
+  .blog-member {
+    padding: 1.5rem;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .blog-links {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .blog-link {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .social-link {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .scopecreep-links {
+    padding: 0 1rem;
+  }
 }
 </style>

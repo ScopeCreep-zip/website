@@ -119,6 +119,10 @@
   text-shadow: 0 0 30px rgba(255, 105, 180, 0.6);
   margin-bottom: 0.5rem;
   filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.4));
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 }
 
 // Hero highlight text

@@ -751,19 +751,48 @@
   .section-title {
     font-size: 2rem;
   }
-  
+
   .hero-content h1 {
     font-size: 2.5rem;
   }
-  
+
   .recognition-grid,
   .expertise-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .cta-buttons {
     flex-direction: column;
     align-items: center;
+  }
+
+  .podcast-content h2 {
+    font-size: 1.75rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .podcast {
+    padding: 2rem 1rem;
+  }
+
+  .podcast-content {
+    padding: 0;
+  }
+
+  .podcast-features {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+  }
+
+  .feature-item {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
   }
 }
 

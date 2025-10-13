@@ -133,6 +133,7 @@ credentials.yml
 .ruby-version
 .ruby-gemset
 .rvmrc
+.ruby-lsp/
 
 # Documentation build
 docs/_site/

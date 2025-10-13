@@ -26,3 +26,7 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 group :development do
   gem "webrick", "~> 1.8"
 end
+
+# Ruby 3.4+ compatibility
+gem "csv"
+gem "bigdecimal"
