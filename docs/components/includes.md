@@ -105,7 +105,7 @@ graph TD
   icon: fab fa-twitter
   label: Twitter
 - platform: github
-  url: https://github.com/scopecreepzip
+  url: https://github.com/ScopeCreep-zip
   icon: fab fa-github
   label: GitHub
 ```

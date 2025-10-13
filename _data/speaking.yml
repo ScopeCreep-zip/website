@@ -55,11 +55,11 @@ workshops:
     duration: "4 hours"
     speaker: "kali"
     description: "Hands-on reverse engineering workshop with a cute twist. Learn x86 assembly with pastel syntax highlighting!"
-    materials: "https://github.com/scopecreepzip/re101-kawaii"
+    materials: "https://github.com/ScopeCreep-zip/re101-kawaii"
 
   - title: "Building Your First K8s Operator with Sparkles"
     type: "Workshop"
     duration: "3 hours"
     speaker: "kat"
     description: "Create Kubernetes operators that are both functional and fabulous. Includes custom emoji-based logging!"
-    materials: "https://github.com/scopecreepzip/k8s-sparkle-operator"
+    materials: "https://github.com/ScopeCreep-zip/k8s-sparkle-operator"

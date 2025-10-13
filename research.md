@@ -22,8 +22,14 @@ permalink: /research/
     </ul>
     
     <div class="blog-links">
-      <a href="https://github.com/kalijackson" target="_blank" class="blog-link">
+      <a href="https://radicalkjax.com" target="_blank" class="blog-link">
+        <i class="fas fa-blog"></i> Blog
+      </a>
+      <a href="https://github.com/radicalkjax" target="_blank" class="blog-link">
         <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="https://bsky.app/profile/radicalkjax.com" target="_blank" class="blog-link">
+        <i class="fas fa-cloud"></i> Bluesky
       </a>
     </div>
   </div>
@@ -42,8 +48,14 @@ permalink: /research/
     </ul>
     
     <div class="blog-links">
-      <a href="https://github.com/katmorgan" target="_blank" class="blog-link">
+      <a href="https://blog.usrbinkat.io/en/page/about/" target="_blank" class="blog-link">
+        <i class="fas fa-blog"></i> Blog
+      </a>
+      <a href="https://github.com/usrbinkat" target="_blank" class="blog-link">
         <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="https://bsky.app/profile/usrbinkat.io" target="_blank" class="blog-link">
+        <i class="fas fa-cloud"></i> Bluesky
       </a>
     </div>
   </div>
@@ -52,7 +64,7 @@ permalink: /research/
 ## Find ScopeCreep Online
 
 <div class="scopecreep-links">
-  <a href="https://github.com/scopecreep" target="_blank" class="social-link">
+  <a href="https://github.com/ScopeCreep-zip" target="_blank" class="social-link">
     <i class="fab fa-github"></i> ScopeCreep GitHub
   </a>
 </div>

@@ -36,9 +36,9 @@ Welcome to the technical documentation for the ScopeCreep.zip website. This docu
 
 ## Quick Links
 
-- **Repository**: [github.com/scopecreepzip/website](https://github.com/scopecreepzip/website)
+- **Repository**: [github.com/ScopeCreep-zip/website](https://github.com/ScopeCreep-zip/website)
 - **Live Site**: [scopecreep.zip](https://scopecreep.zip)
-- **Issues**: [Report bugs or request features](https://github.com/scopecreepzip/website/issues)
+- **Issues**: [Report bugs or request features](https://github.com/ScopeCreep-zip/website/issues)
 
 ## Technology Overview
 
@@ -65,7 +65,7 @@ graph TD
 ## Getting Help
 
 1. Check the relevant documentation section
-2. Search existing [GitHub issues](https://github.com/scopecreepzip/website/issues)
+2. Search existing [GitHub issues](https://github.com/ScopeCreep-zip/website/issues)
 3. Contact the team at hello@scopecreep.zip
 
 ## Contributing

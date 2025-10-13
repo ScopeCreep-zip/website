@@ -35,7 +35,7 @@ ScopeCreep.zip is the collaborative platform of Kali Jackson and Kat Morgan, ble
 
 2. **Clone and Setup**
    ```bash
-   git clone https://github.com/scopecreepzip/website.git
+   git clone https://github.com/ScopeCreep-zip/website.git
    cd website
    bundle install
    ```

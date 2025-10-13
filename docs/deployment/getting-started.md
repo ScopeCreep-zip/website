@@ -18,7 +18,7 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/scopecreepzip/website.git
+git clone https://github.com/ScopeCreep-zip/website.git
 cd website
 ```
 

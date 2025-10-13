@@ -206,7 +206,7 @@ gh run watch <run-id>
 ### Build Status Badge
 
 ```markdown
-![Deploy Status](https://github.com/scopecreepzip/website/actions/workflows/deploy.yml/badge.svg)
+![Deploy Status](https://github.com/ScopeCreep-zip/website/actions/workflows/deploy.yml/badge.svg)
 ```
 
 ## Rollback Procedure
@@ -305,7 +305,7 @@ jekyll-minifier:
 curl -I https://scopecreep.zip
 
 # Validate deployment
-curl https://api.github.com/repos/scopecreepzip/website/pages
+curl https://api.github.com/repos/ScopeCreep-zip/website/pages
 
 # Force rebuild
 # Add empty commit
