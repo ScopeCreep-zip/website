@@ -17,12 +17,14 @@ Based on our expertise and interests:
 - AI/ML in Security
 - Security Research
 - Python & TensorFlow
+- Secure App Development
 
 **Kat's Topics:**
 - Platform Engineering
 - Kubernetes & Cloud Native
 - Development Environments
 - DevOps Practices
+- Effective Policy
 
 ### Available For
 
