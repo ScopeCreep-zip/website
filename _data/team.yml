@@ -13,7 +13,7 @@ kali:
     - "Green Witch"
   expertise:
     - "Deep Learning for Malware Classification"
-    - "Secure App Development""
+    - "Secure App Development"
     - "Reverse Engineering & Exploit Development"
     - "TensorFlow Security Applications"
     - "Digital Forensics & Incident Response"
