@@ -44,7 +44,7 @@ permalink: /contact/
 <div class="team-contacts">
   <div class="team-member">
     <h3>Kali Jackson</h3>
-    <p class="role">Technical Solutions Specialist/Hacker</p>
+    <p class="role">Full-stack Engineer/Hacker</p>
     <div class="member-social-links">
       {% include social-links.html 
          source="team"

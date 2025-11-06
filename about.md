@@ -6,8 +6,8 @@ description: "Meet Kali and Kat, the trans tech duo bringing kawaii energy to cy
 ---
 
 <div class="about-intro kawaii-decoration">
-  <h2 class="hero-highlight">Where Kawaii Meets Code 💖</h2>
-  <p class="lead-text">Welcome to the intersection of technology, identity, and delightful chaos! ScopeCreep.zip is where two trans tech enthusiasts explore the ever-expanding world of AI, cybersecurity, and software engineering with a sprinkle of kawaii magic.</p>
+  <h2 class="hero-highlight">Where Glimmer Meets Code 💖</h2>
+  <p class="lead-text">Welcome to the intersection of technology, identity, and delightful chaos! ScopeCreep.zip is where two trans tech enthusiasts explore the ever-expanding world of AI, cybersecurity, and software engineering with a sprinkle of magick.</p>
 </div>
 
 <section class="hosts-section">
@@ -32,7 +32,7 @@ description: "Meet Kali and Kat, the trans tech duo bringing kawaii energy to cy
       </div>
       <div class="host-fun-fact">
         <p class="fun-fact-label">Fun Fact:</p>
-        <p>"I once found a zero-day while debugging my coffee maker's firmware. Yes, really."</p>
+        <p>"I've only bought red cars and I have deuteranopia."</p>
       </div>
     </div>
 
@@ -55,7 +55,7 @@ description: "Meet Kali and Kat, the trans tech duo bringing kawaii energy to cy
       </div>
       <div class="host-fun-fact">
         <p class="fun-fact-label">Fun Fact:</p>
-        <p>"I automate everything, including my cat's feeding schedule. She's now on a CI/CD pipeline."</p>
+        <p>"I automate everything, including  our dog's feeding schedule. She's now on a CI/CD pipeline."</p>
       </div>
     </div>
   </div>
@@ -63,7 +63,7 @@ description: "Meet Kali and Kat, the trans tech duo bringing kawaii energy to cy
 
 <section class="topics-section">
   <h2 class="section-title kawaii-text text-center mb-4">What We Talk About 🎙️</h2>
-  <p class="section-intro text-center">Our conversations span the technical spectrum, always with a twist of personality and kawaii energy!</p>
+  <p class="section-intro text-center">Our conversations span the technical spectrum, always with a twist of personality and magical energy!</p>
   
   <div class="topics-grid">
     <div class="topic-card">
@@ -126,10 +126,10 @@ description: "Meet Kali and Kat, the trans tech duo bringing kawaii energy to cy
       <div class="timeline-arrow">→</div>
       <div class="timeline-item">
         <span class="timeline-emoji">✨</span>
-        <p>Kawaii website with particle effects!</p>
+        <p>Glimmer website with particle effects!</p>
       </div>
     </div>
-    <p class="story-conclusion">The scope definitely crept, but in the most kawaii way possible! 💖</p>
+    <p class="story-conclusion">The scope definitely crept, but in the most magical way possible! 💖</p>
   </div>
 </section>
 
@@ -151,7 +151,7 @@ description: "Meet Kali and Kat, the trans tech duo bringing kawaii energy to cy
 
 <section class="support-section kawaii-card">
   <h2 class="section-title kawaii-text text-center mb-4">Want to Support? 💝</h2>
-  <p class="support-intro text-center">The best ways to spread the kawaii tech love:</p>
+  <p class="support-intro text-center">The best ways to spread the glimmer tech love:</p>
   <div class="support-grid">
     <div class="support-item">
       <span class="support-icon">🎧</span>
