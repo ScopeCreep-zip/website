@@ -294,17 +294,17 @@ function initBuzzwordGenerator() {
     style.id = 'buzzword-styles';
     style.textContent = `
       @keyframes glitch {
-        0%, 100% { 
-          text-shadow: 0 0 0 transparent; 
+        0%, 100% {
+          text-shadow: 0 0 0 transparent;
         }
-        20% { 
-          text-shadow: -2px 0 var(--kawaii-cyan), 2px 0 var(--kawaii-pink); 
+        20% {
+          text-shadow: -2px 0 var(--gold-light), 2px 0 var(--gold-dark);
         }
-        40% { 
-          text-shadow: 2px 0 var(--kawaii-purple), -2px 0 var(--kawaii-cyan); 
+        40% {
+          text-shadow: 2px 0 var(--gold-primary), -2px 0 var(--gold-light);
         }
-        60% { 
-          text-shadow: 0 0 8px var(--kawaii-pink); 
+        60% {
+          text-shadow: 0 0 8px var(--gold-primary);
         }
       }
       

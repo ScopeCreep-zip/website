@@ -5,12 +5,12 @@
   position: absolute;
   top: -40px;
   left: 0;
-  background: var(--color-bg);
-  color: var(--color-accent);
-  padding: $space-sm $space-md;
+  background: var(--gold-primary);
+  color: var(--bg-primary);
+  padding: 0.5rem 1rem;
   text-decoration: none;
-  z-index: z('tooltip');
-  
+  z-index: 1000;
+
   &:focus {
     top: 0;
   }

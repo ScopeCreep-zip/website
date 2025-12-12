@@ -1,143 +1,63 @@
-// Footer styles
+// Footer styles - Tarot Theme
 
 .footer {
-  background: linear-gradient(135deg, var(--kawaii-purple) 0%, var(--kawaii-pink) 50%, var(--kawaii-cyan) 100%);
-  color: var(--white);
-  padding: 4rem 0 2rem;
-  position: relative;
-  overflow: visible;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-    opacity: 0.5;
-    z-index: 1;
-  }
+  padding: var(--space-xl) 0;
+  border-top: 1px solid var(--border-subtle);
+  transition: border-color 0.3s ease;
 }
 
-.footer-content {
-  position: relative;
-  z-index: 10;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.footer-section {
-  background: var(--white);
-  border: 3px solid var(--kawaii-purple);
-  border-radius: 24px;
-  padding: 2rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  
-  &:nth-child(1) {
-    border-color: var(--kawaii-pink);
-  }
-  
-  &:nth-child(2) {
-    border-color: var(--kawaii-cyan);
-  }
-  
-  &:nth-child(3) {
-    border-color: var(--kawaii-purple);
-  }
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(157, 78, 221, 0.05) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
-  }
-  
-  h4 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .footer-description {
-    color: var(--text-purple);
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-    font-weight: 500;
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+
+  [data-theme="dark"] & {
+    color: var(--gold-light);
   }
 }
 
 .footer-links {
-  list-style: none;
-  
-  li {
-    margin-bottom: 0.75rem;
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.footer-link {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--gold-dark);
   }
-  
-  a {
-    color: var(--text-dark);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    padding: 0.25rem 0;
-    border-radius: 4px;
-    position: relative;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--kawaii-pink), var(--kawaii-purple));
-      transition: width 0.3s ease;
-    }
-    
-    &:hover {
-      color: var(--kawaii-purple);
-      
-      &::after {
-        width: 100%;
-      }
-    }
-    
-    &:focus {
-      outline: 2px solid var(--kawaii-purple);
-      outline-offset: 2px;
-      border-radius: 4px;
-    }
+
+  [data-theme="dark"] &:hover {
+    color: var(--gold-light);
+  }
+
+  &:focus {
+    outline: 2px solid var(--gold-primary);
+    outline-offset: 2px;
   }
 }
 
-.footer-bottom {
-  padding-top: 2rem;
-  text-align: center;
-  position: relative;
-  z-index: 2;
-  
-  p {
-    color: rgba(255, 255, 255, 0.95);
-    font-size: 1rem;
-    font-weight: 600;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+// Responsive
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: var(--space-md);
+    text-align: center;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

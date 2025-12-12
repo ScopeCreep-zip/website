@@ -1,20 +1,22 @@
 <header class="header">
-  <div class="header-container">
+  <div class="header-inner">
     <a href="/" class="brand">
-      <img src="{{ '/media/site_media/logos/scopecreepzip_logo_no_text.PNG' | relative_url }}" alt="ScopeCreep.zip Logo" class="logo-image">
-      <div class="logo-text-wrapper">
-        <div class="logo">{{ site.title }}</div>
-        <div class="tagline">Where Kawaii Meets Code 💖✨</div>
-      </div>
+      <span class="logo">{{ site.title }}</span>
+      <span class="tagline">just one more thing...</span>
     </a>
-    
+
     <nav class="nav" role="navigation" aria-label="Main navigation">
-      <a href="{% if page.url == '/' %}#expertise{% else %}/{% endif %}" class="nav-link">Our Expertise</a>
-      <a href="/podcasts/" class="nav-link">Podcast</a>
-      <a href="/speaking/" class="nav-link">Speaking</a>
-      <a href="/research/" class="nav-link">Technical Blogs</a>
-      <a href="https://github.com/ScopeCreep-zip" class="nav-link" target="_blank" rel="noopener noreferrer">Repos</a>
-      <a href="/contact/" class="nav-link">Contact</a>
+      <a href="{{ '/about' | relative_url }}" class="nav-link">The Witches</a>
+      <a href="{{ '/blog' | relative_url }}" class="nav-link">Chronicles</a>
+      <a href="{{ '/podcasts' | relative_url }}" class="nav-link">Grimoire's</a>
+      <a href="{{ '/research' | relative_url }}" class="nav-link">Deep Magicks</a>
+      <a href="{{ '/speaking' | relative_url }}" class="nav-link">Summonings</a>
+      <a href="{{ '/contact' | relative_url }}" class="nav-link">Summon Us</a>
     </nav>
+
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <span class="theme-label-light">☀ As Above</span>
+      <span class="theme-label-dark">☽ So Below</span>
+    </button>
   </div>
 </header>

@@ -1,50 +1,11 @@
 <footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Explore</h4>
-        <ul class="footer-links">
-          <li><a href="/about/">About Us</a></li>
-          <li><a href="/podcasts/">Podcast</a></li>
-          <li><a href="/research/">Technical Blogs</a></li>
-          <li><a href="/speaking/">Speaking</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Connect</h4>
-        <ul class="footer-links">
-          <li><a href="/services/">Collaborate</a></li>
-          <li><a href="/contact/">Contact Us</a></li>
-        </ul>
-        <div class="footer-social-links">
-          {% include footer-social.html %}
-          {% include social-links.html 
-             source="company"
-             layout="vertical"
-             size="small"
-             icon_only=false
-             show_names=true
-          %}
-        </div>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Subscribe</h4>
-        <p class="footer-description">Listen to ScopeCreep.zip Podcast</p>
-        <div class="footer-podcast-links">
-          {% include footer-podcast.html %}
-          {% include podcast-services.html 
-             layout="vertical"
-             size="small"
-             use_data_file=true
-          %}
-        </div>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>© 2025 ScopeCreep.zip - Made with 💖 by Kali & Kat ✨</p>
-    </div>
+  <div class="container footer-inner">
+    <span class="footer-brand">{{ site.title }}</span>
+    <nav class="footer-links">
+      <a href="mailto:hello@scopecreep.zip" class="footer-link">Email</a>
+      <a href="https://github.com/ScopeCreep-zip" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://bsky.app/profile/scopecreep.zip" class="footer-link" target="_blank" rel="noopener">Bluesky</a>
+      <a href="/podcasts/" class="footer-link">Podcast</a>
+    </nav>
   </div>
 </footer>

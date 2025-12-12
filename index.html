@@ -3,220 +3,166 @@ layout: default
 title: Home
 ---
 
-<style>
-@keyframes textShimmer {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
-}
-</style>
-
 <!-- Hero Section -->
 <section class="hero">
     <div class="container">
-        <div class="hero-content kawaii-card">
-            <h1>Professional <span class="hero-highlight">Tech Discussions</span> with a dash of <span class="hero-highlight">Glimmer</span></h1>
-            <p>We're Kali and Kat - conference speakers, security researchers, and platform engineers who prove that technical excellence and creativity aren't mutually exclusive. Join us as we blend serious cybersecurity with magical innovation! 🌸🔐</p>
-            <div class="cta-buttons">
-                <a href="#expertise" class="btn-primary">Meet Our Team ✨</a>
-                <a href="/contact/" class="btn-secondary">Book Us to Speak 🎤</a>
-            </div>
-        </div>
+        <div class="hero-ornament">✦ ✦ ✦</div>
+        <h1 class="hero-title">Security research & platform engineering for those who build <em>with magic</em></h1>
     </div>
 </section>
 
-<!-- Stats Section -->
-<section class="stats">
+<!-- About Section - The Witches -->
+<section class="about" id="about">
     <div class="container">
-        <h2 class="section-title">Shared Stats ✨</h2>
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number" data-target="21">0</div>
-                <div class="stat-label">Years Combined Experience</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="50">0+</div>
-                <div class="stat-label">Presentations</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number github-repos" data-target="0"><span style="display: inline-block; animation: spin 1s linear infinite;">⟳</span></div>
-                <div class="stat-label">Combined GitHub Repositories</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number dreams-counter" data-target="812">0</div>
-                <div class="stat-label">Dreams Manifested</div>
-            </div>
-        </div>
-    </div>
-</section>
+        <header class="section-header">
+            <span class="section-label">The Witches</span>
+            <h2 class="section-title">Who We Are</h2>
+            <p class="hero-text">We're Kali & Kat — Partners weaving security and infrastructure magic. We break and build things while sharing our deep magicks.</p>
+            <div class="section-divider">⟡</div>
+        </header>
 
-<!-- Expertise Section -->
-<section class="expertise" id="expertise">
-    <div class="container">
-        <h2 class="section-title">Our Tech Expertise 🌟</h2>
-        
-        <div class="expertise-grid">
+        <div class="about-grid">
             {% for member in site.data.team %}
-            <div class="expert-card {{ member[0] }}">
-                <div class="expert-header">
-                    <div class="expert-avatar">
-                        {% if member[0] == 'kali' %}
-                        <img src="https://github.com/radicalkjax.png" alt="{{ member[1].name }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-                        {% elsif member[0] == 'kat' %}
-                        <img src="https://github.com/usrbinkat.png" alt="{{ member[1].name }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-                        {% else %}
-                        {{ member[1].emoji }}
-                        {% endif %}
-                    </div>
-                    <div class="expert-info">
-                        <h3>{{ member[1].name }}</h3>
-                        <div class="expert-title">{{ member[1].title }}</div>
-                        <div class="expert-credentials">
-                            {% for credential in member[1].credentials %}
-                            <span class="credential-badge">{{ credential }}</span>
-                            {% endfor %}
-                        </div>
+            {% assign github_username = member[1].social.github | split: "/" | last %}
+            <article class="person-card">
+                <div class="person-header">
+                    <img src="https://github.com/{{ github_username }}.png" alt="{{ member[1].name }}" class="person-avatar">
+                    <div class="person-info">
+                        <h3 class="person-name">{{ member[1].name }}</h3>
+                        <p class="person-title">{{ member[1].title }}</p>
                     </div>
                 </div>
-                
-                <p class="expert-description">{{ member[1].bio }}</p>
-                
-                <ul class="expertise-list">
-                    {% for skill in member[1].expertise %}
-                    <li>{{ skill }}</li>
+                <p class="person-bio">{{ member[1].bio }}</p>
+                <div class="person-creds">
+                    {% for credential in member[1].credentials %}
+                    <span class="cred">{{ credential }}</span>
                     {% endfor %}
-                </ul>
-                
-                <div class="social-professional">
+                </div>
+                <div class="person-links">
                     {% if member[1].social.blog %}
-                    <a href="{{ member[1].social.blog }}" class="social-link">Technical Blog 📝</a>
-                    {% endif %}
-                    {% if member[1].social.research %}
-                    <a href="{{ member[1].social.research }}" class="social-link">Research Hub 🛡️</a>
+                    <a href="{{ member[1].social.blog }}" class="person-link">Blog</a>
                     {% endif %}
                     {% if member[1].social.github %}
-                    <a href="{{ member[1].social.github }}" class="social-link">GitHub Portfolio 💻</a>
+                    <a href="{{ member[1].social.github }}" class="person-link">GitHub</a>
                     {% endif %}
                     {% if member[1].social.bluesky %}
-                    <a href="{{ member[1].social.bluesky }}" class="social-link">Social 🦋</a>
+                    <a href="{{ member[1].social.bluesky }}" class="person-link">Bluesky</a>
                     {% endif %}
                 </div>
-            </div>
+            </article>
             {% endfor %}
         </div>
     </div>
 </section>
 
-<!-- Recognition Section -->
-<section class="recognition" id="speaking">
+<!-- Our Craft Section - GitHub Repos -->
+<section class="craft" id="craft">
     <div class="container">
-        <h2 class="section-title">Speaking & Recognition 🎤✨</h2>
-        
-        <div class="recognition-grid">
-            <div class="recognition-card">
-                <div class="recognition-type">Speaker</div>
-                <div class="recognition-title">DC916</div>
-                <div class="recognition-details">Presented "Vibe Coding: It's a Legitimate Strategy" to a group of hackers and discussed prompt injection!</div>
-            </div>
-            
-            <div class="recognition-card">
-                <div class="recognition-type">Industry Recognition</div>
-                <div class="recognition-title">Community Contributor</div>
-                <div class="recognition-details">Contributing author to security research, bringing fresh perspectives and innovative teaching methods to cybersecurity education</div>
-            </div>
-            
-            <div class="recognition-card">
-                <div class="recognition-type">Speaker</div>
-                <div class="recognition-title">Podcasts</div>
-                <div class="recognition-details">Have been a guest on other podcasts proving that enterprise containerization can be both robust and delightful to work with.</div>
-            </div>
-            
-            <div class="recognition-card">
-                <div class="recognition-type">Research Publication</div>
-                <div class="recognition-title">Deep Learning for Malware Analysis</div>
-                <div class="recognition-details">Research on TensorFlow applications in automated threat detection, making AI security research more accessible</div>
-            </div>
-            
-            <div class="recognition-card">
-                <div class="recognition-type">Community Leadership</div>
-                <div class="recognition-title">ContainerCraft.io</div>
-                <div class="recognition-details">Organizing meetups and fostering inclusive tech communities</div>
-            </div>
-            
-            <div class="recognition-card">
-                <div class="recognition-type">Industry Expertise</div>
-                <div class="recognition-title">Corpo Experience</div>
-                <div class="recognition-details">Continuously learning and sharing knowledge with the community from enterprise and open-source perspectives</div>
-            </div>
+        <header class="section-header">
+            <span class="section-label">Our Craft</span>
+            <h2 class="section-title">What We're Building</h2>
+            <div class="section-divider">⟡</div>
+        </header>
+
+        <div class="craft-grid" id="github-repos">
+            <div class="loading-state">Summoning repositories...</div>
+        </div>
+
+        <div class="craft-footer">
+            <a href="https://github.com/ScopeCreep-zip" class="btn-link" target="_blank" rel="noopener">View all on GitHub →</a>
         </div>
     </div>
 </section>
 
-<!-- Podcast Section -->
-<section class="podcast" id="podcast">
+<!-- CTA Section -->
+<section class="cta" id="contact">
     <div class="container">
-        <div class="podcast-content">
-            <h2>ScopeCreep.zip Podcast 🎧✨</h2>
-            <p class="podcast-description">
-                Join us for technical discussions that don't take themselves too seriously! We dive deep into cybersecurity research, platform engineering, and industry insights while keeping things fun, accessible, and sprinkled with glimmer. Perfect for security professionals and engineers who want substance with a smile! 🎧💖
-            </p>
-            
-            <div class="podcast-features">
-                <div class="feature-item">
-                    <div class="feature-icon">🔒</div>
-                    <div class="feature-title">Security Deep-Dives</div>
-                    <div class="feature-description">Latest malware analysis techniques, threat hunting, and AI-powered security tools explained with clarity and charm</div>
-                </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon">⚙️</div>
-                    <div class="feature-title">Platform Magic</div>
-                    <div class="feature-description">Cloud-native architectures, Kubernetes wizardry, and enterprise infrastructure made understandable and delightful</div>
-                </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon">🎤</div>
-                    <div class="feature-title">Amazing Guests</div>
-                    <div class="feature-description">Conversations with industry innovators, researchers, and engineers who are shaping the future of technology</div>
-                </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon">🤖</div>
-                    <div class="feature-title">AI Adventures</div>
-                    <div class="feature-description">Cutting-edge ML research, ethical AI development, and practical applications demystified with glimmer and technical depth</div>
-                </div>
-            </div>
-            
-            <div class="coming-soon-box">
-                <p>🎵 Coming Soon! 🎵</p>
-                <p>We're crafting the perfect blend of technical excellence and glimmer!</p>
-            </div>
-            
-            <div class="subscribe-grid">
-                <a href="#" class="subscribe-btn" aria-label="Listen on Spotify">
-                    <img src="https://www.spotify.com/favicon.ico" alt="Spotify" class="platform-icon">
-                    <span>Spotify</span>
-                </a>
-                <a href="#" class="subscribe-btn" aria-label="Listen on Apple Podcasts">
-                    <img src="https://www.apple.com/favicon.ico" alt="Apple Podcasts" class="platform-icon">
-                    <span>Apple Podcasts</span>
-                </a>
-                <a href="#" class="subscribe-btn" aria-label="Listen on Google Podcasts">
-                    <img src="https://www.gstatic.com/images/branding/product/1x/podcasts_48dp.png" alt="Google Podcasts" class="platform-icon">
-                    <span>Google Podcasts</span>
-                </a>
-                <a href="#" class="subscribe-btn" aria-label="Watch on YouTube">
-                    <img src="https://www.youtube.com/favicon.ico" alt="YouTube" class="platform-icon">
-                    <span>YouTube</span>
-                </a>
-                <a href="#" class="subscribe-btn" aria-label="Listen on Amazon Music">
-                    <img src="https://d5fx445wy2wpk.cloudfront.net/icons/amznMusic_favicon.png" alt="Amazon Music" class="platform-icon">
-                    <span>Amazon Music</span>
-                </a>
-                <a href="/feed/podcast.xml" class="subscribe-btn" aria-label="RSS Feed">
-                    <span class="icon">📡</span>
-                    <span>RSS Feed</span>
-                </a>
-            </div>
-        </div>
+        <p class="cta-text">Ready to conjure something together?</p>
+        <a href="mailto:hello@scopecreep.zip" class="btn btn-primary">Summon Us</a>
     </div>
 </section>
+
+<script>
+    // Language colors for GitHub
+    const langColors = {
+        'Rust': '#dea584',
+        'Nix': '#7e7eff',
+        'HTML': '#e34c26',
+        'SCSS': '#c6538c',
+        'JavaScript': '#f1e05a',
+        'TypeScript': '#3178c6',
+        'Python': '#3572A5',
+        'Go': '#00ADD8',
+        'Shell': '#89e051'
+    };
+
+    // Format relative time
+    function timeAgo(dateString) {
+        const date = new Date(dateString);
+        const now = new Date();
+        const seconds = Math.floor((now - date) / 1000);
+
+        const intervals = [
+            { label: 'year', seconds: 31536000 },
+            { label: 'month', seconds: 2592000 },
+            { label: 'week', seconds: 604800 },
+            { label: 'day', seconds: 86400 }
+        ];
+
+        for (const interval of intervals) {
+            const count = Math.floor(seconds / interval.seconds);
+            if (count >= 1) {
+                return `${count} ${interval.label}${count > 1 ? 's' : ''} ago`;
+            }
+        }
+        return 'recently';
+    }
+
+    // Fetch and render repos
+    async function loadRepos() {
+        const container = document.getElementById('github-repos');
+
+        try {
+            const response = await fetch('https://api.github.com/orgs/ScopeCreep-zip/repos?sort=updated&per_page=6');
+
+            if (!response.ok) throw new Error('Failed to fetch');
+
+            const repos = await response.json();
+
+            const filtered = repos
+                .filter(repo => repo.name !== 'website' && !repo.fork)
+                .slice(0, 4);
+
+            if (filtered.length === 0) {
+                container.innerHTML = '<div class="error-state">No repositories found</div>';
+                return;
+            }
+
+            container.innerHTML = filtered.map(repo => `
+                <article class="craft-card">
+                    <h3><a href="${repo.html_url}" target="_blank" rel="noopener">${repo.name}</a></h3>
+                    <p>${repo.description || 'No description'}</p>
+                    <div class="repo-meta">
+                        ${repo.language ? `
+                            <span class="repo-lang">
+                                <span class="lang-dot" style="background: ${langColors[repo.language] || 'var(--gold-primary)'}"></span>
+                                ${repo.language}
+                            </span>
+                        ` : ''}
+                        <span>Updated ${timeAgo(repo.updated_at)}</span>
+                    </div>
+                </article>
+            `).join('');
+
+        } catch (error) {
+            container.innerHTML = `
+                <div class="error-state">
+                    <p>Couldn't summon repositories</p>
+                    <a href="https://github.com/ScopeCreep-zip" class="btn-link" target="_blank">Visit GitHub directly →</a>
+                </div>
+            `;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadRepos);
+</script>

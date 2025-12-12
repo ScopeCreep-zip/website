@@ -7,33 +7,14 @@
 
 // Base styles
 @import "base/reset";
-@import "base/typography";
 @import "base/base";
-@import "base/global";
-@import "base/particles";
 
-// Layout
-@import "layout/grid";
-@import "layout/header";
-@import "layout/footer";
-@import "layout/navigation";
+// Tarot Theme (main styles)
+@import "components/tarot";
 
-// Components
-@import "components/buttons";
-@import "components/cards";
-@import "components/forms";
-@import "components/kawaii";
-@import "components/podcast";
-@import "components/neon-effects";
-@import "components/pixel-art";
+// Additional components for other pages
 @import "components/podcast-player";
-@import "components/animations";
-@import "components/hero";
-@import "components/stats";
-@import "components/expertise";
-@import "components/recognition";
 
 // Utilities
 @import "utilities/helpers";
-@import "utilities/responsive";
 @import "utilities/accessibility";

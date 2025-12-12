@@ -1,59 +1,77 @@
-// Color System - Professional Kawaii Aesthetic
-// Primary kawaii colors
-$kawaii-pink: #ff69b4;
-$kawaii-purple: #9d4edd;
-$kawaii-cyan: #00e5ff;
-$kawaii-yellow: #ffd700;
-$kawaii-mint: #7fffd4;
+// Color System - Tarot Theme "As Above, So Below"
 
-// Background colors
-$bg-light-pink: #fef7f7;
-$bg-lavender: #f8f5ff;
-$bg-cyan-light: #f0feff;
+// ===== TAROT GOLD PALETTE =====
+$gold-light: #F4E4BA;       // Soft gold
+$gold-primary: #C9A227;     // Antique gold
+$gold-dark: #8B6914;        // Deep gold
 
-// Text colors
-$text-dark: #2d2d2d;
-$text-purple: #4a1c5c;
-$text-muted: #64748b;
+// Dark mode gold (bridal invitation style)
+$gold-light-dark: #D4C4A0;
+$gold-primary-dark: #B8A67C;
+$gold-dark-dark: #9A8A64;
 
-// UI colors
-$focus-yellow: #ffd600;
+// ===== LIGHT THEME: "AS ABOVE" =====
+$light-bg: #FFFDF7;         // Warm ivory
+$light-bg-alt: #F9F5ED;     // Soft parchment
+$light-bg-card: #FFFFFF;    // Pure white
+
+$light-text: #2C2416;       // Deep brown-black
+$light-text-secondary: #5C4D3C;  // Warm brown
+$light-text-muted: #8B7355;
+
+// ===== DARK THEME: "SO BELOW" =====
+$dark-bg: #0D0A14;          // Deep purple-black
+$dark-bg-alt: #15101F;      // Darker purple
+$dark-bg-card: #1A1425;     // Card background
+
+$dark-text: #F0EBF4;        // Light cream
+$dark-text-secondary: #C4B8D4;  // Muted lavender
+$dark-text-muted: #8A7A9E;
+
+// ===== UI COLORS =====
+$focus-color: $gold-primary;
 $white: #ffffff;
-$border-kawaii: rgba(157, 78, 221, 0.3);
 
-// Legacy neon colors for compatibility
-$neon-pink: #ff69b4;
-$neon-purple: #9d4edd;
-$neon-blue: #00e5ff;
+// Border colors
+$border-light: rgba(201, 162, 39, 0.25);
+$border-gold: rgba(201, 162, 39, 0.4);
+$border-dark: rgba(184, 166, 124, 0.15);
+$border-gold-dark: rgba(184, 166, 124, 0.3);
 
-// Base colors - softer, more dreamy
-$dark-bg: #1A0F1A;
-$dark-bg-alt: #2D1B2D;
-$light-bg: #FFF0F5;
-$light-bg-alt: #FFFDFF;
+// ===== LEGACY SUPPORT =====
+// Keep old variable names pointing to new values for compatibility
+$kawaii-pink: $gold-primary;
+$kawaii-purple: $gold-dark;
+$kawaii-cyan: $gold-light;
+$kawaii-yellow: $gold-primary;
+$kawaii-mint: $gold-light;
+$bg-light-pink: $light-bg-alt;
+$bg-lavender: $light-bg-alt;
+$bg-cyan-light: $light-bg;
+$text-dark: $light-text;
+$text-purple: $light-text-secondary;
+$text-muted: $light-text-muted;
+$focus-yellow: $gold-primary;
+$border-kawaii: $border-gold;
+$neon-pink: $gold-primary;
+$neon-purple: $gold-dark;
+$neon-blue: $gold-light;
+$kali-primary: $gold-dark;
+$kali-accent: $gold-primary;
+$kat-primary: $gold-light;
+$kat-accent: $gold-primary;
+$deep-purple: $gold-dark;
+$cyan: $gold-light;
+$neon-cyan: $gold-light;
+$text-light: $dark-text;
+$text-light-muted: $dark-text-muted;
+$text-dark-muted: $light-text-muted;
 
-// Text colors
-$text-light: #F0F0F5;
-$text-light-muted: #B0B0B5;
-$text-dark: #1A1A1F;
-$text-dark-muted: #4A4A4F;
-
-// Personality colors
-$kali-primary: #6d105a;
-$kali-accent: #FF10F0;
-$kat-primary: #00FFF0;
-$kat-accent: #87CEEB;
-
-// Legacy colors (for compatibility)
-$deep-purple: #7B5D8F;
-$cyan: #87CEEB;
-$neon-cyan: #00FFF0;
-
-// Typography
-$font-display: 'Quicksand', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-$font-heading: 'Quicksand', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-$font-body: 'Quicksand', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-$font-code: 'JetBrains Mono', 'Courier New', monospace;
+// Typography - Tarot Theme
+$font-display: 'Cormorant Garamond', Georgia, serif;
+$font-heading: 'Cormorant Garamond', Georgia, serif;
+$font-body: 'Quicksand', system-ui, sans-serif;
+$font-code: 'JetBrains Mono', monospace;
 
 // Font sizes
 $fs-hero: 4rem;
@@ -122,53 +140,98 @@ $ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
 
 // CSS Custom Properties for theme switching
 :root {
-  // Kawaii colors
-  --kawaii-pink: #{$kawaii-pink};
-  --kawaii-purple: #{$kawaii-purple};
-  --kawaii-cyan: #{$kawaii-cyan};
-  --kawaii-yellow: #{$kawaii-yellow};
-  --kawaii-mint: #{$kawaii-mint};
-  
-  // Backgrounds
-  --bg-light-pink: #{$bg-light-pink};
-  --bg-lavender: #{$bg-lavender};
-  --bg-cyan-light: #{$bg-cyan-light};
-  
-  // Text
-  --text-dark: #{$text-dark};
-  --text-purple: #{$text-purple};
-  --text-muted: #{$text-muted};
-  
-  // UI
-  --focus-yellow: #{$focus-yellow};
-  --white: #{$white};
-  --border-kawaii: #{$border-kawaii};
-  
-  // Legacy support
-  --color-primary: #{$kawaii-pink};
-  --color-secondary: #{$kawaii-purple};
-  --color-accent: #{$kawaii-cyan};
-  
-  // Neon effects
-  --neon-glow-pink: #{$shadow-neon-pink};
-  --neon-glow-purple: #{$shadow-neon-purple};
-  --neon-glow-blue: #{$shadow-neon-blue};
-  
+  // Font families
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Quicksand', system-ui, sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
+
+  // Spacing
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
   // Layout
   --header-height: #{$header-height};
-  
+
+  // Legacy support (mapped to gold)
+  --kawaii-pink: #{$gold-primary};
+  --kawaii-purple: #{$gold-dark};
+  --kawaii-cyan: #{$gold-light};
+  --kawaii-yellow: #{$gold-primary};
+  --kawaii-mint: #{$gold-light};
+  --focus-yellow: #{$gold-primary};
+  --white: #{$white};
+
   @media (max-width: $bp-tablet) {
     --header-height: #{$header-height-mobile};
   }
 }
 
-// Light theme
+// ===== LIGHT THEME: "AS ABOVE" =====
 [data-theme="light"] {
+  --bg-primary: #{$light-bg};
+  --bg-secondary: #{$light-bg-alt};
+  --bg-card: #{$light-bg-card};
+
+  --gold-light: #{$gold-light};
+  --gold-primary: #{$gold-primary};
+  --gold-dark: #{$gold-dark};
+
+  --text-primary: #{$light-text};
+  --text-secondary: #{$light-text-secondary};
+  --text-muted: #{$light-text-muted};
+
+  --border-subtle: #{$border-light};
+  --border-gold: #{$border-gold};
+
+  // Legacy support
   --color-bg: #{$light-bg};
   --color-bg-alt: #{$light-bg-alt};
-  --color-text: #{$text-dark};
-  --color-text-muted: #{$text-dark-muted};
-  --color-primary: #{$deep-purple};
-  --color-secondary: #{$cyan};
-  --color-accent: #{$kali-primary};
+  --color-text: #{$light-text};
+  --color-text-muted: #{$light-text-muted};
+  --color-primary: #{$gold-primary};
+  --color-secondary: #{$gold-dark};
+  --color-accent: #{$gold-light};
+  --bg-light-pink: #{$light-bg-alt};
+  --bg-lavender: #{$light-bg-alt};
+  --bg-cyan-light: #{$light-bg};
+  --text-dark: #{$light-text};
+  --text-purple: #{$light-text-secondary};
+  --border-kawaii: #{$border-gold};
+}
+
+// ===== DARK THEME: "SO BELOW" =====
+[data-theme="dark"] {
+  --bg-primary: #{$dark-bg};
+  --bg-secondary: #{$dark-bg-alt};
+  --bg-card: #{$dark-bg-card};
+
+  --gold-light: #{$gold-light-dark};
+  --gold-primary: #{$gold-primary-dark};
+  --gold-dark: #{$gold-dark-dark};
+
+  --text-primary: #{$dark-text};
+  --text-secondary: #{$dark-text-secondary};
+  --text-muted: #{$dark-text-muted};
+
+  --border-subtle: #{$border-dark};
+  --border-gold: #{$border-gold-dark};
+
+  // Legacy support
+  --color-bg: #{$dark-bg};
+  --color-bg-alt: #{$dark-bg-alt};
+  --color-text: #{$dark-text};
+  --color-text-muted: #{$dark-text-muted};
+  --color-primary: #{$gold-primary-dark};
+  --color-secondary: #{$gold-dark-dark};
+  --color-accent: #{$gold-light-dark};
+  --bg-light-pink: #{$dark-bg-alt};
+  --bg-lavender: #{$dark-bg-alt};
+  --bg-cyan-light: #{$dark-bg};
+  --text-dark: #{$dark-text};
+  --text-purple: #{$dark-text-secondary};
+  --border-kawaii: #{$border-gold-dark};
 }

@@ -4,25 +4,41 @@
   <body>
     <!-- Skip link for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Enhanced Kawaii Particle Background -->
-    <div class="particles" aria-hidden="true" role="presentation" id="particles"></div>
-    
+
     {% include header.html %}
-    
+
     <!-- Main Content -->
     <main class="main" id="main-content">
       {{ content }}
     </main>
-    
+
     {% include footer.html %}
-    
+
     <!-- Scripts -->
-    <script src="{{ '/assets/js/particles.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/stats.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/github-stats.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/dreams-counter.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/buzzword-generator.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    <script>
+      // Theme toggle
+      const toggle = document.getElementById('theme-toggle');
+      const html = document.documentElement;
+
+      // Update button text based on current theme
+      function updateToggleText() {
+        if (!toggle) return;
+        const isDark = html.getAttribute('data-theme') === 'dark';
+        toggle.querySelector('.theme-label-light').style.display = isDark ? 'none' : 'inline';
+        toggle.querySelector('.theme-label-dark').style.display = isDark ? 'inline' : 'none';
+      }
+      updateToggleText();
+
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          const currentTheme = html.getAttribute('data-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          html.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          updateToggleText();
+        });
+      }
+    </script>
   </body>
 </html>

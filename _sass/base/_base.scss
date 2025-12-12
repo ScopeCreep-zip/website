@@ -1,6 +1,6 @@
-// Base styles for ScopeCreep.zip
+// Base styles for ScopeCreep.zip - Tarot Theme
 
-* {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,16 +8,15 @@
 
 html {
   font-size: 16px;
-  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: $font-body;
-  background: linear-gradient(135deg, var(--bg-light-pink) 0%, var(--bg-lavender) 30%, var(--bg-cyan-light) 70%, #fff0f5 100%);
-  background-attachment: fixed;
-  color: var(--text-dark);
-  line-height: 1.6;
-  overflow-x: hidden;
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 // Main content
@@ -28,14 +27,14 @@ body {
 
 // Container
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 var(--space-xl);
 }
 
 // Section spacing
 section {
-  padding: 4rem 0;
+  padding: var(--space-3xl) 0;
 }
 
 

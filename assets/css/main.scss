@@ -2,31 +2,14 @@
 # Only the main Sass file needs front matter
 ---
 
-// Import the main styles
-@use "sass:math";
-@import 
+// Tarot Theme - "As Above, So Below"
+@import
   "base/variables",
   "base/mixins",
   "base/functions",
   "base/reset",
-  "base/typography",
   "base/base",
-  "layout/grid",
-  "layout/header",
-  "layout/footer",
-  "layout/navigation",
-  "components/buttons",
-  "components/cards",
-  "components/forms",
-  "components/kawaii",
-  "components/hero",
-  "components/expertise",
-  "base/global",
-  "components/neon-effects",
-  "components/pixel-art",
+  "components/tarot",
   "components/podcast-player",
-  "components/animations",
-  "components/particles",
   "utilities/helpers",
-  "utilities/responsive",
   "utilities/accessibility";
