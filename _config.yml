@@ -1,9 +1,8 @@
 # Site settings
 title: "ScopeCreep.zip"
-email: "hello@scopecreep.zip"
 description: >-
-  Professional cybersecurity research and platform engineering with a kawaii twist. 
-  Conference speakers Kali Jackson and Kat Morgan blend technical excellence with creative innovation.
+  Kali Jackson and Kat Morgan blend technical excellence with arcane elegance.
+  This is where you'll find their combined work and efforts.
 baseurl: ""
 url: "https://scopecreep.zip"
 lang: "en"
@@ -16,8 +15,8 @@ team:
     name: "Kali Jackson"
     title: "Malware Analyst & Security Researcher"
     avatar: "/assets/images/avatars/kali.png"
-    bio: "Self-described 'smartest airhead' who combines serious cybersecurity expertise with kawaii aesthetics!"
-    credentials: ["GIAC GREM", "OSCP", "PhD Candidate"]
+    bio: "Self-described 'smartest airhead' who combines serious cybersecurity expertise with unapologetic silliness."
+    credentials: ["Because I said so"]
     social:
       blog: "https://radicalkjax.com"
       research: "https://malwarEvangelist.com"

@@ -7,7 +7,6 @@ Welcome to the technical documentation for the ScopeCreep.zip website. This docu
 ### 📐 [Architecture](./architecture/)
 - [Overview](./architecture/overview.md) - System architecture and technology stack
 - [Architecture Plan](./architecture/scopecreep_architecture.md) - Detailed architectural documentation
-- [Legacy Plan](./architecture/bad_jekyll-architecture-plan.md) - Historical reference
 
 ### 🚀 [Deployment](./deployment/)
 - [Getting Started](./deployment/getting-started.md) - Local development setup
@@ -16,8 +15,7 @@ Welcome to the technical documentation for the ScopeCreep.zip website. This docu
 ### 🎨 [Design & Styling](./design/)
 - [Design System](./design/scopecreep_design_doc.md) - Complete design system documentation
 - [Extracted Styling Patterns](./design/extracted-styling-patterns.md) - Style pattern reference
-- [Homepage Template](./design/scopecreep_homepage-template.html) - Homepage structure reference
-- [Legacy Design Doc](./design/bad-copecreep-design-document.md) - Historical reference
+- [Homepage Template](./design/scopecreep_homepage-template.html) - Homepage structure reference (legacy)
 
 ### 🎨 [Styling](./styling/)
 - [Theme System](./styling/theme-system.md) - Tarot theme colors, typography, spacing
@@ -128,4 +126,4 @@ Files marked "bad-*" or in legacy sections are historical references and may not
 1. Check the relevant documentation section
 2. Review `.claude/` directory for project instructions
 3. Search existing [GitHub issues](https://github.com/ScopeCreep-zip/website/issues)
-4. Contact the team at hello@scopecreep.zip
+4. Reach out via social links on the website

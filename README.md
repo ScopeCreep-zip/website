@@ -1,10 +1,10 @@
 # ScopeCreep.zip Website
 
-Professional cybersecurity research and platform engineering with a kawaii twist. This is the source code for [scopecreep.zip](https://scopecreep.zip).
+Kali Jackson and Kat Morgan blend technical excellence with arcane elegance. This is the source code for [scopecreep.zip](https://scopecreep.zip).
 
 ## About
 
-ScopeCreep.zip is the collaborative platform of Kali Jackson and Kat Morgan, blending technical excellence with creative innovation in cybersecurity and platform engineering.
+This is where you'll find their combined work and efforts in cybersecurity research and platform engineering.
 
 ## Features
 

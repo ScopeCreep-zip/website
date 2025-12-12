@@ -70,7 +70,7 @@ scopecreep.zip/
 ```yaml
 # Site metadata
 title: "ScopeCreep.zip"
-description: "Professional cybersecurity research and platform engineering with a kawaii twist."
+description: "Kali Jackson and Kat Morgan blend technical excellence with arcane elegance."
 url: "https://scopecreep.zip"
 
 # Build settings
