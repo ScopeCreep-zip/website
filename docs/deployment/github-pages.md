@@ -26,10 +26,12 @@ graph TD
 
 ### GitHub Pages Configuration
 
-1. **Source**: Deploy from a branch
-2. **Branch**: `gh-pages` / `root`
+1. **Source**: GitHub Actions
+2. **Workflow**: `.github/workflows/jekyll.yml`
 3. **Custom Domain**: `scopecreep.zip`
 4. **Enforce HTTPS**: ✅ Enabled
+
+The site uses GitHub Actions for deployment (not branch-based deployment). The workflow is triggered on pushes to the `main` branch.
 
 ### Required Files
 
@@ -38,56 +40,56 @@ graph TD
 scopecreep.zip
 ```
 
-#### .nojekyll (if using custom build)
-```
-# Empty file to bypass Jekyll processing
-```
+This file must exist in the repository root to maintain the custom domain configuration after deployment.
+
+**Note**: No `.nojekyll` file is needed. GitHub Actions uses the official `actions/jekyll-build-pages@v1` action which handles Jekyll processing correctly.
 
 ## GitHub Actions Workflow
 
-### Basic Deployment Workflow
+### Current Deployment Workflow
+
+Located at `.github/workflows/jekyll.yml`:
 
 ```yaml
-name: Deploy to GitHub Pages
+name: Deploy Jekyll site to Pages
 
 on:
+  # Runs on pushes targeting the default branch
   push:
-    branches: [main]
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Allow only one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
+  # Build job
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1'
-          bundler-cache: true
-          
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        
       - name: Build with Jekyll
-        env:
-          JEKYLL_ENV: production
-        run: bundle exec jekyll build
-        
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
+  # Deployment job
   deploy:
     environment:
       name: github-pages
@@ -99,6 +101,13 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 ```
+
+### Key Features
+
+- **Automatic Ruby setup**: The `jekyll-build-pages@v1` action handles Ruby and dependency installation
+- **GitHub Pages compatibility**: Automatically uses supported plugins and configurations
+- **Manual triggers**: Can be triggered via `workflow_dispatch` from the Actions tab
+- **Concurrency control**: Only one deployment runs at a time
 
 ## Custom Domain Setup
 
@@ -171,21 +180,41 @@ environment: production
 sass:
   style: compressed
 
-# Plugins for GitHub Pages
+# Plugins (standard GitHub Pages compatible)
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-paginate  # Note: standard paginate, not v2
+
+# Collections
+collections:
+  podcasts:
+    output: true
+    permalink: /podcast/:name/
+  speaking:
+    output: true
+    permalink: /speaking/:name/
+
+# Pagination
+paginate: 10
+paginate_path: "/blog/page:num/"
 
 # Exclude development files
 exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
   - Gemfile
   - Gemfile.lock
-  - node_modules
-  - vendor
-  - .sass-cache
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
   - docs/
   - README.md
+  - LICENSE
 ```
 
 ## Monitoring Deployment
@@ -194,7 +223,7 @@ exclude:
 
 ```bash
 # Check workflow runs
-gh run list --workflow=deploy.yml
+gh run list --workflow=jekyll.yml
 
 # View specific run
 gh run view <run-id>
@@ -206,7 +235,7 @@ gh run watch <run-id>
 ### Build Status Badge
 
 ```markdown
-![Deploy Status](https://github.com/ScopeCreep-zip/website/actions/workflows/deploy.yml/badge.svg)
+![Deploy Status](https://github.com/ScopeCreep-zip/website/actions/workflows/jekyll.yml/badge.svg)
 ```
 
 ## Rollback Procedure
@@ -227,10 +256,10 @@ git push --force origin main
 
 ```bash
 # Trigger workflow manually
-gh workflow run deploy.yml
+gh workflow run jekyll.yml
 
 # Or via GitHub UI
-# Actions → Deploy to GitHub Pages → Run workflow
+# Actions → Deploy Jekyll site to Pages → Run workflow
 ```
 
 ## Performance Optimization

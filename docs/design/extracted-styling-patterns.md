@@ -1,307 +1,612 @@
-# Extracted Styling Patterns from ScopeCreep Homepage Template
+# Tarot Theme Styling Patterns - ScopeCreep.zip
 
-## 1. Typography Styles
+> **Current Implementation**: Extracted from `_sass/components/_tarot.scss` and `_sass/base/_variables.scss`
 
-### Font Families
-- **Primary Font**: `'Quicksand', -apple-system, BlinkMacSystemFont, system-ui, sans-serif`
-- **Code Font**: `'JetBrains Mono', 'Courier New', monospace`
-- **Font Import**: Google Fonts - Quicksand (300, 400, 600, 700) and JetBrains Mono (400, 500)
+## 1. Color System
 
-### Heading Styles
-- **Logo/Brand**: 
-  - Font-size: 3.5rem
-  - Font-weight: 700
-  - Rainbow gradient animation with text-fill
-  - Text-shadow: `0 0 30px rgba(255, 105, 180, 0.6)`
-  - Drop-shadow filter animation
+### Gold Palette (Core Theme)
+```scss
+// Light Theme Gold
+$gold-light: #F4E4BA;       // Soft gold - badges, highlights
+$gold-primary: #C9A227;     // Antique gold - primary accent
+$gold-dark: #8B6914;        // Deep gold - text emphasis
 
-- **Hero H1**: 
-  - Font-size: 3.5rem (2.5rem mobile)
-  - Font-weight: 700
-  - Line-height: 1.2
-  - Color: var(--text-dark)
-
-- **Section Titles** (e.g., "Speaking & Recognition"):
-  - Font-size: 3rem
-  - Font-weight: 700
-  - Gradient text effect (pink → purple → cyan)
-  - Text centered
-  - Margin-bottom: 3rem
-
-- **Card Titles** (H3):
-  - Font-size: 1.8rem
-  - Font-weight: 700
-  - Color: var(--text-dark)
-
-- **Feature Titles**:
-  - Font-size: 1.4rem
-  - Font-weight: 700
-  - Color: var(--text-dark)
-
-### Body Text Styles
-- **Base Text**:
-  - Line-height: 1.6
-  - Color: var(--text-dark)
-  
-- **Tagline**:
-  - Font-size: 1.1rem
-  - Font-weight: 600
-  - Gradient text effect
-
-- **Hero Paragraph**:
-  - Font-size: 1.3rem
-  - Color: var(--text-purple)
-  - Line-height: 1.7
-  - Font-weight: 500
-
-- **Description Text**:
-  - Font-size: 1.05rem
-  - Font-weight: 500
-  - Line-height: 1.7
-
-## 2. Color Usage Patterns
-
-### CSS Variables
-```css
---kawaii-pink: #ff69b4;
---kawaii-purple: #9d4edd;
---kawaii-cyan: #00e5ff;
---kawaii-yellow: #ffd700;
---kawaii-mint: #7fffd4;
---bg-light-pink: #fef7f7;
---bg-lavender: #f8f5ff;
---bg-cyan-light: #f0feff;
---text-dark: #2d2d2d;
---text-purple: #4a1c5c;
---text-muted: #64748b;
---focus-yellow: #ffd600;
---white: #ffffff;
---border-kawaii: rgba(157, 78, 221, 0.3);
+// Dark Theme Gold (bridal invitation style)
+$gold-light-dark: #D4C4A0;
+$gold-primary-dark: #B8A67C;
+$gold-dark-dark: #9A8A64;
 ```
 
-### Gradient Patterns
-1. **Body Background**:
-   - `linear-gradient(135deg, var(--bg-light-pink) 0%, var(--bg-lavender) 30%, var(--bg-cyan-light) 70%, #fff0f5 100%)`
-   - Fixed attachment
+### Light Theme: "As Above"
+```scss
+// Backgrounds
+$light-bg: #FFFDF7;         // Warm ivory
+$light-bg-alt: #F9F5ED;     // Soft parchment
+$light-bg-card: #FFFFFF;    // Pure white cards
 
-2. **Header Background**:
-   - `linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 245, 255, 0.95) 50%, rgba(240, 254, 255, 0.95) 100%)`
-   - Backdrop-filter: blur(15px)
+// Text
+$light-text: #2C2416;       // Deep brown-black
+$light-text-secondary: #5C4D3C;  // Warm brown
+$light-text-muted: #8B7355;
 
-3. **Text Gradients**:
-   - Rainbow: `linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan), var(--kawaii-yellow))`
-   - Three-color: `linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan))`
-   - Two-color: `linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple))`
+// Borders
+$border-light: rgba(201, 162, 39, 0.25);
+$border-gold: rgba(201, 162, 39, 0.4);
+```
 
-4. **Button Gradients**:
-   - Primary: `linear-gradient(135deg, var(--kawaii-pink), var(--kawaii-purple))`
-   - Hover overlay: `linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent)`
+### Dark Theme: "So Below"
+```scss
+// Backgrounds
+$dark-bg: #0D0A14;          // Deep purple-black
+$dark-bg-alt: #15101F;      // Darker purple
+$dark-bg-card: #1A1425;     // Card background
 
-5. **Card Background Gradients**:
-   - `linear-gradient(135deg, var(--bg-light-pink), var(--bg-lavender))`
-   - `linear-gradient(135deg, var(--bg-lavender), var(--bg-cyan-light))`
+// Text
+$dark-text: #F0EBF4;        // Light cream
+$dark-text-secondary: #C4B8D4;  // Muted lavender
+$dark-text-muted: #8A7A9E;
 
-## 3. Border Styles, Shadows, and Effects
+// Borders
+$border-dark: rgba(184, 166, 124, 0.15);
+$border-gold-dark: rgba(184, 166, 124, 0.3);
+```
 
-### Border Treatments
-1. **Header Border**:
-   - Bottom: 3px solid var(--kawaii-purple)
-   
-2. **Card Borders**:
-   - Standard: 3px solid color (varies by card type)
-   - Border-radius: 32px (large cards), 24px (medium), 20px (small)
-   - Dashed border: 3px dashed var(--kawaii-cyan)
+### CSS Custom Properties Usage
+```scss
+// Applied via [data-theme="light"] or [data-theme="dark"]
+--bg-primary
+--bg-secondary
+--bg-card
+--gold-light
+--gold-primary
+--gold-dark
+--text-primary
+--text-secondary
+--text-muted
+--border-subtle
+--border-gold
+```
 
-3. **Navigation & Button Borders**:
-   - 2px solid var(--kawaii-purple)
-   - Border-radius: 20px-25px
+## 2. Typography
 
-4. **Recognition Cards**:
-   - Border-left: 6px solid (alternating colors)
-   - Border-radius: 24px
+### Font Families
+```scss
+$font-display: 'Cormorant Garamond', Georgia, serif;
+$font-heading: 'Cormorant Garamond', Georgia, serif;
+$font-body: 'Quicksand', system-ui, sans-serif;
+$font-code: 'JetBrains Mono', monospace;
+```
 
-### Shadow Effects
-1. **Header Shadow**:
-   - `0 4px 20px rgba(157, 78, 221, 0.15)`
+### Font Sizes
+```scss
+$fs-hero: 4rem;
+$fs-h1: 2.5rem;
+$fs-h2: 2rem;
+$fs-h3: 1.5rem;
+$fs-h4: 1.25rem;
+$fs-body: 1rem;
+$fs-small: 0.875rem;
+$fs-tiny: 0.75rem;
+```
 
-2. **Card Shadows**:
-   - Base: `0 15px 50px rgba(0, 0, 0, 0.1)`
-   - Hover: `0 25px 60px rgba(0, 0, 0, 0.15)`
-   - Colored shadows: `0 15px 40px rgba(0, 229, 255, 0.2)`
+### Typography Patterns
 
-3. **Button Shadows**:
-   - Primary: `0 8px 25px rgba(255, 105, 180, 0.4)`
-   - Hover: `0 12px 35px rgba(255, 105, 180, 0.6)`
+**Hero Title**:
+```scss
+font-family: var(--font-display);
+font-size: clamp(2rem, 4vw, 2.75rem);
+font-weight: 500;
+line-height: 1.3;
+```
 
-4. **Text Shadows**:
-   - Glow effects: `0 0 30px rgba(255, 105, 180, 0.6)`
-   - Particle glow: `0 0 10px rgba(255, 215, 0, 0.6)`
+**Section Labels** (uppercase ornamental):
+```scss
+font-family: var(--font-display);
+font-size: 1.1rem;
+text-transform: uppercase;
+letter-spacing: 0.15em;
+color: var(--gold-dark);
+// Dark mode: --gold-primary
+```
 
-### Special Effects
-1. **Drop-shadow Filters**:
-   - Logo: `drop-shadow(0 0 20px rgba(157, 78, 221, 0.4))` with animation
-   
-2. **Backdrop Filters**:
-   - Header: `backdrop-filter: blur(15px)`
+**Section Titles**:
+```scss
+font-family: var(--font-display);
+font-size: 2.5rem;
+font-weight: 500;
+```
 
-3. **Glow Effects**:
-   - Animated border glow using rotating gradient
-   - Text glow animations
+**Body Text**:
+```scss
+font-family: var(--font-body);
+font-size: 0.95rem - 1.05rem;
+color: var(--text-secondary);
+line-height: 1.6;
+```
 
-## 4. Spacing and Layout Patterns
+## 3. Spacing System
 
-### Container Spacing
-- Max-width: 1200px
-- Padding: 0 2rem
-- Section padding: 4rem 0
+```scss
+$space-xs: 0.25rem;
+$space-sm: 0.5rem;
+$space-md: 1rem;
+$space-lg: 1.5rem;
+$space-xl: 2rem;
+$space-2xl: 3rem;
+$space-3xl: 4rem;
+```
 
-### Grid Layouts
-1. **Stats Grid**:
-   - `grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))`
-   - Gap: 2rem
+## 4. Component Patterns
 
-2. **Expertise Grid**:
-   - `grid-template-columns: repeat(auto-fit, minmax(400px, 1fr))`
-   - Gap: 3rem
+### Header
+```scss
+.header {
+  padding: var(--space-lg) 0;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-primary);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-3. **Recognition Grid**:
-   - `grid-template-columns: repeat(auto-fit, minmax(350px, 1fr))`
-   - Gap: 2rem
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  // Dark mode: --gold-light
+}
 
-4. **Subscribe Grid**:
-   - `grid-template-columns: repeat(auto-fit, minmax(160px, 1fr))`
-   - Gap: 1.5rem
+.nav-link {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid transparent;
 
-### Card Padding
-- Large cards: 3rem
-- Medium cards: 2.5rem
-- Small cards: 1.5rem-2rem
+  &:hover {
+    color: var(--gold-dark);
+    border-bottom-color: var(--gold-primary);
+  }
+}
+```
 
-### Button Padding
-- Primary/Secondary: 1.25rem 2.5rem
-- Nav links: 0.875rem 1.5rem
-- Social links: 0.75rem 1.25rem
+### Cards (Tarot Style)
 
-## 5. Component-Specific Styles
+**Person Cards**:
+```scss
+.person-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: var(--space-xl);
+  position: relative;
 
-### Hero Section
-- White background with purple border
-- Border-radius: 32px
-- Padding: 3rem
-- Animated border glow effect
-- Box-shadow: `0 15px 50px rgba(157, 78, 221, 0.2)`
+  &::before {
+    content: '✦';
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    color: var(--gold-primary);
+    font-size: 0.7rem;
+    opacity: 0.5;
+  }
+}
+```
 
-### Expert Cards
-- Border: 3px solid (color varies)
-- Top gradient bar (6px height)
-- Avatar: 100px circular with gradient background
-- Transform on hover: `translateY(-10px) scale(1.02)`
+**Craft/Project Cards**:
+```scss
+.craft-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: var(--space-xl);
 
-### Stats Section
-- White background with cyan border
-- Decorative sparkle emoji positioned absolutely
-- Stat items with hover scale effect
+  &:hover {
+    border-color: var(--gold-primary);
+  }
+}
+```
 
-### Recognition Cards
-- Left border: 6px solid (alternating colors)
-- Recognition type with gradient text
-- Text-transform: uppercase for type labels
+### Buttons
 
-### Podcast Section
-- Cyan border with shadow
-- Headphone emoji positioned absolutely
-- "Coming Soon" section with dashed border
+**Primary Button**:
+```scss
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+  color: var(--bg-primary);
+  border: 1px solid var(--gold-primary);
+  padding: 0.85rem 2.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
 
-## 6. Animation and Transition Effects
+  &:hover {
+    transform: translateY(-2px);
+  }
 
-### Keyframe Animations
-1. **rainbowGlow** (3s ease-in-out infinite alternate):
-   - Background position shift
-   - Filter drop-shadow changes
+  // Dark mode
+  [data-theme="dark"] & {
+    background: var(--gold-primary);
+    border-color: var(--gold-light);
+  }
+}
+```
 
-2. **borderGlow** (3s linear infinite):
-   - 360-degree rotation
+**Link Button**:
+```scss
+.btn-link {
+  color: var(--gold-dark);
+  text-decoration: none;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid transparent;
 
-3. **textShimmer** (2s ease-in-out infinite alternate):
-   - Background position: 0% to 100%
+  &:hover {
+    border-bottom-color: var(--gold-primary);
+  }
 
-4. **kawaiFloat** (8s infinite ease-in-out):
-   - Y translation: 0 → -15px → -25px → -10px → 0
-   - Rotation: 0 → 5deg → 0 → -5deg → 0
-   - Opacity variations
+  [data-theme="dark"] & {
+    color: var(--gold-light);
+  }
+}
+```
 
-### Transition Patterns
-- Standard: `all 0.3s ease`
-- Buttons: `all 0.3s ease`
-- Hover transforms: `translateY(-3px)` to `translateY(-10px)`
-- Scale effects: `scale(1.02)` to `scale(1.05)`
+### Badges/Credentials
+```scss
+.cred {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.75rem;
+  background: var(--gold-light);
+  border-radius: 20px;
+  color: var(--gold-dark);
 
-### Interactive Effects
-1. **Button Hover**:
-   - Slide-in gradient overlay
-   - Transform and scale
-   - Enhanced shadow
+  [data-theme="dark"] & {
+    background: transparent;
+    border: 1px solid var(--gold-primary);
+    color: var(--gold-light);
+  }
+}
+```
 
-2. **Card Hover**:
-   - Lift effect with translateY
-   - Scale transformation
-   - Shadow intensification
+### Section Dividers
+```scss
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  color: var(--gold-primary);
 
-3. **Nav Link Hover**:
-   - Gradient slide-in from left
-   - Color inversion
-   - Shadow enhancement
+  &::before,
+  &::after {
+    content: '';
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dark));
+  }
 
-## 7. Missing Global Styles to Apply
+  &::after {
+    background: linear-gradient(90deg, var(--gold-dark), transparent);
+  }
+}
+```
 
-### Accessibility Features
-1. **Focus States**:
-   - Outline: 3px solid var(--focus-yellow)
-   - Outline-offset: 2px or 3px
+## 5. Forms
 
-2. **Skip Link**:
-   - Position absolute → fixed on focus
-   - Background: var(--focus-yellow)
-   - Z-index: 1000
+```scss
+.tarot-form {
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-gold);
+    border-radius: 8px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-family: var(--font-body);
 
-3. **Reduced Motion**:
-   - Disable all animations
-   - Static gradients
-   - No particle effects
+    &:focus {
+      outline: none;
+      border-color: var(--gold-primary);
+    }
+  }
 
-4. **High Contrast**:
-   - Increased border widths (4px)
-   - No shadows
-   - Hidden particles
+  label {
+    display: block;
+    margin-bottom: var(--space-sm);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    color: var(--gold-dark);
 
-### Responsive Breakpoints
-- Mobile: max-width: 768px
-  - Reduced font sizes
-  - Single column layouts
-  - Full-width buttons
-  - Centered navigation
+    [data-theme="dark"] & {
+      color: var(--gold-light);
+    }
+  }
+}
+```
 
-### Particle System
-- Fixed positioning
-- Pointer-events: none
-- Multiple particle types with different animations
-- Mouse interaction effects (scale and opacity)
-- Click sparkle effects
+## 6. Animations
 
-### Additional UI Patterns
-1. **Credential Badges**:
-   - Gradient background
-   - Padding: 0.4rem 1rem
-   - Border-radius: 20px
-   - Font-size: 0.85rem
+### Glitch Effect (buzzword rotation)
+```scss
+@keyframes glitch {
+  0%, 100% { text-shadow: 0 0 0 transparent; }
+  20% { text-shadow: -2px 0 var(--gold-light), 2px 0 var(--gold-dark); }
+  40% { text-shadow: 2px 0 var(--gold-primary), -2px 0 var(--gold-light); }
+  60% { text-shadow: 0 0 8px var(--gold-primary); }
+}
 
-2. **Social Links**:
-   - Gradient background on hover
-   - Transform on hover
-   - Consistent border treatment
+.buzzword-text.glitching {
+  animation: glitch 0.3s ease-in-out;
+}
+```
 
-3. **Footer Styling**:
-   - Gradient background (purple → pink → cyan)
-   - SVG pattern overlay
-   - Link hover with background highlight
-   - Border-top for footer-bottom section
+### Podcast Carousel (3D Rolodex)
+```scss
+.episodes-carousel {
+  perspective: 1200px;
+}
+
+.episode-slide {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.prev {
+    transform: translateX(-50%) scale(0.8) rotateY(25deg);
+    opacity: 0.7;
+    filter: blur(1px);
+  }
+
+  &.active {
+    transform: translateX(0) scale(1) rotateY(0);
+    opacity: 1;
+  }
+
+  &.next {
+    transform: translateX(50%) scale(0.8) rotateY(-25deg);
+    opacity: 0.7;
+    filter: blur(1px);
+  }
+}
+```
+
+## 7. Responsive Patterns
+
+### Mobile Breakpoint: 768px
+```scss
+@media (max-width: 768px) {
+  // Header
+  .header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 var(--space-md);
+  }
+
+  .logo {
+    font-size: 1.2rem !important;
+  }
+
+  .tagline {
+    font-size: 0.7rem !important;
+  }
+
+  // Navigation
+  .nav-toggle {
+    display: block;  // Hamburger visible
+  }
+
+  .nav {
+    display: none;  // Hidden by default
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+
+    &.is-open {
+      display: flex;
+    }
+  }
+
+  // Theme toggle - icon only
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .theme-label-light,
+  .theme-label-dark {
+    display: none !important;
+  }
+
+  // Grids
+  .about-grid,
+  .craft-grid {
+    grid-template-columns: 1fr;
+  }
+}
+```
+
+## 8. Accessibility
+
+### Focus States
+```scss
+:focus-visible {
+  outline: 2px solid var(--gold-primary);
+  outline-offset: 2px;
+}
+```
+
+### Skip Link
+```scss
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--gold-primary);
+  color: var(--bg-primary);
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+
+  &:focus {
+    top: 0;
+  }
+}
+```
+
+### Reduced Motion
+```scss
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
+
+## 9. Podcast-Specific Components
+
+### Episode Cards
+```scss
+.episode-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: var(--space-xl);
+  min-height: 500px;
+
+  .episode-slide.active & {
+    box-shadow: 0 20px 60px rgba(201, 162, 39, 0.4);
+  }
+}
+```
+
+### Carousel Navigation
+```scss
+.carousel-nav {
+  background: var(--gold-primary);
+  color: var(--bg-primary);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+
+  &:hover {
+    background: var(--gold-dark);
+    transform: translateY(-50%) scale(1.1);
+  }
+}
+```
+
+### Carousel Indicators
+```scss
+.carousel-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-primary);
+  background: transparent;
+
+  &.active {
+    background: var(--gold-primary);
+    width: 30px;
+    border-radius: 15px;
+  }
+}
+```
+
+## 10. Grid Layouts
+
+### Two-Column Grids
+```scss
+.about-grid,
+.craft-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+}
+
+@media (max-width: 768px) {
+  .about-grid,
+  .craft-grid {
+    grid-template-columns: 1fr;
+  }
+}
+```
+
+### Blog Layout
+```scss
+.blog-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--space-2xl);
+}
+
+@media (max-width: 768px) {
+  .blog-layout {
+    grid-template-columns: 1fr;
+  }
+}
+```
+
+## 11. Theme Toggle
+
+```scss
+.theme-toggle {
+  border: 1px solid var(--border-gold);
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  background: none;
+  color: var(--text-muted);
+
+  &:hover {
+    border-color: var(--gold-primary);
+    color: var(--gold-primary);
+  }
+}
+
+// Icon visibility
+[data-theme="light"] .theme-icon-light,
+[data-theme="light"] .theme-label-light {
+  display: inline;
+}
+
+[data-theme="dark"] .theme-icon-dark,
+[data-theme="dark"] .theme-label-dark {
+  display: inline;
+}
+```
+
+## 12. Empty States
+
+```scss
+.empty-state {
+  text-align: center;
+  padding: var(--space-3xl);
+
+  .empty-icon {
+    font-size: 3rem;
+    color: var(--gold-primary);
+  }
+
+  .empty-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+  }
+
+  .empty-text {
+    color: var(--text-muted);
+  }
+}
+```
+
+## Summary
+
+The Tarot theme emphasizes:
+- **Minimal, elegant design** over flashy effects
+- **Gold color palette** replacing old kawaii colors
+- **Cormorant Garamond** for sophisticated serif headers
+- **Subtle hover effects** (color changes, minimal transforms)
+- **Ornamental details** (✦ symbols, gradient dividers)
+- **Professional business card** aesthetic
+- **Dual theme support** (As Above/So Below)
+- **Handcrafted feel** over AI-generated look

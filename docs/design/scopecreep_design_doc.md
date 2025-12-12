@@ -3,15 +3,22 @@
 ## 📋 Project Overview
 
 ### Brand Mission
-ScopeCreep.zip represents the perfect fusion of professional cybersecurity expertise and kawaii tech culture. We challenge the stereotype that technical competence requires aesthetic conformity, proving that creativity and technical excellence are complementary forces.
+ScopeCreep.zip represents the perfect fusion of professional cybersecurity expertise with a distinctive visual identity. We present ourselves as a professional business card that showcases our work with mystical elegance - witchy but whimsical tech.
 
 ### Design Philosophy
-**"Professional Excellence Through Authentic Expression"**
+**"As Above, So Below" - Professional Excellence Through Mystical Elegance**
 
 Our design philosophy centers on three core principles:
 1. **Technical Credibility First** - Expertise and achievements take visual priority
-2. **Authentic Kawaii Integration** - Cute elements enhance rather than mask professionalism  
+2. **Tarot-Inspired Aesthetic** - Mystical elements enhance professionalism with ornate elegance
 3. **Inclusive Accessibility** - Beautiful design that works for everyone
+
+### Current Theme: Tarot "As Above, So Below"
+Inspired by Frieren anime aesthetics and traditional tarot card design:
+- **Light Mode ("As Above")**: Warm ivory backgrounds with gold framing
+- **Dark Mode ("So Below")**: Deep purple-black backgrounds with gold accents
+- **Aesthetic**: Less AI-looking, more handcrafted and authentic
+- **Visual Style**: Soft muted colors, vintage anime feel, Ghibli-esque warmth
 
 ### Target Audience
 - **Primary**: Conference organizers, potential clients, industry peers
@@ -26,7 +33,7 @@ Our design philosophy centers on three core principles:
 | Dimension | Primary | Secondary | Avoid |
 |-----------|---------|-----------|-------|
 | **Professional** | Expert, Credible, Knowledgeable | Innovative, Leaders | Corporate, Boring, Stiff |
-| **Kawaii** | Playful, Creative, Charming | Approachable, Fun | Childish, Unprofessional, Frivolous |
+| **Mystical** | Elegant, Sophisticated, Crafted | Witchy-but-whimsical | Dark, Occult, Heavy |
 | **Technical** | Skilled, Precise, Advanced | Cutting-edge, Smart | Intimidating, Elitist, Cold |
 | **Authentic** | Genuine, Unique, Bold | Confident, Real | Fake, Generic, Trying-too-hard |
 
@@ -47,62 +54,81 @@ Our design philosophy centers on three core principles:
 
 ## 🌈 Color System
 
-### Primary Palette
+### Tarot Gold Palette
 ```scss
-// Core Brand Colors
---kawaii-pink: #ff69b4      // Primary accent, CTAs, hearts
---kawaii-purple: #9d4edd    // Brand primary, borders, text
---kawaii-cyan: #00e5ff      // Secondary accent, links, tech elements
---kawaii-yellow: #ffd700    // Focus states, stars, highlights
---kawaii-mint: #7fffd4      // Supporting accent, success states
+// Gold Colors - Core of Tarot Theme
+--gold-light: #F4E4BA       // Soft gold (light theme)
+--gold-primary: #C9A227     // Antique gold
+--gold-dark: #8B6914        // Deep gold
+
+// Dark mode gold variations (bridal invitation style)
+--gold-light-dark: #D4C4A0
+--gold-primary-dark: #B8A67C
+--gold-dark-dark: #9A8A64
 ```
 
-### Background Palette
+### Light Theme: "As Above"
 ```scss
-// Soft, Professional Backgrounds
---bg-light-pink: #fef7f7    // Primary background base
---bg-lavender: #f8f5ff      // Secondary background
---bg-cyan-light: #f0feff    // Accent background sections
---white: #ffffff            // Content areas, cards
+// Backgrounds
+--bg-primary: #FFFDF7       // Warm ivory
+--bg-secondary: #F9F5ED     // Soft parchment
+--bg-card: #FFFFFF          // Pure white cards
+
+// Text
+--text-primary: #2C2416     // Deep brown-black
+--text-secondary: #5C4D3C   // Warm brown
+--text-muted: #8B7355       // Muted brown
+
+// Borders
+--border-subtle: rgba(201, 162, 39, 0.25)
+--border-gold: rgba(201, 162, 39, 0.4)
 ```
 
-### Text & UI Palette
+### Dark Theme: "So Below"
 ```scss
-// Accessible Text Colors
---text-dark: #2d2d2d        // Primary text (15.3:1 contrast)
---text-purple: #4a1c5c      // Secondary text (8.2:1 contrast)
---text-muted: #64748b       // Tertiary text (5.1:1 contrast)
+// Backgrounds
+--bg-primary: #0D0A14       // Deep purple-black
+--bg-secondary: #15101F     // Darker purple
+--bg-card: #1A1425          // Card background
 
-// Interactive States
---focus-yellow: #ffd600     // Focus indicators (WCAG compliant)
---border-kawaii: rgba(157, 78, 221, 0.3)  // Soft borders
+// Text
+--text-primary: #F0EBF4     // Light cream
+--text-secondary: #C4B8D4   // Muted lavender
+--text-muted: #8A7A9E       // Muted purple-gray
+
+// Borders
+--border-subtle: rgba(184, 166, 124, 0.15)
+--border-gold: rgba(184, 166, 124, 0.3)
+```
+
+### Legacy Color Support
+For backward compatibility, old kawaii variables are mapped to gold:
+```scss
+--kawaii-pink: var(--gold-primary)
+--kawaii-purple: var(--gold-dark)
+--kawaii-cyan: var(--gold-light)
+--focus-yellow: var(--gold-primary)
 ```
 
 ### Color Usage Guidelines
 
-**Primary Actions (kawaii-pink #ff69b4)**:
-- Call-to-action buttons
-- Primary navigation active states
-- Heart particles and love elements
-- High-priority links
-
-**Brand Elements (kawaii-purple #9d4edd)**:
-- Logo and brand text
-- Section borders and dividers
-- Navigation elements
-- Professional badges
-
-**Technical Elements (kawaii-cyan #00e5ff)**:
-- Code-related content
-- Podcast/audio player
-- Technical skill indicators
-- Secondary CTAs
-
-**Attention/Focus (kawaii-yellow #ffd700)**:
+**Gold Primary (#C9A227)**:
+- Call-to-action buttons (gradient with gold-dark)
+- Section labels and ornamental dividers
 - Focus indicators for accessibility
-- Star particles and achievements
-- Warning states
-- Special announcements
+- Tarot card borders and accents
+
+**Gold Light (#F4E4BA)**:
+- Badge backgrounds (light mode)
+- Hover states and highlights
+- Soft accent backgrounds
+- Corner decorations (✦ symbols)
+
+**Gold Dark (#8B6914)**:
+- Text accents and emphasis (light mode)
+- Border gradients
+- Heading accents
+- Professional credentials
 
 ### Accessibility Requirements
 - **Minimum contrast ratio**: 4.5:1 for normal text
@@ -116,11 +142,15 @@ Our design philosophy centers on three core principles:
 
 ### Font Families
 ```scss
-// Primary Font
-$font-family-base: 'Quicksand', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+// Display/Headings - Elegant Serif
+$font-display: 'Cormorant Garamond', Georgia, serif;
+$font-heading: 'Cormorant Garamond', Georgia, serif;
 
-// Monospace Font  
-$font-family-mono: 'JetBrains Mono', 'Courier New', monospace;
+// Body Text - Friendly Sans-Serif
+$font-body: 'Quicksand', system-ui, sans-serif;
+
+// Monospace Font
+$font-code: 'JetBrains Mono', monospace;
 ```
 
 ### Typography Scale
@@ -141,16 +171,17 @@ Tiny: 0.75rem (12px) - Legal, fine print
 ```
 
 ### Font Weight Usage
-- **Light (300)**: Large decorative text only
-- **Regular (400)**: Body text, descriptions
-- **Semi-bold (600)**: Subheadings, emphasis
-- **Bold (700)**: Headings, navigation, CTAs
+- **Light (300)**: Not used in tarot theme
+- **Regular (400)**: Body text, descriptions (Quicksand)
+- **Medium (500)**: Section titles, headings (Cormorant Garamond)
+- **Semi-bold (600)**: Emphasis, important headings (Cormorant Garamond)
 
 ### Typography Guidelines
-**Headlines**: Always use gradient treatment for major headings
-**Body Text**: High contrast, comfortable line height (1.6)
+**Headlines**: Cormorant Garamond for elegant, sophisticated look
+**Section Labels**: Uppercase with letter-spacing for distinction
+**Body Text**: Quicksand for readability, comfortable line height (1.6)
+**Emphasis**: Italic Cormorant Garamond in gold colors
 **Code Elements**: JetBrains Mono for technical content
-**Navigation**: Bold weight for prominence and accessibility
 
 ---
 
@@ -191,139 +222,161 @@ $border-radius-xl: 32px     // Hero elements, major sections
 
 ### Header Component
 **Purpose**: Brand presentation and primary navigation
-**Height**: 120px (desktop), adaptive (mobile)
-**Background**: Translucent white with backdrop blur
-**Border**: 3px solid kawaii-purple
+**Style**: Sticky header with clean separation
+**Background**: var(--bg-primary) with border-bottom
+**Border**: 1px solid var(--border-subtle)
 
 **Logo Treatment**:
-- Animated rainbow gradient
-- Size: 3.5rem desktop, 2.5rem mobile
-- Glow effect: 0 0 30px rgba(255, 105, 180, 0.6)
+- Cormorant Garamond font
+- Size: 1.75rem desktop, 1.2rem mobile
+- Color transitions with theme
+- Light mode: --text-primary, Dark mode: --gold-light
 
 **Navigation Style**:
-- Rounded buttons (20px radius)
-- Gradient hover effects
-- Accessible focus indicators
-- Mobile: Hamburger menu alternative
+- Minimal underline hover effect
+- Gold border-bottom on hover
+- Accessible focus indicators (--gold-primary)
+- Mobile: Hamburger menu with sliding nav
 
 ### Card Components
 
-**Expert/Team Cards**:
-- **Size**: Minimum 400px wide, adaptive height
-- **Border**: 3px solid (color-coded by person)
-- **Radius**: 32px for major impact
-- **Shadow**: 0 15px 50px rgba(0, 0, 0, 0.1)
-- **Hover**: Lift effect (-10px translate, scale 1.02)
+**Person Cards (Tarot Style)**:
+- **Border**: 1px solid var(--border-gold)
+- **Radius**: 12px for subtle elegance
+- **Background**: var(--bg-card)
+- **Corner Decoration**: ✦ symbol in gold (absolute positioned)
+- **Hover**: border-color changes to --gold-primary
 
-**Recognition Cards**:
-- **Style**: Left border accent (6px)
-- **Background**: White with subtle shadow
-- **Radius**: 24px for friendliness
-- **Typography**: Gradient headings
+**Craft/Project Cards**:
+- **Border**: 1px solid var(--border-subtle)
+- **Radius**: 8px
+- **Hover**: Border becomes --gold-primary
+- **Typography**: Cormorant Garamond headings
 
-**Stats Cards**:
-- **Background**: Gradient (light-pink to lavender)
-- **Border**: 2px solid kawaii border color
-- **Hover**: Lift and scale effect
-- **Numbers**: Large gradient text treatment
+**Episode Cards (Podcast)**:
+- **Same as craft cards** with enhanced shadow on active state
+- **3D Rolodex Effect**: Transform and perspective for carousel
+- **Active Card**: Full scale, no rotation
+- **Adjacent Cards**: Scale(0.8), rotateY(±25deg)
 
 ### Button System
 
 **Primary Buttons (CTAs)**:
 ```scss
-background: linear-gradient(135deg, kawaii-pink, kawaii-purple);
-padding: 1.25rem 2.5rem;
-border-radius: 25px;
-font-weight: 700;
-font-size: 1.1rem;
-box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+padding: 0.85rem 2.5rem;
+border-radius: 6px;
+font-weight: 600;
+font-size: 0.9rem;
+border: 1px solid var(--gold-primary);
+color: var(--bg-primary);
 
 &:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 12px 35px rgba(255, 105, 180, 0.6);
+  transform: translateY(-2px);
+}
+
+// Dark mode variant
+[data-theme="dark"] & {
+  background: var(--gold-primary);
+  border-color: var(--gold-light);
 }
 ```
 
-**Secondary Buttons**:
+**Link Buttons** (minimal style):
 ```scss
-background: white;
-color: kawaii-purple;
-border: 3px solid kawaii-purple;
-// Same padding and radius as primary
-// Hover: invert colors
+color: var(--gold-dark);
+text-decoration: none;
+padding: var(--space-sm) 0;
+border-bottom: 1px solid transparent;
+
+&:hover {
+  border-bottom-color: var(--gold-primary);
+}
+
+// Dark mode
+[data-theme="dark"] & {
+  color: var(--gold-light);
+}
 ```
 
-**Navigation Buttons**:
-- Smaller padding: 0.875rem 1.5rem
-- Gradient background on hover
-- Smooth color transitions
+**Navigation Links**:
+- Minimal underline hover
+- Color transitions
+- No background effects
 
-### Form Elements (Future Use)
+### Form Elements
 **Input Fields**:
-- Border: 2px solid kawaii border
-- Radius: 16px
-- Focus: Yellow outline + kawaii-purple border
-- Placeholder: Soft gray, friendly tone
+- Border: 1px solid var(--border-gold)
+- Radius: 8px
+- Background: var(--bg-card)
+- Focus: border-color changes to --gold-primary
+- Placeholder: var(--text-muted)
+
+**Textareas**:
+- Same styling as inputs
+- Min-height: 150px
+- Vertical resize only
 
 ---
 
 ## ✨ Animation & Interaction Design
 
-### Particle System Design
-**Purpose**: Create magical, technical atmosphere without distraction
+### Tarot Theme Animations
+**Philosophy**: Subtle, elegant transitions that enhance professionalism
 
-**Particle Types**:
-- **Stars (✦)**: Yellow, 14px, achievement feeling
-- **Hearts (♥, 💖)**: Pink, 12px, kawaii charm
-- **Code symbols ({, }, <, >)**: Purple, 10px, technical context
-- **Sparkles (✨)**: Cyan, 8px, magical enhancement
+**Key Animations**:
 
-**Animation Behavior**:
+1. **Glitch Effect** (for buzzword rotation):
 ```scss
-@keyframes kawaiFloat {
-  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
-  25% { transform: translateY(-15px) rotate(5deg); opacity: 1; }
-  50% { transform: translateY(-25px) rotate(0deg); opacity: 0.8; }
-  75% { transform: translateY(-10px) rotate(-5deg); opacity: 1; }
+@keyframes glitch {
+  0%, 100% { text-shadow: 0 0 0 transparent; }
+  20% { text-shadow: -2px 0 var(--gold-light), 2px 0 var(--gold-dark); }
+  40% { text-shadow: 2px 0 var(--gold-primary), -2px 0 var(--gold-light); }
+  60% { text-shadow: 0 0 8px var(--gold-primary); }
 }
 ```
 
+2. **Rolodex Carousel** (for podcast episodes):
+- 3D perspective transforms
+- Previous/next cards: scale(0.8), rotateY(±25deg), opacity: 0.7
+- Active card: scale(1), rotateY(0), opacity: 1
+- Smooth cubic-bezier transitions
+
 **Interaction Rules**:
-- **Mouse proximity**: Particles glow and scale within 120px
-- **Click effects**: 8 sparkles burst from click point
-- **Performance**: Maximum 125 particles for smooth performance
+- Minimal hover effects (subtle lifts, color changes)
+- No particle systems or floating elements
+- Theme transitions smooth (0.3s ease)
 
 ### Hover & Focus States
 
 **Card Hovers**:
-- Lift: translateY(-5px to -10px)
-- Scale: 1.02 for subtle growth
-- Shadow: Deeper, more spread
-- Duration: 0.3s ease
+- Border color: changes to var(--gold-primary)
+- No lift or scale effects
+- Smooth color transition (0.2s ease)
 
 **Button Hovers**:
-- Lift: translateY(-3px)
-- Scale: 1.05 for engagement
-- Glow: Enhanced box-shadow
-- Shimmer: Sliding highlight effect
+- Lift: translateY(-2px)
+- No scale effects
+- Enhanced box-shadow in dark mode
 
 **Navigation Hovers**:
-- Background: Gradient slide-in effect
-- Color: Text color changes
-- Duration: 0.3s for responsiveness
+- Border-bottom: appears in --gold-primary
+- Color: changes to gold variant
+- Smooth transitions (0.2s)
 
 ### Accessibility Considerations
 **Reduced Motion Support**:
 ```scss
 @media (prefers-reduced-motion: reduce) {
-  .particle { animation: none !important; }
-  .logo { animation: none !important; }
-  * { transition: none !important; }
+  * {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 ```
 
 **Focus Management**:
-- Yellow focus rings (3px solid #ffd600)
+- Gold focus rings (2px solid var(--gold-primary))
 - High contrast for visibility
 - Offset: 2px for clear separation
 - Keyboard navigation priority

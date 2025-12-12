@@ -62,16 +62,22 @@ graph LR
     A --> H[assets/<br/>Static resources]
     A --> I[_posts/<br/>Blog content]
     A --> J[_podcasts/<br/>Podcast episodes]
-    
+    A --> K[pages/<br/>Static pages]
+
     C --> C1[navigation.yml]
     C --> C2[social_links.yml]
     C --> C3[podcast_services.yml]
     C --> C4[team.yml]
-    
+
     F --> F1[base/<br/>Core styles]
     F --> F2[components/<br/>UI components]
     F --> F3[layout/<br/>Page structure]
-    F --> F4[utilities/<br/>Helper classes]
+
+    K --> K1[about.md]
+    K --> K2[podcasts.html]
+    K --> K3[blog.html]
+    K --> K4[contact.md]
+    K --> K5[research.md]
 ```
 
 ## Build Pipeline
@@ -134,10 +140,10 @@ sequenceDiagram
 - Individual episode pages with tabs
 
 ### 7. Asset Pipeline
-- JavaScript modules
+- Minimal JavaScript (main.js, buzzword-generator.js)
 - Image optimization
-- Font loading
-- CSS/JS minification
+- Font loading (Cormorant Garamond, Quicksand, JetBrains Mono)
+- CSS/JS minification via Sass compression
 
 ## Performance Optimizations
 

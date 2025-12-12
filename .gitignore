@@ -139,6 +139,9 @@ credentials.yml
 docs/_site/
 docs/.sass-cache/
 
+# Claude Code
+.claude/
+
 # Custom - project specific
 docs/prompts/*
 _drafts/

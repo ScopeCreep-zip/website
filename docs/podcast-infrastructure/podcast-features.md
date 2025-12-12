@@ -25,10 +25,11 @@ date: 2025-01-20
 description: "Brief episode description"
 duration: "45:23"
 audio_url: "/media/podcasts/episode-001.mp3"
+artwork: "/media/podcasts/episode-001-art.jpg" # Optional, defaults to site podcast logo
 guest: "Guest Name" # Optional
 clean_transcript: |
   [Kali] Clean, edited transcript text...
-  
+
   [Kat] With proper formatting...
 raw_transcript: |
   [00:00] [Kali] Raw transcript with timestamps...
@@ -36,6 +37,8 @@ raw_transcript: |
 tags:
   - Topic1
   - Topic2
+show_notes: "/path/to/notes.pdf" # Optional
+transcript: "/path/to/transcript.pdf" # Optional downloadable transcript
 ---
 
 Episode show notes and additional content go here...
@@ -68,14 +71,14 @@ Each episode card includes:
 
 ### 4. Transcript Formatting
 
-Transcripts support automatic formatting for:
+Transcripts support automatic formatting via `_includes/format-transcript.html` for:
 
 #### Speaker Labels
-- `[Kali]` - Pink color
-- `[Kat]` - Cyan color
-- `[Speaker 1]` - Purple color
-- `[Speaker 2]` - Yellow color
-- `[Guest]` - Coral color
+- `[Kali]` - Dusty rose color (--dusty-rose)
+- `[Kat]` - Teal color (--teal)
+- `[Speaker 1]` - Gold dark color (--gold-dark)
+- `[Speaker 2]` - Sage color (--sage)
+- `[Guest]` - Dusty rose color (--dusty-rose)
 
 #### Timestamps
 - Format: `[00:00]` - Displayed in muted gray
@@ -109,26 +112,32 @@ _podcasts/
 └── ...
 
 _includes/
-├── podcast-episode-card.html
-├── podcast-services.html
-├── podcast-player.html
-└── format-transcript.html
+├── podcast-episode-card.html  (440+ lines with embedded styles & JS)
+├── podcast-services.html       (196 lines with embedded styles)
+├── podcast-player.html         (252 lines with embedded styles & JS)
+└── format-transcript.html      (27 lines)
 
 _layouts/
-└── podcast.html
+└── podcast.html                (359 lines with embedded styles & JS)
 
-podcasts.html (main podcast page)
+_data/
+└── podcast_services.yml        (Centralized service configuration)
+
+pages/
+└── podcasts.html               (Main podcast page with carousel)
 ```
 
 ## Styling
 
-The podcast components use the kawaii theme with:
+The podcast components use the tarot/gold theme with:
 
-- Purple/pink/cyan color scheme
-- Rounded borders
-- Gradient effects on titles
-- Custom scrollbars
+- Gold color palette (--gold-primary, --gold-light, --gold-dark)
+- Gold borders (--border-gold)
+- Gradient effects on titles and buttons
+- Custom scrollbars with gold accents
 - Smooth transitions
+- Warm ivory backgrounds (--bg-card, --bg-secondary)
+- Elegant tarot-inspired aesthetic
 
 ## JavaScript Features
 
@@ -199,7 +208,35 @@ Raw:
 
 ## Maintenance
 
-- Update `_data/podcast_services.yml` to add/remove podcast platforms
-- Modify color assignments in `format-transcript.html` for new speakers
-- Adjust carousel settings in `podcasts.html` for different effects
-- Update styles in component files for theme changes
+### Podcast Services Management
+Update `_data/podcast_services.yml` to add/remove podcast platforms:
+```yaml
+platforms:
+  new_platform:
+    name: "Platform Name"
+    url: "https://platform.url/your-podcast"
+    icon: "https://platform.url/icon.png"
+    enabled: true  # Set to false to hide
+```
+
+### Speaker Formatting
+Modify color assignments in `_includes/format-transcript.html` for new speakers. Color variables reference the tarot theme:
+- --dusty-rose (muted pink)
+- --teal (muted teal)
+- --gold-dark, --gold-primary (gold variations)
+- --sage (soft sage)
+- --lavender (muted lavender)
+
+### Carousel Customization
+Adjust carousel settings in `pages/podcasts.html`:
+- Slide navigation (prev/next buttons)
+- Indicator dots
+- Rolodex transformation effects
+- Touch/swipe threshold
+
+### Component Styling
+All components use embedded `<style>` blocks:
+- podcast-player.html: Lines 63-187 (styles), 189-252 (JavaScript)
+- podcast-episode-card.html: Lines 122-440 (styles), 442-470 (JavaScript)
+- podcast-services.html: Lines 95-196 (styles)
+- podcast.html layout: Lines 119-334 (styles), 336-359 (JavaScript)

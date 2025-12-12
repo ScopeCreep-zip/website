@@ -53,64 +53,12 @@ Your post content here using Markdown...
 
 1. **Create Episode File**
 ```bash
-# Format: YYYY-MM-DD-episode-title.md
-touch _podcasts/2025-01-27-cybersecurity-trends.md
-```
-
-2. **Add Front Matter**
-```yaml
----
-layout: podcast
-title: "Cybersecurity Trends for 2025"
-episode_number: 2
-date: 2025-01-27
-description: "Discussing emerging threats and defensive strategies"
-duration: "45:30"
-audio_url: "/media/podcasts/episode-002.mp3"
-guest: "Jane Doe, Security Researcher"
-clean_transcript: |
-  [Kali] Welcome to episode two...
-  
-  [Guest] Thanks for having me...
-raw_transcript: |
-  [00:00] [Kali] Um, welcome to episode two...
-  [00:05] [Guest] Thanks for, uh, having me...
-tags:
-  - Cybersecurity
-  - Trends
-  - 2025
----
-```
-
-3. **Add Show Notes**
-```markdown
-## Episode Summary
-
-In this episode, we discuss...
-
-## Key Topics
-- Topic 1
-- Topic 2
-
-### Code Examples
-```python
-def analyze_supply_chain():
-    # Your code here
-    pass
-```
-
-### Images
-![Alt text](/assets/images/example.png)
-```
-
-### Adding a Podcast Episode
-
-1. **Create Episode File**
-```bash
+# Podcast files go in _podcasts/ directory
+# Use descriptive filenames (date not required in filename)
 touch _podcasts/episode-10-platform-engineering.md
 ```
 
-2. **Episode Front Matter**
+2. **Add Front Matter**
 ```yaml
 ---
 layout: podcast
@@ -131,29 +79,68 @@ show_notes: |
   - Platform Engineering Overview [05:30]
   - Best Practices Discussion [15:00]
   - Q&A Session [35:00]
+tags:
+  - Platform Engineering
+  - DevOps
+  - Kubernetes
 ---
 ```
 
+3. **Add Episode Content**
+```markdown
+## Episode Summary
+
+In this episode, we dive deep into platform engineering best practices...
+
+## Key Topics
+- Platform as a Product
+- Developer Experience
+- Internal Tools
+
+## Links Mentioned
+- [Example Resource](https://example.com)
+```
+
+**Note**: Podcast permalinks are automatically generated as `/podcast/:name/` based on the filename.
+
 ### Updating Team Information
 
-**File**: `_data/team.yml`
+**File**: `_config.yml` (not `_data/team.yml`)
+
+Team information is stored directly in the Jekyll configuration file:
 
 ```yaml
-kali:
-  name: "Kali Jackson"
-  title: "Malware Analyst & Security Researcher"
-  avatar: "/assets/images/avatars/kali.png"
-  bio: "Updated bio text here..."
-  credentials: 
-    - "GIAC GREM"
-    - "OSCP"
-    - "New Certification"  # Add new items
-  social:
-    blog: "https://radicalkjax.com"
-    research: "https://malwarEvangelist.com"
-    bluesky: "https://bsky.app/profile/radicalkjax.com"
-    mastodon: "https://infosec.exchange/@kali"  # Add new platforms
+# In _config.yml
+team:
+  kali:
+    name: "Kali Jackson"
+    title: "Malware Analyst & Security Researcher"
+    avatar: "/assets/images/avatars/kali.png"
+    bio: "Self-described 'smartest airhead' who combines serious cybersecurity expertise with kawaii aesthetics!"
+    credentials:
+      - "GIAC GREM"
+      - "OSCP"
+      - "PhD Candidate"
+    social:
+      blog: "https://radicalkjax.com"
+      research: "https://malwarEvangelist.com"
+      bluesky: "https://bsky.app/profile/radicalkjax.com"
+  kat:
+    name: "Kat Morgan"
+    title: "Platform Engineer & Open Sourceress"
+    avatar: "/assets/images/avatars/kat.png"
+    bio: "'Neuro spicy autist' and platform engineering wizard at Cisco!"
+    credentials:
+      - "CKA"
+      - "AWS Certified"
+      - "CNCF Ambassador"
+    social:
+      blog: "https://blog.usrbinkat.io/en/"
+      github: "https://github.com/usrbinkat"
+      bluesky: "https://bsky.app/profile/usrbinkat.io"
 ```
+
+**Access in templates**: Use `site.team.kali.name` or `site.team.kat.title`
 
 ### Managing Speaking Events
 
@@ -211,14 +198,25 @@ graph TD
     A[Content Types] --> B[Posts]
     A --> C[Pages]
     A --> D[Podcasts]
-    A --> E[Data Files]
-    
+    A --> E[Speaking]
+    A --> F[Data Files]
+
     B --> B1[_posts/YYYY-MM-DD-title.md]
-    C --> C1[about.md]
-    C --> C2[contact.md]
-    D --> D1[_podcasts/episode-N.md]
-    E --> E1[_data/*.yml]
+    C --> C1[pages/about.md with permalink]
+    C --> C2[pages/contact.md with permalink]
+    D --> D1[_podcasts/episode-name.md]
+    E --> E1[_speaking/event-name.md]
+    F --> F1[_data/navigation.yml]
+    F --> F2[_data/speaking.yml]
 ```
+
+### Directory Structure
+
+- **`_posts/`**: Blog posts with strict `YYYY-MM-DD-title.md` naming
+- **`pages/`**: Static pages with explicit `permalink` in front matter
+- **`_podcasts/`**: Podcast episodes (collection, outputs to `/podcast/:name/`)
+- **`_speaking/`**: Speaking engagements (collection, outputs to `/speaking/:name/`)
+- **`_data/`**: YAML data files for navigation, speaking events, etc.
 
 ## Front Matter Reference
 
@@ -243,11 +241,13 @@ featured: true
 ---
 layout: page
 title: "Page Title"
-permalink: /custom-url/
+permalink: /custom-url/  # Required for pages in pages/ directory
 description: "SEO meta description"
 image: /assets/images/page-hero.jpg
 ---
 ```
+
+**Important**: Pages in the `pages/` directory MUST have an explicit `permalink` value.
 
 ### Podcast Front Matter
 ```yaml
@@ -301,22 +301,30 @@ imageoptim assets/images/posts/*.{jpg,jpeg,png}
 
 ## Data File Formats
 
-### Social Links (`_data/social_links.yml`)
+### Navigation (`_data/navigation.yml`)
 ```yaml
-- platform: twitter
-  url: https://twitter.com/username
-  icon: fab fa-twitter
-  label: Twitter
-  color: "#1DA1F2"
+main:
+  - title: Home
+    url: /
+  - title: About
+    url: /about/
+  - title: Blog
+    url: /blog/
+  - title: Podcast
+    url: /podcasts/
+  - title: Speaking
+    url: /speaking/
 ```
 
-### Recognition (`_data/recognition.yml`)
+### Speaking Events (`_data/speaking.yml`)
 ```yaml
-- title: "Best Security Podcast 2024"
-  organization: "InfoSec Awards"
-  year: 2024
-  link: https://infosecawards.com/winners/2024
-  category: podcast
+- title: "Kawaii Security: Making InfoSec Accessible"
+  event: "DEF CON 32"
+  date: 2025-08-10
+  location: "Las Vegas, NV"
+  type: "talk"
+  slides_url: "/assets/slides/defcon32.pdf"
+  video_url: "https://youtube.com/watch?v=..."
 ```
 
 ## SEO Best Practices
@@ -364,6 +372,26 @@ bundle exec jekyll serve
 # Visit http://localhost:4000/admin/links
 ```
 
+## Theme Toggle Functionality
+
+The site includes a light/dark theme toggle using localStorage:
+
+```javascript
+// Theme is stored in localStorage
+localStorage.getItem('theme')  // 'light' or 'dark'
+localStorage.setItem('theme', newTheme)
+
+// Applied via data attribute
+document.documentElement.setAttribute('data-theme', 'dark')
+```
+
+**Implementation details**:
+- Theme preference saved in localStorage
+- Falls back to system preference if not set
+- Script in `_includes/head.html` prevents flash of unstyled content
+- Toggle button in `_layouts/default.html`
+- Theme styles in `_sass/base/_variables.scss`
+
 ## Troubleshooting
 
 ### Common Issues
@@ -385,10 +413,18 @@ bundle exec jekyll build --verbose
 3. **Date Parsing Errors**
 - Use ISO 8601 format: `2025-01-20 10:00:00 -0700`
 - Ensure proper timezone offset
+- Posts with future dates won't display
 
 4. **Liquid Syntax Errors**
 - Escape special characters: `{% raw %}{{ example }}{% endraw %}`
 - Check for unclosed tags
+- Validate YAML front matter indentation
+
+5. **Pagination Not Working**
+- Using `jekyll-paginate` (not v2)
+- Paginate path: `/blog/page:num/`
+- Only works on `blog.html` index page
+- Set `paginate: 10` in `_config.yml`
 
 ## Quick Reference
 

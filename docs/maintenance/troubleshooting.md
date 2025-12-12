@@ -79,10 +79,13 @@ plugins:
 **Check Build Status**:
 ```bash
 # Via GitHub CLI
-gh run list --workflow=pages-build-deployment
+gh run list --workflow=jekyll.yml
 
 # Check specific run
 gh run view <run-id>
+
+# Watch deployment in real-time
+gh run watch
 ```
 
 **Common Fixes**:
@@ -94,7 +97,11 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-  # Remove unsupported plugins
+  - jekyll-paginate  # Standard paginate (not v2)
+  # Remove unsupported plugins like:
+  # - jekyll-paginate-v2
+  # - jekyll-responsive-image
+  # - jekyll-minifier
 ```
 
 2. **Invalid Permalinks**
@@ -201,13 +208,23 @@ plugins:
 
 **Common Fixes**:
 ```yaml
-# _config.yml for subdirectory hosting
-baseurl: "/subdirectory"
-url: "https://example.com"
-
-# For root domain
+# _config.yml - ScopeCreep.zip uses root domain
 baseurl: ""
 url: "https://scopecreep.zip"
+
+# Sass settings
+sass:
+  sass_dir: _sass
+  style: compressed
+```
+
+**Verify SCSS compilation**:
+```bash
+# Check that main.scss exists and imports all partials
+cat assets/css/main.scss
+
+# Look for compilation errors in build output
+bundle exec jekyll build --verbose
 ```
 
 ### Missing Images
@@ -251,14 +268,28 @@ document.addEventListener('DOMContentLoaded', function() {
 **Checklist**:
 - [ ] Correct filename format: `YYYY-MM-DD-title.md`
 - [ ] Post date not in future
-- [ ] Valid front matter
-- [ ] File in `_posts/` directory
+- [ ] Valid front matter with `layout: post`
+- [ ] File in `_posts/` directory (not `pages/`)
 - [ ] Not in draft status
+
+**Example correct post**:
+```yaml
+---
+layout: post
+title: "My Post Title"
+date: 2025-01-20 10:00:00
+categories: [security, research]
+tags: [tag1, tag2]
+---
+```
 
 ```bash
 # Debug posts
 bundle exec jekyll build --verbose
 bundle exec jekyll serve --drafts  # Include draft posts
+
+# Check if post is being processed
+bundle exec jekyll build --verbose 2>&1 | grep "posts"
 ```
 
 ### Broken Internal Links
@@ -315,9 +346,14 @@ rm Gemfile.lock
 # Reinstall
 bundle install
 
-# Platform-specific issues
+# Platform-specific issues (for CI/CD compatibility)
 bundle lock --add-platform x86_64-linux
 bundle install
+
+# Ruby 3.4+ compatibility
+# Ensure these gems are in Gemfile:
+# gem "csv"
+# gem "bigdecimal"
 ```
 
 ### Port Already in Use

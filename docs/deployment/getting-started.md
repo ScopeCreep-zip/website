@@ -32,16 +32,20 @@ gem install bundler
 bundle install
 ```
 
-### 3. Configure Local Environment
+### 3. Verify Configuration
 
-```bash
-# Copy example config (if exists)
-cp _config.yml.example _config.yml
+The `_config.yml` file is already configured for both local and production use:
 
-# Update local settings
-# Set url to http://localhost:4000
-# Set baseurl to empty string
+```yaml
+# Production settings (default)
+url: "https://scopecreep.zip"
+baseurl: ""
+
+# These settings work for local development too
+# Jekyll automatically uses localhost:4000 when running locally
 ```
+
+No configuration changes needed for local development!
 
 ## Development Workflow
 
@@ -79,16 +83,18 @@ bundle exec jekyll serve --port 3000
 #### Creating a New Page
 
 ```bash
-# Create new page
-touch new-page.md
+# Create page in pages/ directory
+touch pages/new-page.md
 
 # Add front matter
 echo '---
 layout: page
 title: "New Page"
 permalink: /new-page/
----' > new-page.md
+---' > pages/new-page.md
 ```
+
+Pages are organized in the `pages/` directory with explicit `permalink` values in their front matter.
 
 #### Adding a Blog Post
 
@@ -118,19 +124,26 @@ categories: [security, engineering]
 ```
 website/
 ├── _config.yml          # Site configuration
-├── _data/              # YAML data files
-├── _includes/          # Reusable components
-├── _layouts/           # Page templates
-├── _posts/             # Blog posts
-├── _podcasts/          # Podcast episodes
-├── _sass/              # Sass partials
+├── _data/              # YAML data files (team, navigation, speaking)
+├── _includes/          # Reusable components (12 templates)
+├── _layouts/           # Page templates (4 layouts)
+├── _posts/             # Blog posts (YYYY-MM-DD-title.md format)
+├── _podcasts/          # Podcast episodes collection
+├── _speaking/          # Speaking engagements collection
+├── _sass/              # Sass partials (modular structure)
+│   ├── base/
+│   ├── components/
+│   ├── layout/
+│   └── utilities/
 ├── _site/              # Generated output (gitignored)
 ├── assets/             # Static files
 │   ├── css/
 │   ├── js/
 │   └── images/
-├── pages/              # Static pages
-└── Gemfile             # Ruby dependencies
+├── pages/              # Static pages with explicit permalinks
+├── docs/               # Documentation (excluded from build)
+├── Gemfile             # Ruby dependencies
+└── .github/workflows/  # GitHub Actions deployment
 ```
 
 ## Environment Variables

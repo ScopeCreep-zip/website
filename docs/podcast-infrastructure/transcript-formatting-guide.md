@@ -76,15 +76,17 @@ Raw transcripts capture exactly what was said, including verbal fillers and time
 
 ## Supported Speaker Labels
 
-The following speaker labels are automatically styled:
+The following speaker labels are automatically styled by `_includes/format-transcript.html`:
 
-| Label | Color | Use Case |
-|-------|-------|----------|
-| `[Kali]` | Pink | Host - Kali |
-| `[Kat]` | Cyan | Host - Kat |
-| `[Speaker 1]` | Purple | First guest |
-| `[Speaker 2]` | Yellow | Second guest |
-| `[Guest]` | Coral | Single guest |
+| Label | Color Variable | Color Description | Use Case |
+|-------|----------------|-------------------|----------|
+| `[Kali]` | --dusty-rose | Muted pink/mauve | Host - Kali |
+| `[Kat]` | --teal | Muted teal | Host - Kat |
+| `[Speaker 1]` | --gold-dark | Deep gold | First guest |
+| `[Speaker 2]` | --sage | Soft sage green | Second guest |
+| `[Guest]` | --dusty-rose | Muted pink/mauve | Single guest |
+
+**Note**: Color variables reference the tarot theme defined in `_sass/base/_variables.scss`
 
 ## File Format
 
@@ -150,9 +152,24 @@ raw_transcript: "transcripts/episode-001-raw.txt"
 
 The transcript formatting is handled by:
 
-1. **`_includes/format-transcript.html`** - Processes speaker labels and timestamps
-2. **CSS Classes** - Applies color coding and styling
-3. **JavaScript** - Manages view switching in episode cards
+1. **`_includes/format-transcript.html`** (27 lines) - Processes speaker labels and timestamps
+   - Wraps `[Speaker Name]` in `<span class="speaker-label [lowercase-name]">`
+   - For raw transcripts, wraps timestamps in `<span class="timestamp">`
+   - Converts newlines to `<br>` tags
+   - Returns formatted HTML
+
+2. **CSS Classes** - Styling applied in component files:
+   - `.speaker-label` - Base styling for speaker names
+   - `.speaker-label.kali` - Kali's color (dusty rose)
+   - `.speaker-label.kat` - Kat's color (teal)
+   - `.speaker-label.speaker1` - Gold dark
+   - `.speaker-label.speaker2` - Sage
+   - `.speaker-label.guest` - Dusty rose
+   - `.timestamp` - Muted gray for timestamps
+
+3. **JavaScript** - Manages view switching in:
+   - `podcast-episode-card.html` (lines 442-470) - Tab switching for episode cards
+   - `_layouts/podcast.html` (lines 336-359) - Tab switching for full episode pages
 
 ## Accessibility Considerations
 
