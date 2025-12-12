@@ -139,14 +139,14 @@ layout: default
 }
 
 .episode-number {
-  color: var(--kawaii-purple);
+  color: var(--gold-primary);
   font-weight: 700;
 }
 
 .episode-title {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple));
+  background: linear-gradient(45deg, var(--gold-light), var(--gold-primary));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -154,23 +154,23 @@ layout: default
 
 .episode-description {
   font-size: 1.2rem;
-  color: var(--text-purple);
+  color: var(--text-secondary);
   margin-bottom: 1rem;
 }
 
 .episode-guest,
 .episode-duration {
-  color: var(--text-dark);
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
 .episode-player {
-  background: var(--white);
-  border: 3px solid var(--kawaii-purple);
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
   border-radius: 24px;
   padding: 2rem;
   margin-bottom: 3rem;
-  box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .episode-audio {
@@ -179,14 +179,14 @@ layout: default
 }
 
 .episode-subscribe h3 {
-  color: var(--kawaii-purple);
+  color: var(--gold-primary);
   margin-bottom: 1rem;
 }
 
 .episode-tabs {
   display: flex;
   gap: 1rem;
-  border-bottom: 2px solid var(--kawaii-purple);
+  border-bottom: 1px solid var(--border-gold);
   margin-bottom: 2rem;
 }
 
@@ -202,11 +202,11 @@ layout: default
 }
 
 .tab-button:hover {
-  color: var(--kawaii-purple);
+  color: var(--gold-primary);
 }
 
 .tab-button.active {
-  color: var(--kawaii-purple);
+  color: var(--gold-primary);
 }
 
 .tab-button.active::after {
@@ -216,12 +216,12 @@ layout: default
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--kawaii-purple);
+  background: var(--gold-primary);
 }
 
 .tab-content {
-  background: var(--white);
-  border: 3px solid var(--kawaii-purple);
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
   border-radius: 24px;
   padding: 2rem;
   min-height: 300px;
@@ -238,7 +238,7 @@ layout: default
 .transcript-content {
   font-size: 1rem;
   line-height: 1.8;
-  color: var(--text-dark);
+  color: var(--text-primary);
 }
 
 .transcript-content.clean {
@@ -246,7 +246,7 @@ layout: default
 }
 
 .raw-transcript-pre {
-  background: rgba(157, 78, 221, 0.05);
+  background: rgba(0, 0, 0, 0.03);
   padding: 1.5rem;
   border-radius: 12px;
   overflow-x: auto;
@@ -254,37 +254,37 @@ layout: default
   font-size: 0.9rem;
   line-height: 1.6;
   white-space: pre-wrap;
-  color: var(--text-dark);
+  color: var(--text-primary);
   border: none;
   margin: 0;
 }
 
 .speaker-label {
   font-weight: 700;
-  color: var(--kawaii-purple);
+  color: var(--gold-dark);
   display: inline-block;
   margin-right: 0.5rem;
   font-size: 1.05rem;
 }
 
 .speaker-label.kali {
-  color: var(--kawaii-pink);
+  color: var(--gold-primary);
 }
 
 .speaker-label.kat {
-  color: var(--kawaii-cyan);
+  color: var(--teal);
 }
 
 .speaker-label.speaker1 {
-  color: var(--kawaii-purple);
+  color: var(--gold-dark);
 }
 
 .speaker-label.speaker2 {
-  color: var(--kawaii-yellow);
+  color: var(--sage);
 }
 
 .speaker-label.guest {
-  color: #FF6B6B;
+  color: var(--dusty-rose);
 }
 
 .timestamp {
@@ -324,8 +324,8 @@ layout: default
 }
 
 .episode-tag {
-  background: rgba(157, 78, 221, 0.1);
-  color: var(--kawaii-purple);
+  background: rgba(201, 162, 39, 0.1);
+  color: var(--gold-primary);
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;

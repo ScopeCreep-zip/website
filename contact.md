@@ -1,241 +1,99 @@
 ---
-layout: page
-title: 
+layout: default
+title: Summon Us
+description: Speaking engagements and how to reach the ScopeCreep team
 permalink: /contact/
 ---
 
-<h1 class="page-section-title">Contact Us 📬</h1>
-
-## Get in Touch
-
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required>
-  </div>
-  
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required>
-  </div>
-  
-  <div class="form-group">
-    <label for="subject">Subject</label>
-    <select id="subject" name="subject" required>
-      <option value="">Select a topic</option>
-      <option value="podcast-guest">Be a Podcast Guest</option>
-      <option value="collaboration">Collaboration Idea</option>
-      <option value="speaking">Speaking Inquiry</option>
-      <option value="media">Media Request</option>
-      <option value="general">General Question</option>
-    </select>
-  </div>
-  
-  <div class="form-group">
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
-  </div>
-  
-  <button type="submit" class="btn btn-primary">Send Message</button>
-</form>
-
-## Our Team
-
-<div class="team-contacts">
-  <div class="team-member">
-    <h3>Kali Jackson</h3>
-    <p class="role">Full-stack Engineer/Hacker</p>
-    <div class="member-social-links">
-      {% include social-links.html 
-         source="team"
-         team_member="kali"
-         layout="horizontal"
-         size="small"
-      %}
+<section class="hero">
+    <div class="container">
+        <div class="hero-ornament">✦ ✦ ✦</div>
+        <h1 class="hero-title">Summon Us</h1>
+        <p class="hero-text">Speaking engagements, collaborations, and ways to reach us</p>
     </div>
-  </div>
-  
-  <div class="team-member">
-    <h3>Kat Morgan</h3>
-    <p class="role">Systems Engineer Lead</p>
-    <div class="member-social-links">
-      {% include social-links.html 
-         source="team"
-         team_member="kat"
-         layout="horizontal"
-         size="small"
-      %}
+</section>
+
+<section class="about">
+    <div class="container">
+        <header class="section-header">
+            <span class="section-label">The Witches</span>
+            <h2 class="section-title">Reach Out & Speaking Topics</h2>
+            <div class="section-divider">⟡</div>
+        </header>
+
+        <div class="about-grid">
+            <article class="person-card">
+                <div class="person-header">
+                    <img src="https://github.com/radicalkjax.png" alt="Kali Jackson" class="person-avatar">
+                    <div class="person-info">
+                        <h3 class="person-name">Kali Jackson</h3>
+                        <p class="person-title">Security Research & Solution Engineering</p>
+                    </div>
+                </div>
+                <ul style="list-style: none; padding: 0; margin: 1rem 0;">
+                    <li style="padding: 0.5rem 0; color: var(--text-secondary);">✦ Deep Learning for Malware Analysis</li>
+                    <li style="padding: 0.5rem 0; color: var(--text-secondary);">✦ Reverse Engineering Fundamentals</li>
+                    <li style="padding: 0.5rem 0; color: var(--text-secondary);">✦ Community Building</li>
+                    <li style="padding: 0.5rem 0; color: var(--text-secondary);">✦ Making Security and Privacy Accessible</li>
+                </ul>
+                <div class="person-links">
+                    <a href="https://bsky.app/profile/radicalkjax.com" class="person-link" target="_blank">Bluesky</a>
+                    <a href="https://twitter.com/radicalkjax" class="person-link" target="_blank">Twitter</a>
+                    <a href="https://github.com/radicalkjax" class="person-link" target="_blank">GitHub</a>
+                    <a href="https://radicalkjax.com" class="person-link" target="_blank">Blog</a>
+                </div>
+            </article>
+
+            <article class="person-card">
+                <div class="person-header">
+                    <img src="https://github.com/usrbinkat.png" alt="Kat Morgan" class="person-avatar">
+                    <div class="person-info">
+                        <h3 class="person-name">Kat Morgan</h3>
+                        <p class="person-title">Platform Engineering & DevOps</p>
+                    </div>
+                </div>
+                <ul style="list-style: none; padding: 0; margin: 1rem 0;">
+                    <li style="padding: 0.5rem 0; color: var(--text-secondary);">✦ Kubernetes & Container Orchestration</li>
+                    <li style="padding: 0.5rem 0; color: var(--text-secondary);">✦ Infrastructure as Code</li>
+                    <li style="padding: 0.5rem 0; color: var(--text-secondary);">✦ Multi-Cloud Architecture</li>
+                    <li style="padding: 0.5rem 0; color: var(--text-secondary);">✦ Open Source Development</li>
+                </ul>
+                <div class="person-links">
+                    <a href="https://bsky.app/profile/usrbinkat.io" class="person-link" target="_blank">Bluesky</a>
+                    <a href="https://twitter.com/skydaddysgg" class="person-link" target="_blank">Twitter</a>
+                    <a href="https://github.com/usrbinkat" class="person-link" target="_blank">GitHub</a>
+                    <a href="https://blog.usrbinkat.io/en/" class="person-link" target="_blank">Blog</a>
+                </div>
+            </article>
+        </div>
     </div>
-  </div>
-</div>
+</section>
 
-## Follow ScopeCreep
+<section class="craft">
+    <div class="container">
+        <header class="section-header">
+            <span class="section-label">Available For</span>
+            <h2 class="section-title">Types of Events</h2>
+            <div class="section-divider">⟡</div>
+        </header>
 
-{% include social-links.html 
-   title=""
-   source="company"
-   layout="horizontal"
-   size="medium"
-%}
-
-<style>
-.contact-form {
-  max-width: 600px;
-  margin: 2rem 0;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: var(--color-primary);
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 2px solid var(--color-secondary);
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--color-accent);
-}
-
-.btn-primary {
-  background: var(--color-primary);
-  color: white;
-  padding: 0.75rem 2rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-  background: var(--color-accent);
-  transform: translateY(-2px);
-}
-
-.team-contacts {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 3rem 0;
-}
-
-.team-member {
-  background: var(--white);
-  border: 3px solid var(--kawaii-purple);
-  border-radius: 24px;
-  padding: 2.5rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.team-member:first-child {
-  border-color: var(--kawaii-pink);
-}
-
-.team-member:last-child {
-  border-color: var(--kawaii-cyan);
-}
-
-.team-member::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(157, 78, 221, 0.05) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.team-member:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
-}
-
-.team-member h3 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 0.5rem;
-}
-
-.team-member .role {
-  color: var(--text-purple);
-  font-weight: 600;
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-}
-
-.member-social-links {
-  margin-top: 1.5rem;
-}
-
-.member-social-links .social-links__list {
-  justify-content: flex-start;
-}
-
-.page-section-title {
-  font-size: 3rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 3rem;
-  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 30px rgba(255, 105, 180, 0.6);
-  filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.4));
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-@media (max-width: 768px) {
-  .page-section-title {
-    font-size: 1.75rem;
-  }
-
-  .team-contacts {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 0 1rem;
-    margin: 2rem auto;
-    max-width: 100%;
-  }
-
-  .team-member {
-    padding: 1.5rem;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 500px;
-  }
-
-  .contact-form {
-    padding: 0 1rem;
-    margin: 2rem auto;
-  }
-}
-</style>
-
+        <div class="craft-grid">
+            <article class="craft-card">
+                <h3>Conferences</h3>
+                <p>Keynotes, technical talks, and panel discussions at security and DevOps conferences.</p>
+            </article>
+            <article class="craft-card">
+                <h3>Collaborations</h3>
+                <p>Joint projects, content partnerships, and cross-team technical adventures.</p>
+            </article>
+            <article class="craft-card">
+                <h3>Podcasts</h3>
+                <p>Guest appearances to discuss security, infrastructure, and tech culture.</p>
+            </article>
+            <article class="craft-card">
+                <h3>Meetups</h3>
+                <p>Local community talks and lightning presentations.</p>
+            </article>
+        </div>
+    </div>
+</section>

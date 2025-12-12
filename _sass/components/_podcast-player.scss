@@ -28,7 +28,7 @@
   width: 120px;
   height: 120px;
   object-fit: cover;
-  border: 4px solid var(--color-primary);
+  border: 1px solid var(--border-gold);
   flex-shrink: 0;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .episode-meta {
-  color: var(--color-text-muted);
+  color: var(--text-muted);
   font-size: $fs-small;
 }
 
@@ -79,7 +79,7 @@
   gap: $space-sm;
   font-family: $font-code;
   font-size: $fs-small;
-  color: var(--color-text-muted);
+  color: var(--text-muted);
 }
 
 .progress-container {
@@ -89,11 +89,11 @@
 
 .progress-bar {
   height: 8px;
-  background: var(--color-bg-alt);
+  background: var(--bg-secondary);
   position: relative;
   cursor: pointer;
   overflow: hidden;
-  
+
   &:hover .progress-handle {
     opacity: 1;
   }
@@ -101,7 +101,7 @@
 
 .progress-fill {
   height: 100%;
-  background: var(--color-accent);
+  background: var(--gold-primary);
   width: 0;
   @include transition(width);
 }
@@ -112,8 +112,8 @@
   right: -8px;
   width: 16px;
   height: 16px;
-  background: var(--color-accent);
-  border: 2px solid var(--color-bg);
+  background: var(--gold-primary);
+  border: 2px solid var(--bg-card);
   transform: translateY(-50%);
   opacity: 0;
   @include transition(opacity);
@@ -138,22 +138,22 @@
 .volume-slider {
   width: 100%;
   height: 4px;
-  background: var(--color-bg-alt);
+  background: var(--bg-secondary);
   outline: none;
   cursor: pointer;
-  
+
   &::-webkit-slider-thumb {
     appearance: none;
     width: 12px;
     height: 12px;
-    background: var(--color-accent);
+    background: var(--gold-primary);
     cursor: pointer;
   }
-  
+
   &::-moz-range-thumb {
     width: 12px;
     height: 12px;
-    background: var(--color-accent);
+    background: var(--gold-primary);
     cursor: pointer;
     border: none;
   }
@@ -166,11 +166,11 @@
   gap: $space-md;
   margin-top: $space-lg;
   padding-top: $space-lg;
-  border-top: 1px solid rgba(var(--color-text-muted), 0.2);
-  
+  border-top: 1px solid var(--border-light);
+
   .listen-on {
     font-weight: 600;
-    color: var(--color-text-muted);
+    color: var(--text-muted);
   }
 }
 

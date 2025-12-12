@@ -5,18 +5,49 @@
       <span class="tagline">just one more thing...</span>
     </a>
 
-    <nav class="nav" role="navigation" aria-label="Main navigation">
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="nav-toggle-icon"></span>
+    </button>
+
+    <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
       <a href="{{ '/about' | relative_url }}" class="nav-link">The Witches</a>
       <a href="{{ '/blog' | relative_url }}" class="nav-link">Chronicles</a>
       <a href="{{ '/podcasts' | relative_url }}" class="nav-link">Grimoire's</a>
       <a href="{{ '/research' | relative_url }}" class="nav-link">Deep Magicks</a>
-      <a href="{{ '/speaking' | relative_url }}" class="nav-link">Summonings</a>
       <a href="{{ '/contact' | relative_url }}" class="nav-link">Summon Us</a>
     </nav>
 
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-      <span class="theme-label-light">☀ As Above</span>
-      <span class="theme-label-dark">☽ So Below</span>
+      <span class="theme-icon-light">☀</span>
+      <span class="theme-icon-dark">☽</span>
+      <span class="theme-label-light">As Above</span>
+      <span class="theme-label-dark">So Below</span>
     </button>
   </div>
 </header>
+
+<script>
+  // Mobile nav toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.getElementById('nav-toggle');
+    const mainNav = document.getElementById('main-nav');
+
+    if (navToggle && mainNav) {
+      navToggle.addEventListener('click', function() {
+        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', !isExpanded);
+        mainNav.classList.toggle('is-open');
+        navToggle.classList.toggle('is-active');
+      });
+
+      // Close menu when clicking a link
+      mainNav.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mainNav.classList.remove('is-open');
+          navToggle.classList.remove('is-active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  });
+</script>

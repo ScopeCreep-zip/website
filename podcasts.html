@@ -1,110 +1,127 @@
 ---
 layout: default
-title: Podcasts
+title: "Grimoire's"
+description: "Audio scrolls of arcane knowledge from the ScopeCreep witches"
 permalink: /podcasts/
 ---
 
-<section class="podcast-page-container">
-  <div class="podcast-info mb-2xl">
-    <div class="podcast-cover-art">
-      <img src="{{ '/media/site_media/logos/scopecreepzip_logo_no_text.PNG' | relative_url }}" alt="ScopeCreep.zip Logo">
+<section class="hero">
+    <div class="container">
+        <div class="hero-ornament">✦ ✦ ✦</div>
+        <h1 class="hero-title">The Grimoire</h1>
+        <p class="hero-text">Audio scrolls of arcane knowledge</p>
     </div>
-    <div class="podcast-details">
-      <h1 class="podcast-main-title">Podcast Episodes 🎧</h1>
-      <p class="podcast-tagline">Tech talks with a glimmer twist</p>
-      <h2>{{ site.podcast.title }}</h2>
-      <p class="podcast-subtitle">{{ site.podcast.subtitle }}</p>
-      <p class="podcast-description">{{ site.podcast.description }}</p>
-    
-    <div class="podcast-subscribe mt-lg">
-      {% include podcast-services.html 
-         title="Subscribe" 
-         layout="horizontal"
-         size="medium"
-         use_data_file=true
-      %}
-    </div>
-  </div>
-  </div>
-
-<section class="episodes-list">
-  <h2 class="sr-only">All Episodes</h2>
-  
-  {% if site.podcasts.size > 0 %}
-    <div class="episodes-carousel-container">
-      <button class="carousel-nav carousel-nav--prev" aria-label="Previous episode">
-        <span>‹</span>
-      </button>
-      
-      <div class="episodes-carousel">
-        <div class="episodes-track">
-          {% for episode in site.podcasts reversed %}
-            <div class="episode-slide">
-              {% include podcast-episode-card.html episode=episode %}
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-      
-      <button class="carousel-nav carousel-nav--next" aria-label="Next episode">
-        <span>›</span>
-      </button>
-    </div>
-    
-    <div class="carousel-indicators">
-      {% for episode in site.podcasts reversed %}
-        <button class="carousel-indicator {% if forloop.first %}active{% endif %}" 
-                data-slide="{{ forloop.index0 }}" 
-                aria-label="Go to episode {{ episode.episode_number | default: forloop.index }}">
-        </button>
-      {% endfor %}
-    </div>
-  {% else %}
-    <div class="empty-state text-center">
-      <div class="empty-state-icon mb-lg">🎙️</div>
-      <h3>Episodes Coming Soon!</h3>
-      <p class="text-muted">We're preparing our first episodes. Subscribe to get notified when they drop!</p>
-      <div class="subscribe-links mt-lg">
-        {% include podcast-services.html 
-           layout="horizontal"
-           size="medium"
-           show_rss=false
-           use_data_file=true
-        %}
-      </div>
-    </div>
-  {% endif %}
 </section>
+
+<section class="about">
+    <div class="container">
+        <header class="section-header">
+            <span class="section-label">About the Show</span>
+            <h2 class="section-title">{{ site.podcast.title }}</h2>
+            <div class="section-divider">⟡</div>
+        </header>
+
+        <article class="person-card centered-card">
+            <div class="podcast-cover-art">
+                <img src="{{ '/media/site_media/logos/scopecreepzip_logo_no_text.PNG' | relative_url }}"
+                     alt="ScopeCreep.zip Logo"
+                     class="podcast-logo">
+            </div>
+            <p class="person-bio">{{ site.podcast.description }}</p>
+            <div class="person-links">
+                {% include podcast-services.html
+                   layout="horizontal"
+                   size="medium"
+                   use_data_file=true
+                %}
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="craft">
+    <div class="container">
+        <header class="section-header">
+            <span class="section-label">Episodes</span>
+            <h2 class="section-title">Recent Scrolls</h2>
+            <div class="section-divider">⟡</div>
+        </header>
+
+        {% if site.podcasts.size > 0 %}
+        <div class="episodes-carousel-container">
+            <button class="carousel-nav carousel-nav--prev" aria-label="Previous episode">
+                <span>‹</span>
+            </button>
+
+            <div class="episodes-carousel">
+                <div class="episodes-track">
+                    {% for episode in site.podcasts reversed %}
+                    <div class="episode-slide">
+                        {% include podcast-episode-card.html episode=episode %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <button class="carousel-nav carousel-nav--next" aria-label="Next episode">
+                <span>›</span>
+            </button>
+        </div>
+
+        <div class="carousel-indicators">
+            {% for episode in site.podcasts reversed %}
+            <button class="carousel-indicator {% if forloop.first %}active{% endif %}"
+                    data-slide="{{ forloop.index0 }}"
+                    aria-label="Go to episode {{ episode.episode_number | default: forloop.index }}">
+            </button>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <div class="hero-ornament">✦</div>
+            <h2 class="section-title">Coming Soon</h2>
+            <p class="hero-text">The cauldron is brewing. New episodes arriving soon.</p>
+            <div class="person-links centered-links">
+                {% include podcast-services.html
+                   layout="horizontal"
+                   size="medium"
+                   show_rss=false
+                   use_data_file=true
+                %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
 </section>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const carousel = document.querySelector('.episodes-carousel');
   if (!carousel) return;
-  
+
   const track = carousel.querySelector('.episodes-track');
   const slides = Array.from(track.querySelectorAll('.episode-slide'));
   const prevButton = document.querySelector('.carousel-nav--prev');
   const nextButton = document.querySelector('.carousel-nav--next');
   const indicators = document.querySelectorAll('.carousel-indicator');
-  
+
   let currentIndex = 0;
   const totalSlides = slides.length;
-  
+
   // Initialize carousel
   function initCarousel() {
     updateSlideClasses();
     updateIndicators();
-    
+
     // Set initial track position
     updateTrackPosition();
   }
-  
+
   // Update slide classes for rolodex effect
   function updateSlideClasses() {
     slides.forEach((slide, index) => {
       slide.classList.remove('prev', 'active', 'next', 'far');
-      
+
       if (index === currentIndex) {
         slide.classList.add('active');
       } else if (index === currentIndex - 1 || (currentIndex === 0 && index === totalSlides - 1)) {
@@ -116,21 +133,21 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
-  
+
   // Update track position
   function updateTrackPosition() {
     const slideWidth = slides[0].offsetWidth;
     const offset = -currentIndex * slideWidth;
     track.style.transform = `translateX(${offset}px)`;
   }
-  
+
   // Update indicators
   function updateIndicators() {
     indicators.forEach((indicator, index) => {
       indicator.classList.toggle('active', index === currentIndex);
     });
   }
-  
+
   // Go to specific slide
   function goToSlide(index) {
     if (index < 0) {
@@ -140,36 +157,36 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       currentIndex = index;
     }
-    
+
     updateSlideClasses();
     updateTrackPosition();
     updateIndicators();
     updateButtonStates();
   }
-  
+
   // Update button states
   function updateButtonStates() {
     // Never disable buttons - allow infinite scrolling
     prevButton.disabled = false;
     nextButton.disabled = false;
   }
-  
+
   // Event listeners
   prevButton.addEventListener('click', () => {
     goToSlide(currentIndex - 1);
   });
-  
+
   nextButton.addEventListener('click', () => {
     goToSlide(currentIndex + 1);
   });
-  
+
   // Indicator clicks
   indicators.forEach((indicator, index) => {
     indicator.addEventListener('click', () => {
       goToSlide(index);
     });
   });
-  
+
   // Keyboard navigation
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') {
@@ -178,24 +195,24 @@ document.addEventListener('DOMContentLoaded', function() {
       goToSlide(currentIndex + 1);
     }
   });
-  
+
   // Touch/swipe support
   let touchStartX = 0;
   let touchEndX = 0;
-  
+
   carousel.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
   });
-  
+
   carousel.addEventListener('touchend', (e) => {
     touchEndX = e.changedTouches[0].screenX;
     handleSwipe();
   });
-  
+
   function handleSwipe() {
     const swipeThreshold = 50;
     const diff = touchStartX - touchEndX;
-    
+
     if (Math.abs(diff) > swipeThreshold) {
       if (diff > 0) {
         // Swiped left
@@ -206,28 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   }
-  
-  // Auto-play (optional - uncomment to enable)
-  /*
-  let autoPlayInterval;
-  function startAutoPlay() {
-    autoPlayInterval = setInterval(() => {
-      goToSlide(currentIndex + 1);
-    }, 5000); // Change slide every 5 seconds
-  }
-  
-  function stopAutoPlay() {
-    clearInterval(autoPlayInterval);
-  }
-  
-  // Pause on hover
-  carousel.addEventListener('mouseenter', stopAutoPlay);
-  carousel.addEventListener('mouseleave', startAutoPlay);
-  
-  // Start auto-play
-  startAutoPlay();
-  */
-  
+
   // Handle window resize
   let resizeTimeout;
   window.addEventListener('resize', () => {
@@ -236,328 +232,8 @@ document.addEventListener('DOMContentLoaded', function() {
       updateTrackPosition();
     }, 250);
   });
-  
+
   // Initialize
   initCarousel();
 });
 </script>
-
-<style>
-.podcast-page-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.podcast-main-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 30px rgba(255, 105, 180, 0.6);
-  filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.4));
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-.podcast-tagline {
-  font-size: 1.2rem;
-  color: var(--text-purple);
-  font-weight: 600;
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 2px solid rgba(157, 78, 221, 0.2);
-}
-
-.podcast-info {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 3rem;
-  align-items: start;
-  background: var(--white);
-  border: 3px solid var(--kawaii-purple);
-  border-radius: 24px;
-  padding: 2.5rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
-}
-
-.podcast-info::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(157, 78, 221, 0.05) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.podcast-cover-art img {
-  width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.podcast-details h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 0.5rem;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-.podcast-subtitle {
-  color: var(--text-purple);
-  font-weight: 600;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.podcast-description {
-  color: var(--text-dark);
-  line-height: 1.7;
-  margin-bottom: 2rem;
-}
-
-/* Carousel Styles */
-.episodes-carousel-container {
-  position: relative;
-  max-width: 1400px;
-  margin: 3rem auto;
-  padding: 0 4rem;
-}
-
-.episodes-carousel {
-  overflow: hidden;
-  margin: 0 auto;
-  perspective: 1200px;
-  padding: 20px 0; /* Add padding to prevent cutoff */
-}
-
-.episodes-track {
-  display: flex;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
-}
-
-.episode-slide {
-  flex: 0 0 100%;
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-origin: center;
-}
-
-/* Rolodex effect styles */
-.episode-slide.prev {
-  transform: translateX(-50%) scale(0.8) rotateY(25deg);
-  opacity: 0.7;
-  filter: blur(1px);
-  z-index: 1;
-}
-
-.episode-slide.active {
-  transform: translateX(0) scale(1) rotateY(0);
-  opacity: 1;
-  z-index: 3;
-}
-
-.episode-slide.next {
-  transform: translateX(50%) scale(0.8) rotateY(-25deg);
-  opacity: 0.7;
-  filter: blur(1px);
-  z-index: 1;
-}
-
-.episode-slide.far {
-  opacity: 0;
-  transform: scale(0.7);
-  pointer-events: none;
-}
-
-/* Navigation buttons */
-.carousel-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--kawaii-purple);
-  color: white;
-  border: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 4;
-  box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);
-}
-
-.carousel-nav:hover {
-  background: var(--kawaii-pink);
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
-}
-
-.carousel-nav--prev {
-  left: 0;
-}
-
-.carousel-nav--next {
-  right: 0;
-}
-
-.carousel-nav:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-
-/* Indicators */
-.carousel-indicators {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 2rem;
-}
-
-.carousel-indicator {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 2px solid var(--kawaii-purple);
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.carousel-indicator.active {
-  background: var(--kawaii-purple);
-  width: 30px;
-  border-radius: 15px;
-}
-
-.carousel-indicator:hover {
-  background: rgba(157, 78, 221, 0.3);
-}
-
-/* Enhanced episode card styles for carousel */
-.episode-slide .episode-card {
-  height: 100%;
-  min-height: 500px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.episode-slide.active .episode-card {
-  box-shadow: 0 20px 60px rgba(157, 78, 221, 0.4);
-}
-
-.episode-slide.active .episode-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-  .episodes-carousel-container {
-    padding: 0 2rem;
-    display: flex;
-    justify-content: center;
-  }
-
-  .episodes-carousel {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .carousel-nav {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-  }
-
-  .episode-slide {
-    padding: 0 0.5rem;
-    display: flex;
-    justify-content: center;
-  }
-
-  .episode-slide.prev,
-  .episode-slide.next {
-    transform: translateX(0) scale(0.9);
-    opacity: 0.5;
-    filter: none;
-  }
-}
-
-.empty-state {
-  background: var(--white);
-  border: 3px solid var(--kawaii-purple);
-  border-radius: 24px;
-  padding: 4rem 2rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  margin: 2rem auto;
-  max-width: 600px;
-}
-
-.empty-state-icon {
-  font-size: 4rem;
-  margin-bottom: 2rem;
-}
-
-.empty-state h3 {
-  font-size: 2rem;
-  background: linear-gradient(45deg, var(--kawaii-pink), var(--kawaii-purple));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 1rem;
-}
-
-.empty-state p {
-  color: var(--text-purple);
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-.empty-state .subscribe-links {
-  justify-content: center;
-}
-
-@media (max-width: 768px) {
-  .podcast-info {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .podcast-cover-art {
-    max-width: 300px;
-    margin: 0 auto;
-  }
-
-  .podcast-main-title {
-    font-size: 1.75rem;
-  }
-
-  .podcast-details h2 {
-    font-size: 1.5rem;
-  }
-
-  .podcast-tagline {
-    font-size: 1rem;
-  }
-}
-</style>

@@ -23,14 +23,14 @@
 }
 
 .particle.heart {
-  color: #ff69b4;
+  color: #C9A227;
   font-size: 12px;
-  text-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+  text-shadow: 0 0 8px rgba(201, 162, 39, 0.5);
   animation-delay: calc(var(--delay) * 1s);
 }
 
 .particle.code {
-  color: #9d4edd;
+  color: #8B6914;
   font-size: 10px;
   font-family: 'JetBrains Mono', 'Courier New', monospace;
   font-weight: 500;
@@ -38,7 +38,7 @@
 }
 
 .particle.sparkle {
-  color: #00e5ff;
+  color: #F4E4BA;
   font-size: 8px;
   animation-delay: calc(var(--delay) * 1s);
 }

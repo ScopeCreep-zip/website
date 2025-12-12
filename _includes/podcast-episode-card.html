@@ -55,7 +55,7 @@
   
   <div class="episode-card__actions">
     <a href="{{ episode.url | relative_url }}" class="btn btn-primary btn-sm">
-      <span class="icon">🎧</span> Listen Now
+Listen Now
     </a>
     
     {% if show_transcript and episode.transcript %}
@@ -121,8 +121,8 @@
 
 <style>
 .episode-card {
-  background: var(--white);
-  border: 3px solid var(--kawaii-purple);
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
   border-radius: 16px;
   padding: 1.5rem;
   transition: all 0.3s ease;
@@ -158,7 +158,7 @@
 }
 
 .episode-card__number {
-  color: var(--kawaii-purple);
+  color: var(--gold-primary);
   font-weight: 700;
   font-size: 0.875rem;
 }
@@ -179,7 +179,7 @@
 }
 
 .episode-card__title a {
-  color: var(--text-dark);
+  color: var(--text-primary);
   text-decoration: none;
 }
 
@@ -195,7 +195,7 @@
 
 .episode-card__guest,
 .episode-card__duration {
-  color: var(--text-purple);
+  color: var(--text-secondary);
   font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
@@ -209,8 +209,8 @@
 }
 
 .episode-tag {
-  background: rgba(157, 78, 221, 0.1);
-  color: var(--kawaii-purple);
+  background: rgba(201, 162, 39, 0.1);
+  color: var(--gold-primary);
   padding: 0.25rem 0.75rem;
   border-radius: 12px;
   font-size: 0.75rem;
@@ -232,14 +232,14 @@
 .episode-card__view-switcher {
   margin-top: 1.5rem;
   padding-top: 1.5rem;
-  border-top: 2px solid rgba(157, 78, 221, 0.1);
+  border-top: 1px solid var(--border-gold);
 }
 
 .view-tabs {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1rem;
-  border-bottom: 2px solid rgba(157, 78, 221, 0.1);
+  border-bottom: 1px solid var(--border-gold);
 }
 
 .view-tab {
@@ -255,11 +255,11 @@
 }
 
 .view-tab:hover {
-  color: var(--kawaii-purple);
+  color: var(--gold-dark);
 }
 
 .view-tab.active {
-  color: var(--kawaii-purple);
+  color: var(--gold-primary);
 }
 
 .view-tab.active::after {
@@ -269,7 +269,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--kawaii-purple);
+  background: var(--gold-primary);
 }
 
 .view-content {
@@ -286,7 +286,7 @@
 
 .episode-card__podcast-links-title {
   font-size: 0.875rem;
-  color: var(--kawaii-purple);
+  color: var(--gold-primary);
   font-weight: 700;
   margin-bottom: 1rem;
   text-transform: uppercase;
@@ -312,11 +312,11 @@
   max-height: 180px;
   overflow-y: auto;
   padding: 1rem;
-  background: rgba(157, 78, 221, 0.05);
+  background: var(--bg-secondary);
   border-radius: 12px;
   font-size: 0.85rem;
   line-height: 1.6;
-  color: var(--text-dark);
+  color: var(--text-primary);
 }
 
 .transcript-scroll.raw {
@@ -350,30 +350,30 @@
 }
 
 .transcript-scroll::-webkit-scrollbar-track {
-  background: rgba(157, 78, 221, 0.1);
+  background: rgba(201, 162, 39, 0.1);
   border-radius: 3px;
 }
 
 .transcript-scroll::-webkit-scrollbar-thumb {
-  background: var(--kawaii-purple);
+  background: var(--gold-primary);
   border-radius: 3px;
 }
 
 .transcript-scroll::-webkit-scrollbar-thumb:hover {
-  background: var(--kawaii-pink);
+  background: var(--gold-dark);
 }
 
 .read-more {
   display: inline-block;
   margin-top: 0.5rem;
-  color: var(--kawaii-purple);
+  color: var(--gold-primary);
   font-weight: 600;
   text-decoration: none;
   font-size: 0.85rem;
 }
 
 .read-more:hover {
-  color: var(--kawaii-pink);
+  color: var(--gold-dark);
   text-decoration: underline;
 }
 
@@ -386,18 +386,18 @@
 
 .speaker-label {
   font-weight: 700;
-  color: var(--kawaii-purple);
+  color: var(--gold-primary);
   display: inline-block;
   margin-right: 0.25rem;
   font-family: inherit;
 }
 
 .speaker-label.kali {
-  color: var(--kawaii-pink);
+  color: var(--dusty-rose);
 }
 
 .speaker-label.kat {
-  color: var(--kawaii-cyan);
+  color: var(--teal);
 }
 
 .transcript-scroll p {

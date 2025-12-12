@@ -90,7 +90,7 @@
 }
 
 .social-links__title {
-  color: var(--text-purple);
+  color: var(--gold-primary);
   font-size: 1.3rem;
   margin-bottom: 1rem;
   font-weight: 600;
@@ -114,9 +114,9 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--white);
-  border: 2px solid var(--kawaii-purple);
-  color: var(--text-dark);
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  color: var(--text-primary);
   padding: 0.75rem 1.25rem;
   border-radius: 20px;
   text-decoration: none;
@@ -125,7 +125,7 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(157, 78, 221, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .social-links--small .social-link {
@@ -160,7 +160,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, var(--kawaii-pink), var(--kawaii-purple), var(--kawaii-cyan));
+  background: linear-gradient(90deg, var(--gold-light), var(--gold-primary), var(--gold-dark));
   transition: left 0.3s ease;
   z-index: -1;
 }
@@ -170,9 +170,9 @@
 }
 
 .social-link:hover {
-  color: var(--white);
+  color: var(--bg-primary);
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(157, 78, 221, 0.4);
+  box-shadow: 0 8px 25px rgba(201, 162, 39, 0.3);
 }
 
 /* Platform-specific colors */
@@ -197,7 +197,7 @@
 }
 
 .social-link--email:hover {
-  border-color: var(--kawaii-pink);
+  border-color: var(--gold-primary);
 }
 
 /* Icon-only styles */
