@@ -16,7 +16,7 @@ permalink: /contact/
 <section class="about">
     <div class="container">
         <header class="section-header">
-            <span class="section-label">The Witches</span>
+            <span class="section-label">The Coven</span>
             <h2 class="section-title">Reach Out & Speaking Topics</h2>
             <div class="section-divider">⟡</div>
         </header>

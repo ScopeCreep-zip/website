@@ -1,6 +1,6 @@
 ---
 layout: default
-title: The Witches
+title: The Coven
 permalink: /about/
 description: Meet the witches behind ScopeCreep.zip
 ---
@@ -8,7 +8,7 @@ description: Meet the witches behind ScopeCreep.zip
 <section class="hero">
     <div class="container">
         <div class="hero-ornament">✦ ✦ ✦</div>
-        <h1 class="hero-title">The Witches</h1>
+        <h1 class="hero-title">The Coven</h1>
         <p class="hero-text">The minds weaving security and infrastructure magic at ScopeCreep.zip</p>
     </div>
 </section>
