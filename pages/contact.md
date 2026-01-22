@@ -21,50 +21,66 @@ permalink: /contact/
             <div class="section-divider">⟡</div>
         </header>
 
-        <div class="about-grid">
-            <article class="person-card">
-                <div class="person-header">
-                    <img src="https://github.com/radicalkjax.png" alt="Kali Jackson" class="person-avatar">
-                    <div class="person-info">
-                        <h3 class="person-name">Kali Jackson</h3>
-                        <p class="person-title">Security Research & Solution Engineering</p>
-                    </div>
-                </div>
-                <ul style="list-style: none; padding: 0; margin: 1rem 0;">
-                    <li style="padding: 0.5rem 0; color: var(--text-secondary);">✦ Deep Learning for Malware Analysis</li>
-                    <li style="padding: 0.5rem 0; color: var(--text-secondary);">✦ Reverse Engineering Fundamentals</li>
-                    <li style="padding: 0.5rem 0; color: var(--text-secondary);">✦ Community Building</li>
-                    <li style="padding: 0.5rem 0; color: var(--text-secondary);">✦ Making Security and Privacy Accessible</li>
-                </ul>
-                <div class="person-links">
-                    <a href="https://bsky.app/profile/radicalkjax.com" class="person-link" target="_blank">Bluesky</a>
-                    <a href="https://twitter.com/radicalkjax" class="person-link" target="_blank">Twitter</a>
-                    <a href="https://github.com/radicalkjax" class="person-link" target="_blank">GitHub</a>
-                    <a href="https://radicalkjax.com" class="person-link" target="_blank">Blog</a>
-                </div>
-            </article>
+        <div class="coven-carousel-container">
+            <button class="carousel-nav carousel-nav--prev contact-nav" aria-label="Previous">
+                <span>‹</span>
+            </button>
 
-            <article class="person-card">
-                <div class="person-header">
-                    <img src="https://github.com/usrbinkat.png" alt="Kat Morgan" class="person-avatar">
-                    <div class="person-info">
-                        <h3 class="person-name">Kat Morgan</h3>
-                        <p class="person-title">Platform Engineering & DevOps</p>
+            <div class="coven-carousel contact-carousel">
+                <div class="coven-track">
+                    {% for member in site.data.team %}
+                    {% assign github_username = member[1].social.github | split: "/" | last %}
+                    <div class="coven-slide">
+                        <article class="person-card">
+                            <div class="person-header">
+                                {% if member[1].avatar %}
+                                <img src="{{ member[1].avatar }}" alt="{{ member[1].name }}" class="person-avatar" style="object-position: center 15%;">
+                                {% else %}
+                                <img src="https://github.com/{{ github_username }}.png" alt="{{ member[1].name }}" class="person-avatar">
+                                {% endif %}
+                                <div class="person-name-group">
+                                    <h3 class="person-name">{{ member[1].name }}</h3>
+                                    <span class="person-pronouns">({{ member[1].pronouns }})</span>
+                                </div>
+                            </div>
+                            <p class="person-title">{{ member[1].title }}</p>
+                            <ul class="speaking-topics">
+                                {% for topic in member[1].expertise limit:4 %}
+                                <li>✦ {{ topic }}</li>
+                                {% endfor %}
+                            </ul>
+                            <div class="person-links">
+                                {% if member[1].social.bluesky %}
+                                <a href="{{ member[1].social.bluesky }}" class="person-link" target="_blank">Bluesky</a>
+                                {% endif %}
+                                {% if member[1].social.twitter %}
+                                <a href="{{ member[1].social.twitter }}" class="person-link" target="_blank">Twitter</a>
+                                {% endif %}
+                                {% if member[1].social.github %}
+                                <a href="{{ member[1].social.github }}" class="person-link" target="_blank">GitHub</a>
+                                {% endif %}
+                                {% if member[1].social.blog %}
+                                <a href="{{ member[1].social.blog }}" class="person-link" target="_blank">Blog</a>
+                                {% endif %}
+                            </div>
+                        </article>
                     </div>
+                    {% endfor %}
                 </div>
-                <ul style="list-style: none; padding: 0; margin: 1rem 0;">
-                    <li style="padding: 0.5rem 0; color: var(--text-secondary);">✦ Kubernetes & Container Orchestration</li>
-                    <li style="padding: 0.5rem 0; color: var(--text-secondary);">✦ Infrastructure as Code</li>
-                    <li style="padding: 0.5rem 0; color: var(--text-secondary);">✦ Multi-Cloud Architecture</li>
-                    <li style="padding: 0.5rem 0; color: var(--text-secondary);">✦ Open Source Development</li>
-                </ul>
-                <div class="person-links">
-                    <a href="https://bsky.app/profile/usrbinkat.io" class="person-link" target="_blank">Bluesky</a>
-                    <a href="https://twitter.com/skydaddysgg" class="person-link" target="_blank">Twitter</a>
-                    <a href="https://github.com/usrbinkat" class="person-link" target="_blank">GitHub</a>
-                    <a href="https://blog.usrbinkat.io/en/" class="person-link" target="_blank">Blog</a>
-                </div>
-            </article>
+            </div>
+
+            <button class="carousel-nav carousel-nav--next contact-nav" aria-label="Next">
+                <span>›</span>
+            </button>
+        </div>
+
+        <div class="carousel-indicators contact-indicators">
+            {% for member in site.data.team %}
+            <button class="carousel-indicator {% if forloop.first %}active{% endif %}"
+                    data-slide="{{ forloop.index0 }}"
+                    aria-label="View {{ member[1].name }}">
+            </button>
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -97,3 +113,109 @@ permalink: /contact/
         </div>
     </div>
 </section>
+
+<script>
+// Contact Carousel
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.contact-carousel');
+    if (!carousel) return;
+
+    const track = carousel.querySelector('.coven-track');
+    const slides = Array.from(track.querySelectorAll('.coven-slide'));
+    const prevButton = document.querySelector('.contact-nav.carousel-nav--prev');
+    const nextButton = document.querySelector('.contact-nav.carousel-nav--next');
+    const indicators = document.querySelectorAll('.contact-indicators .carousel-indicator');
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    function getVisibleSlides() {
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 1024) return 2;
+        return 3;
+    }
+
+    function getMaxIndex() {
+        const visible = getVisibleSlides();
+        return Math.max(0, totalSlides - visible);
+    }
+
+    function updateTrackPosition() {
+        const slideWidth = 100 / getVisibleSlides();
+        const offset = -currentIndex * slideWidth;
+        track.style.transform = `translateX(${offset}%)`;
+    }
+
+    function updateIndicators() {
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    function updateButtonStates() {
+        const maxIndex = getMaxIndex();
+        prevButton.style.opacity = currentIndex === 0 ? '0.3' : '1';
+        prevButton.style.cursor = currentIndex === 0 ? 'not-allowed' : 'pointer';
+        nextButton.style.opacity = currentIndex >= maxIndex ? '0.3' : '1';
+        nextButton.style.cursor = currentIndex >= maxIndex ? 'not-allowed' : 'pointer';
+    }
+
+    function goToSlide(index) {
+        const maxIndex = getMaxIndex();
+        if (index < 0) {
+            currentIndex = 0;
+        } else if (index > maxIndex) {
+            currentIndex = maxIndex;
+        } else {
+            currentIndex = index;
+        }
+
+        updateTrackPosition();
+        updateIndicators();
+        updateButtonStates();
+    }
+
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) goToSlide(currentIndex - 1);
+    });
+
+    nextButton.addEventListener('click', () => {
+        if (currentIndex < getMaxIndex()) goToSlide(currentIndex + 1);
+    });
+
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => goToSlide(index));
+    });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    carousel.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) goToSlide(currentIndex + 1);
+            else goToSlide(currentIndex - 1);
+        }
+    });
+
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const maxIndex = getMaxIndex();
+            if (currentIndex > maxIndex) currentIndex = maxIndex;
+            updateTrackPosition();
+            updateButtonStates();
+        }, 250);
+    });
+
+    updateTrackPosition();
+    updateIndicators();
+    updateButtonStates();
+});
+</script>

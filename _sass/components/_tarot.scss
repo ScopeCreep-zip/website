@@ -337,6 +337,7 @@
   border-radius: 50%;
   border: 2px solid var(--border-gold);
   object-fit: cover;
+  object-position: center 20%;
   flex-shrink: 0;
 }
 
@@ -348,11 +349,22 @@
   flex: 1;
 }
 
+.person-name-group {
+  display: flex;
+  flex-direction: column;
+}
+
 .person-name {
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0;
+}
+
+.person-pronouns {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
 }
 
 .person-title {
@@ -1164,5 +1176,131 @@
     transform: translateX(0) scale(0.9);
     opacity: 0.5;
     filter: none;
+  }
+}
+
+// ===== COVEN CAROUSEL - Team Member Cards =====
+.coven-carousel-container {
+  position: relative;
+  max-width: 1600px;
+  margin: 2rem auto;
+  padding: 0 3rem;
+}
+
+.coven-carousel {
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.coven-track {
+  display: flex;
+  align-items: stretch;
+  padding: 10px 0;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.coven-slide {
+  flex: 0 0 33.333%;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+  display: flex;
+  transition: all 0.3s ease;
+}
+
+// Person card enhancements for carousel
+.coven-slide .person-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.coven-slide .person-header {
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.coven-slide .person-title {
+  min-height: 40px;
+  text-wrap: pretty;
+}
+
+.coven-slide .person-bio {
+  flex: 1;
+  margin-top: var(--space-md);
+}
+
+.coven-slide .person-creds {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  min-height: 90px;
+}
+
+.coven-slide .person-links {
+  margin-top: auto;
+}
+
+.coven-slide .speaking-topics {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  flex: 1;
+}
+
+.coven-slide .speaking-topics li {
+  padding: 0.5rem 0;
+  color: var(--text-secondary);
+}
+
+.expertise-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.expertise-list li {
+  padding: 0.25rem 0;
+  color: var(--text-secondary);
+}
+
+.coven-slide .person-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(201, 162, 39, 0.3);
+}
+
+// Coven-specific nav positioning
+.coven-nav {
+  top: 50%;
+}
+
+// Coven indicators spacing
+.coven-indicators {
+  margin-top: 1.5rem;
+}
+
+// Tablet: 2 cards visible
+@media (max-width: 1024px) {
+  .coven-slide {
+    flex: 0 0 50%;
+  }
+}
+
+// Mobile: 1 card visible
+@media (max-width: 768px) {
+  .coven-carousel-container {
+    padding: 0 3rem;
+  }
+
+  .coven-slide {
+    flex: 0 0 100%;
+  }
+
+  .coven-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
   }
 }

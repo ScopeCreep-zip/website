@@ -1,7 +1,7 @@
 # Site settings
 title: "ScopeCreep.zip"
 description: >-
-  Kali Jackson and Kat Morgan blend technical excellence with arcane elegance.
+  Kali Jackson, Kat Morgan, and Bill Boyles blend technical excellence with arcane elegance.
   This is where you'll find their combined work and efforts.
 baseurl: ""
 url: "https://scopecreep.zip"
@@ -31,6 +31,16 @@ team:
       blog: "https://blog.usrbinkat.io/en/"
       github: "https://github.com/usrbinkat"
       bluesky: "https://bsky.app/profile/usrbinkat.io"
+  bill:
+    name: "Bill Boyles"
+    title: "Security Engineer & ????"
+    avatar: "/assets/images/pfp/magilla/magillapfp.png"
+    bio: "Security engineer focused on automation, tooling, and making messy systems clean their rooms."
+    credentials: ["Infrastructure Realist", "Automation Goblin", "Security Gleeperson"]
+    social:
+      github: "https://github.com/southernmagilla"
+      bluesky: "https://bsky.app/profile/gorillaz4.sale"
+      twitter: "https://x.com/gorillaz4Sale"
 
 # Build settings
 markdown: kramdown

@@ -2,8 +2,8 @@
 
 kali:
   name: "Kali Jackson"
-  title: "Malware Analyst & Security Researcher"
-  avatar: "/assets/images/avatars/kali.png"
+  pronouns: "She/Her"
+  title: "Technical Solutions Architect &amp;&nbsp;Security Researcher"
   emoji: "🌸"
   bio: "Self-described \"smartest airhead\" — technical cybersecurity expertise wrapped in unapologetic silliness. Sacramento-based, specializing in deep learning for malware analysis. Makes security and privacy accessible through communtiy outreach and education."
   short_bio: "Security researcher who makes tech magical"
@@ -27,11 +27,10 @@ kali:
     primary: "#ff69b4"
     secondary: "#9d4edd"
     accent: "#ff1493"
-
 kat:
   name: "Kat Morgan"
-  title: "Platform Engineer & Open Sourceress"
-  avatar: "/assets/images/avatars/kat.png"
+  pronouns: "She/Her"
+  title: "Platform Engineer &amp;&nbsp;Open Sourceress"
   emoji: "🚀"
   bio: "\"Neuro spicy autist\" and platform engineering open-sorceress. Transforms complex cloud infrastructure into something humans can actually understand. Believes in seizing the means of computing."
   short_bio: "Platform engineer making infrastructure whimsical"
@@ -55,3 +54,30 @@ kat:
     primary: "#00e5ff"
     secondary: "#ffd700"
     accent: "#00d4ff"
+
+bill:
+  name: "Bill Boyles"
+  pronouns: "They/Them"
+  title: "Security Engineer & ????"
+  avatar: "/assets/images/pfp/magilla/magillapfp.png"
+  emoji: "🦍"
+  bio: "Security engineer focused on automation, tooling, and making messy systems clean their rooms. Blends a little magic and a lot of pragmatism into useful tools for fellow humans. Often found untangling inherited nightmares—and always having a good time."
+  short_bio: "Security engineer making messy systems behave"
+  credentials:
+    - "Infrastructure Realist"
+    - "Automation Goblin"
+    - "Security Gleeperson"
+  expertise:
+    - "Security Automation & Tooling"
+    - "Infrastructure Cleanup & Remediation"
+    - "Legacy System Untangling"
+    - "Pragmatic Tool Development"
+    - "Process Automation"
+  social:
+    github: "https://github.com/southernmagilla"
+    bluesky: "https://bsky.app/profile/gorillaz4.sale"
+    twitter: "https://x.com/gorillaz4Sale"
+  color_scheme:
+    primary: "#4ade80"
+    secondary: "#22c55e"
+    accent: "#16a34a"
