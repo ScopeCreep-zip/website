@@ -17,7 +17,7 @@ kali:
     - "Reverse Engineering & Exploit Development"
     - "Public Sector SME"
     - "Technical Solution Engineering"
-    - "Community Building & Security Education"
+    - "Community Building & Privacy Education"
   social:
     blog: "https://radicalkjax.com"
     github: "https://github.com/radicalkjax"
@@ -56,7 +56,7 @@ kat:
     accent: "#00d4ff"
 
 bill:
-  name: "Bill Boyles"
+  name: "Billie Boyles"
   pronouns: "They/Them"
   title: "Security Engineer & ????"
   avatar: "/assets/images/pfp/magilla/magillapfp.png"
