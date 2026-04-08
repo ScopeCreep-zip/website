@@ -1288,19 +1288,84 @@
   }
 }
 
-// Mobile: 1 card visible
+// Mobile: compact grid showing all members equally
 @media (max-width: 768px) {
   .coven-carousel-container {
-    padding: 0 3rem;
+    padding: 0;
+  }
+
+  // Hide carousel controls on mobile
+  .coven-nav,
+  .coven-indicators {
+    display: none;
+  }
+
+  .coven-carousel {
+    overflow: visible;
+  }
+
+  .coven-track {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    transform: none !important;
+    padding: 0;
   }
 
   .coven-slide {
-    flex: 0 0 100%;
+    flex: none;
+    padding: 0;
   }
 
-  .coven-nav {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
+  // Compact card styling for mobile
+  .coven-slide .person-card {
+    padding: var(--space-md);
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  .coven-slide .person-header {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-sm);
+  }
+
+  .coven-slide .person-avatar {
+    width: 56px;
+    height: 56px;
+  }
+
+  .coven-slide .person-name {
+    font-size: 1.1rem;
+  }
+
+  .coven-slide .person-pronouns {
+    font-size: 0.75rem;
+  }
+
+  .coven-slide .person-title {
+    font-size: 0.8rem;
+    min-height: unset;
+    text-align: center;
+  }
+
+  // Hide verbose details on mobile
+  .coven-slide .person-bio,
+  .coven-slide .person-creds {
+    display: none;
+  }
+
+  .coven-slide .person-links {
+    justify-content: center;
+    border-top: none;
+    padding-top: var(--space-sm);
+    gap: var(--space-sm);
+  }
+
+  .coven-slide .person-link {
+    font-size: 0.8rem;
   }
 }

@@ -121,6 +121,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const track = carousel.querySelector('.coven-track');
     const slides = Array.from(track.querySelectorAll('.coven-slide'));
+
+    // Shuffle card order so no one is always first
+    for (let i = slides.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        track.appendChild(slides[j]);
+        [slides[i], slides[j]] = [slides[j], slides[i]];
+    }
+
     const prevButton = document.querySelector('.about-nav.carousel-nav--prev');
     const nextButton = document.querySelector('.about-nav.carousel-nav--next');
     const indicators = document.querySelectorAll('.about-indicators .carousel-indicator');
